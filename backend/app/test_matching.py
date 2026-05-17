@@ -100,5 +100,42 @@ class TestInfluMatchV1Final(unittest.TestCase):
         self.assertIn("influencer", types)
         self.assertIn("worker", types)
 
+    def test_worker_position_score(self):
+        worker = {"type": "worker", "preferred_positions": ["pos_001", "pos_002"]}
+        job = {"position_id": "pos_002"}
+        res = calculate_v1_score(worker, job)
+        self.assertEqual(res["breakdown"]["position_match"], 35)
+
+    def test_worker_experience_score(self):
+        worker = {"type": "worker", "experience_years": 2}
+        job = {"required_experience_years": 1}
+        res = calculate_v1_score(worker, job)
+        self.assertEqual(res["breakdown"]["experience_match"], 20)
+
+    def test_worker_wage_score(self):
+        worker = {"type": "worker", "rate_range": {"min": 100}}
+        job = {"wage": {"amount": 120}}
+        res = calculate_v1_score(worker, job)
+        self.assertEqual(res["breakdown"]["wage_match"], 15)
+
+    def test_worker_integration(self):
+        worker = {
+            "type": "worker",
+            "preferred_positions": ["pos_001"],  # 35
+            "city": "istanbul",                  # 20
+            "experience_years": 3,               # 20
+            "rate_range": {"min": 150},          # 15
+            "last_active_at": self.today_str     # 10
+        }
+        job = {
+            "position_id": "pos_001",
+            "city": "istanbul",
+            "required_experience_years": 2,
+            "wage": {"amount": 160}
+        }
+        res = calculate_v1_score(worker, job)
+        self.assertEqual(res["score"], 92) # Clamped
+        self.assertEqual(res["breakdown"]["position_match"], 35)
+
 if __name__ == '__main__':
     unittest.main()

@@ -35,24 +35,10 @@ TARGET_MAP = {
 
 def calculate_v1_score(entity: dict, target: dict) -> dict:
     try:
-        # 1. Semantic/Niş Uyumu (Max 35 Puan)
-        e_niche = str(entity.get("niche", "")).strip().lower()
-        t_niche = str(target.get("niche", "")).strip().lower()
+        is_worker = str(entity.get("type", "")).strip().lower() in ["worker", "employee", "çalışan"]
         
-        semantic_match = 10
-        if e_niche and t_niche:
-            if e_niche == t_niche:
-                semantic_match = 35
-            else:
-                adjacent_pairs = [
-                    {"moda", "güzellik"}, {"moda", "yaşam"},
-                    {"yemek", "yaşam"}, {"spor", "yaşam"},
-                    {"spor", "teknoloji"}
-                ]
-                if {e_niche, t_niche} in adjacent_pairs:
-                    semantic_match = 20
-
-        # 2. Konum Uyumu (Max 20 Puan)
+        # --- ORTAK BİLEŞENLER ---
+        # Konum Uyumu (Max 20 Puan)
         e_city = str(entity.get("city", "")).strip().lower()
         t_city = str(target.get("city", "")).strip().lower()
         
@@ -60,49 +46,7 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
         if e_city and t_city and e_city == t_city:
             location_match = 20
 
-        # 3. Takipçi Tier Uyumu (Max 20 Puan)
-        try:
-            followers = int(entity.get("followers", 0))
-        except (ValueError, TypeError):
-            followers = 0
-            
-        target_str = str(target.get("target_followers", "micro")).strip().lower().replace(" ", "")
-        target_tier = TARGET_MAP.get(target_str, "micro")
-        
-        e_tier = "nano"
-        for t_name, (low, high) in TIERS.items():
-            if low <= followers < high:
-                e_tier = t_name
-                break
-                
-        tier_fit = 0
-        if e_tier == target_tier:
-            tier_fit = 20
-        else:
-            tier_order = ["nano", "micro", "mid", "macro", "mega"]
-            try:
-                e_idx = tier_order.index(e_tier)
-                t_idx = tier_order.index(target_tier)
-                if abs(e_idx - t_idx) == 1:
-                    tier_fit = 10
-            except ValueError:
-                pass
-
-        # 4. Etkileşim Oranı (Max 15 Puan)
-        try:
-            engagement_val = float(entity.get("engagement_rate", 0.0))
-        except (ValueError, TypeError):
-            engagement_val = 0.0
-            
-        engagement = 0
-        if engagement_val >= 0.05:
-            engagement = 15
-        elif engagement_val >= 0.03:
-            engagement = 10
-        elif engagement_val >= 0.01:
-            engagement = 5
-
-        # 5. Aktiflik/Zamanellik Skoru (Max 10 Puan)
+        # Aktiflik/Zamanellik Skoru (Max 10 Puan)
         activity = 0
         last_active = entity.get("last_active_at")
         if last_active:
@@ -117,30 +61,143 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
             except ValueError:
                 pass
 
-        # Total Calculation
-        total = semantic_match + location_match + tier_fit + engagement + activity
-        
-        # Clamping
-        final_score = max(10, min(92, total))
-        
-        # Reasons logic (top 2-3 components)
         reasons = []
-        if semantic_match == 35:
-            reasons.append("Moda nişi tam örtüşüyor." if e_niche == "moda" else "Niş tam örtüşüyor.")
-        elif semantic_match == 20:
-            reasons.append("Benzer veya tamamlayıcı sektörlerde çalışıyorsunuz.")
+        breakdown = {"location_match": location_match, "activity": activity}
+        
+        if is_worker:
+            # --- ÇALIŞAN (WORKER) BİLEŞENLERİ ---
             
-        if location_match == 20:
-            reasons.append("Aynı şehir avantajı var.")
+            # 1. Pozisyon Uyumu (Max 35 Puan)
+            preferred = entity.get("preferred_positions", [])
+            if isinstance(preferred, str):
+                preferred = [preferred]
+            target_pos = target.get("position_id")
             
-        if tier_fit == 20:
-            reasons.append("Takipçi kitlesi işletmenin beklentisiyle tam uyumlu.")
+            position_match = 35 if (target_pos and target_pos in preferred) else 10
             
-        if engagement == 15:
-            reasons.append("Çok güçlü bir etkileşim oranına sahip.")
+            # 2. Deneyim Yılı Uyumu (Max 20 Puan)
+            try:
+                w_exp = float(entity.get("experience_years", 0))
+                j_req = float(target.get("required_experience_years", 0))
+                if w_exp >= j_req:
+                    experience_match = 20
+                else:
+                    ratio = w_exp / (j_req if j_req > 0 else 1)
+                    experience_match = int(20 * ratio)
+            except (ValueError, TypeError):
+                experience_match = 10
+                
+            # 3. Maaş Beklentisi Uyumu (Max 15 Puan)
+            try:
+                w_min = float(entity.get("rate_range", {}).get("min", 0))
+                j_wage = float(target.get("wage", {}).get("amount", 0))
+                
+                if w_min == 0 or j_wage == 0:
+                    wage_match = 10
+                elif j_wage >= w_min:
+                    wage_match = 15
+                elif j_wage >= w_min * 0.8:
+                    wage_match = 7
+                else:
+                    wage_match = 0
+            except (ValueError, TypeError, AttributeError):
+                wage_match = 10
+                
+            total = position_match + location_match + experience_match + wage_match + activity
+            final_score = max(10, min(92, total))
             
-        if activity == 10:
-            reasons.append("Hesap çok aktif ve güncel.")
+            if position_match == 35: reasons.append("Pozisyon beklentileri tam uyuşuyor.")
+            if location_match == 20: reasons.append("Aynı şehir avantajı var.")
+            if experience_match == 20: reasons.append("Aranan tecrübe süresini tam karşılıyor.")
+            if wage_match == 15: reasons.append("Ücret beklentisi ile teklif uyumlu.")
+            if activity == 10: reasons.append("Aday çok aktif ve güncel.")
+            
+            breakdown.update({
+                "position_match": position_match,
+                "experience_match": experience_match,
+                "wage_match": wage_match
+            })
+            
+        else:
+            # --- INFLUENCER BİLEŞENLERİ ---
+            
+            # 1. Semantic/Niş Uyumu (Max 35 Puan)
+            e_niche = str(entity.get("niche", "")).strip().lower()
+            t_niche = str(target.get("niche", "")).strip().lower()
+            
+            semantic_match = 10
+            if e_niche and t_niche:
+                if e_niche == t_niche:
+                    semantic_match = 35
+                else:
+                    adjacent_pairs = [
+                        {"moda", "güzellik"}, {"moda", "yaşam"},
+                        {"yemek", "yaşam"}, {"spor", "yaşam"},
+                        {"spor", "teknoloji"}
+                    ]
+                    if {e_niche, t_niche} in adjacent_pairs:
+                        semantic_match = 20
+
+            # 2. Takipçi Tier Uyumu (Max 20 Puan)
+            try:
+                followers = int(entity.get("followers", 0))
+            except (ValueError, TypeError):
+                followers = 0
+                
+            target_str = str(target.get("target_followers", "micro")).strip().lower().replace(" ", "")
+            target_tier = TARGET_MAP.get(target_str, "micro")
+            
+            e_tier = "nano"
+            for t_name, (low, high) in TIERS.items():
+                if low <= followers < high:
+                    e_tier = t_name
+                    break
+                    
+            tier_fit = 0
+            if e_tier == target_tier:
+                tier_fit = 20
+            else:
+                tier_order = ["nano", "micro", "mid", "macro", "mega"]
+                try:
+                    e_idx = tier_order.index(e_tier)
+                    t_idx = tier_order.index(target_tier)
+                    if abs(e_idx - t_idx) == 1:
+                        tier_fit = 10
+                except ValueError:
+                    pass
+
+            # 3. Etkileşim Oranı (Max 15 Puan)
+            try:
+                engagement_val = float(entity.get("engagement_rate", 0.0))
+            except (ValueError, TypeError):
+                engagement_val = 0.0
+                
+            engagement = 0
+            if engagement_val >= 0.05:
+                engagement = 15
+            elif engagement_val >= 0.03:
+                engagement = 10
+            elif engagement_val >= 0.01:
+                engagement = 5
+                
+            total = semantic_match + location_match + tier_fit + engagement + activity
+            final_score = max(10, min(92, total))
+            
+            if semantic_match == 35:
+                reasons.append("Moda nişi tam örtüşüyor." if e_niche == "moda" else "Niş tam örtüşüyor.")
+            elif semantic_match == 20:
+                reasons.append("Benzer veya tamamlayıcı sektörlerde çalışıyorsunuz.")
+                
+            if location_match == 20: reasons.append("Aynı şehir avantajı var.")
+            if tier_fit == 20: reasons.append("Takipçi kitlesi işletmenin beklentisiyle tam uyumlu.")
+            if engagement == 15: reasons.append("Çok güçlü bir etkileşim oranına sahip.")
+            if activity == 10: reasons.append("Hesap çok aktif ve güncel.")
+            
+            breakdown.update({
+                "semantic_match": semantic_match,
+                "tier_fit": tier_fit,
+                "engagement": engagement
+            })
 
         if not reasons:
             reasons.append("Ortalama bir uyum yakalandı.")
@@ -148,13 +205,7 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
         return {
             "score": final_score,
             "reasons": reasons[:3], # En güçlü 3 gerekçe
-            "breakdown": {
-                "semantic_match": semantic_match,
-                "location_match": location_match,
-                "tier_fit": tier_fit,
-                "engagement": engagement,
-                "activity": activity
-            }
+            "breakdown": breakdown
         }
     except Exception as e:
         logger.error(f"Uyum skoru hesaplanırken beklenmeyen hata: {e}", exc_info=True)
@@ -162,10 +213,7 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
             "score": 50,
             "reasons": ["Sistem optimizasyonu yapılıyor..."],
             "breakdown": {
-                "semantic_match": 10,
                 "location_match": 10,
-                "tier_fit": 10,
-                "engagement": 10,
                 "activity": 10
             }
         }
