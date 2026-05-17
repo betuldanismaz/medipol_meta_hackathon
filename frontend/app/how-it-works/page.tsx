@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Sparkles, Heart, MessageSquare, BarChart3, Shield, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Nasıl Çalışır — InfluMatch",
+  title: "Nasıl Çalışır",
   description: "Swipe akışı, AI eşleştirme ve karşılıklı değerlendirme nasıl işliyor?",
 };
 
@@ -41,7 +41,7 @@ export default function HowItWorksPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-4 sm:px-6 pb-24">
-        <div className="rounded-3xl border border-border p-8 md:p-12 bg-card">
+        <div className="rounded-2xl border border-border p-8 md:p-12 bg-card">
           <h2 className="text-2xl md:text-3xl font-bold">AI eşleşme nasıl çalışır?</h2>
           <div className="mt-6 grid md:grid-cols-2 gap-6 text-sm">
             <div>

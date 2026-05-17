@@ -123,7 +123,7 @@ export default function InfluencersPage() {
               <Link
                 key={i.id}
                 href={`/influencers/${i.id}`}
-                className="group rounded-2xl border border-border overflow-hidden bg-card hover:shadow-[var(--shadow-glow)] transition"
+                className="group rounded-2xl border border-border overflow-hidden bg-card hover:shadow-sm transition"
               >
                 <div className="aspect-[4/3] relative overflow-hidden">
                   <img

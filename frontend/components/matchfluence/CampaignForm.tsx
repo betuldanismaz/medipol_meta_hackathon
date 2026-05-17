@@ -3,6 +3,7 @@
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 import DemoDataBadge from "@/components/matchfluence/DemoDataBadge";
 import { sampleCampaign } from "@/data/matchfluenceInfluencers";
+import { Button } from "@/components/ui/button";
 import type { CampaignInput } from "@/types";
 
 const nicheOptions = [
@@ -48,127 +49,118 @@ export default function CampaignForm({
   };
 
   return (
-    <section className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-5xl items-center px-4 py-8 sm:px-6 lg:px-8">
-      <div className="w-full">
-        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <DemoDataBadge isMock={isMock} />
-            <h1 className="mt-4 text-3xl font-black text-slate-950 sm:text-5xl">
-              Kampanya olustur
-            </h1>
-            <p className="mt-3 max-w-2xl text-slate-600">
-              Bilgileri doldur, AI en uygun influencer adaylarini siralasin.
-            </p>
+    <section className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <DemoDataBadge isMock={isMock} />
+          <h1 className="mt-4 text-3xl font-bold sm:text-4xl">Kampanya oluştur</h1>
+          <p className="mt-2 text-muted-foreground">
+            Bilgileri doldur, AI en uygun influencer adaylarını sıralasın.
+          </p>
+        </div>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          onClick={() => setCampaign(sampleCampaign)}
+        >
+          Örnek kampanya yükle
+        </Button>
+      </div>
+
+      <div className="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-sm space-y-6">
+        <FormSection title="İşletme Bilgisi">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Field label="İşletme adı">
+              <input
+                value={campaign.businessName}
+                onChange={(e) => updateField("businessName", e.target.value)}
+                className="form-input"
+              />
+            </Field>
+            <Field label="Sektör">
+              <input
+                value={campaign.sector}
+                onChange={(e) => updateField("sector", e.target.value)}
+                className="form-input"
+              />
+            </Field>
+            <Field label="Lokasyon">
+              <input
+                value={campaign.location}
+                onChange={(e) => updateField("location", e.target.value)}
+                className="form-input"
+              />
+            </Field>
+            <Field label="Bütçe / TL">
+              <input
+                type="number"
+                min="0"
+                value={campaign.budget}
+                onChange={(e) => updateField("budget", Number(e.target.value) || 0)}
+                className="form-input"
+              />
+            </Field>
           </div>
-          <button
-            type="button"
-            onClick={() => setCampaign(sampleCampaign)}
-            className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
-          >
-            Ornek kampanyayi yukle
-          </button>
-        </div>
+        </FormSection>
 
-        <div className="matchfluence-panel rounded-3xl p-4 sm:p-6">
-          <FormSection title="Isletme bilgisi">
-            <div className="grid gap-4 md:grid-cols-2">
-              <Field label="Isletme adi">
-                <input
-                  value={campaign.businessName}
-                  onChange={(event) => updateField("businessName", event.target.value)}
-                  className="matchfluence-input"
-                />
-              </Field>
-              <Field label="Sektor">
-                <input
-                  value={campaign.sector}
-                  onChange={(event) => updateField("sector", event.target.value)}
-                  className="matchfluence-input"
-                />
-              </Field>
-              <Field label="Lokasyon">
-                <input
-                  value={campaign.location}
-                  onChange={(event) => updateField("location", event.target.value)}
-                  className="matchfluence-input"
-                />
-              </Field>
-              <Field label="Butce / TL">
-                <input
-                  type="number"
-                  min="0"
-                  value={campaign.budget}
-                  onChange={(event) => updateField("budget", Number(event.target.value) || 0)}
-                  className="matchfluence-input"
-                />
-              </Field>
-            </div>
-          </FormSection>
+        <FormSection title="Hedef">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Field label="Hedef kitle">
+              <textarea
+                value={campaign.targetAudience}
+                onChange={(e) => updateField("targetAudience", e.target.value)}
+                className="form-input min-h-28 resize-none"
+              />
+            </Field>
+            <Field label="Kampanya hedefi">
+              <textarea
+                value={campaign.campaignGoal}
+                onChange={(e) => updateField("campaignGoal", e.target.value)}
+                className="form-input min-h-28 resize-none"
+              />
+            </Field>
+          </div>
+        </FormSection>
 
-          <FormSection title="Hedef">
-            <div className="grid gap-4 md:grid-cols-2">
-              <Field label="Hedef kitle">
-                <textarea
-                  value={campaign.targetAudience}
-                  onChange={(event) => updateField("targetAudience", event.target.value)}
-                  className="matchfluence-input min-h-28 resize-none"
-                />
-              </Field>
-              <Field label="Kampanya hedefi">
-                <textarea
-                  value={campaign.campaignGoal}
-                  onChange={(event) => updateField("campaignGoal", event.target.value)}
-                  className="matchfluence-input min-h-28 resize-none"
-                />
-              </Field>
-            </div>
-          </FormSection>
+        <FormSection title="Niche Tercihleri">
+          <div className="flex flex-wrap gap-2">
+            {nicheOptions.map((niche) => {
+              const active = campaign.preferredNiches.includes(niche);
+              return (
+                <button
+                  key={niche}
+                  type="button"
+                  onClick={() => toggleNiche(niche)}
+                  className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-all ${
+                    active
+                      ? "bg-gradient-brand text-primary-foreground shadow-sm"
+                      : "border border-border bg-card text-muted-foreground hover:text-foreground hover:border-foreground/30"
+                  }`}
+                >
+                  {niche}
+                </button>
+              );
+            })}
+          </div>
+        </FormSection>
 
-          <FormSection title="Niche tercihleri">
-            <div className="flex flex-wrap gap-2">
-              {nicheOptions.map((niche) => {
-                const active = campaign.preferredNiches.includes(niche);
-
-                return (
-                  <button
-                    key={niche}
-                    type="button"
-                    onClick={() => toggleNiche(niche)}
-                    className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                      active
-                        ? "bg-slate-950 text-white"
-                        : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
-                    }`}
-                  >
-                    {niche}
-                  </button>
-                );
-              })}
-            </div>
-          </FormSection>
-
-          <button
-            type="button"
-            onClick={onAnalyze}
-            className="mt-6 w-full rounded-2xl bg-slate-950 px-6 py-4 text-base font-black text-white shadow-xl shadow-slate-950/15 transition hover:-translate-y-0.5 hover:bg-slate-800"
-          >
-            Influencer'lari analiz et
-          </button>
-        </div>
+        <Button
+          type="button"
+          onClick={onAnalyze}
+          className="w-full bg-gradient-brand text-primary-foreground hover:opacity-90 h-12 text-base font-semibold"
+        >
+          Influencer'ları analiz et
+        </Button>
       </div>
     </section>
   );
 }
 
-type FieldProps = {
-  label: string;
-  children: ReactNode;
-};
-
-function Field({ label, children }: FieldProps) {
+function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-sm font-semibold text-slate-700">{label}</span>
+      <span className="mb-1.5 block text-sm font-medium text-foreground">{label}</span>
       {children}
     </label>
   );
@@ -176,8 +168,10 @@ function Field({ label, children }: FieldProps) {
 
 function FormSection({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="border-b border-slate-100 py-5 first:pt-0 last:border-b-0 last:pb-0">
-      <h2 className="mb-4 text-sm font-black uppercase tracking-wide text-slate-500">{title}</h2>
+    <section className="border-b border-border pb-6 last:border-b-0 last:pb-0">
+      <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+        {title}
+      </h2>
       {children}
     </section>
   );

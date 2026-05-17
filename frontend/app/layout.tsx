@@ -24,9 +24,22 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "InfluMatch — Influencer ve İşletmeleri Eşleştiren Platform",
+  title: {
+    default: "InfluMatch — Influencer ve İşletmeleri Eşleştiren Platform",
+    template: "%s | InfluMatch",
+  },
   description:
     "Kafeler, butikler ve influencer'lar için AI destekli, konum bazlı akıllı eşleşme.",
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
+  openGraph: {
+    title: "InfluMatch — AI Destekli Eşleşme",
+    description: "Kafeler, butikler ve influencer'lar için AI destekli, konum bazlı akıllı eşleşme.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
