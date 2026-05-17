@@ -201,3 +201,7 @@ docker compose logs -f frontend
 - The backend currently creates SQLAlchemy tables at startup for development convenience.
 - Replace startup table creation with Alembic migrations before production.
 - Keep secrets in `.env` or `.env.local`; do not commit API keys.
+
+## Matchfluence Demo Note
+
+`/api/matches` contract is reserved for the final persisted backend integration. In the current MVP demo, the primary flow is swipe plus explainable score.

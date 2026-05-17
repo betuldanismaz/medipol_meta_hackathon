@@ -1,0 +1,783 @@
+[
+  {
+    "listing_id": "col_001",
+    "business_id": "biz_001",
+    "type": "collaboration",
+    "title": "Sezonluk kampanya yüzü aranıyor",
+    "description": "Coffee Roastery Kadıköy için içerik üretecek influencer arıyoruz. El yapımı filtre kahve ve özel demlemeler.",
+    "budget": {
+      "min": 1958,
+      "max": 4765,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "1 reel"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_002",
+      "cat_001"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "25-34",
+        "18-24"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_001",
+      "sty_011"
+    ],
+    "deadline": "2026-05-31T12:00:00Z",
+    "status": "expired",
+    "created_at": "2026-05-05T12:00:00Z"
+  },
+  {
+    "listing_id": "col_002",
+    "business_id": "biz_002",
+    "type": "collaboration",
+    "title": "Organik marka elçisi - uzun vadeli işbirliği",
+    "description": "Yeşil Tabak için içerik üretecek influencer arıyoruz. Vegan ve organik restoran.",
+    "budget": {
+      "min": 2025,
+      "max": 4777,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "2 post",
+      "1 reel"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_002",
+      "cat_023"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "18-24"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_012",
+      "sty_009"
+    ],
+    "deadline": "2026-06-22T12:00:00Z",
+    "status": "expired",
+    "created_at": "2026-04-30T12:00:00Z"
+  },
+  {
+    "listing_id": "col_003",
+    "business_id": "biz_003",
+    "type": "collaboration",
+    "title": "Bahar koleksiyonu tanıtımı - 3 post + story serisi",
+    "description": "Urban Threads için içerik üretecek influencer arıyoruz. Erkek sokak giyim butik markası.",
+    "budget": {
+      "min": 3799,
+      "max": 13204,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "2 post",
+      "1 reel"
+    ],
+    "preferred_tiers": [
+      "micro",
+      "mid"
+    ],
+    "target_categories": [
+      "cat_003",
+      "cat_001"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "35-44"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_014",
+      "sty_005"
+    ],
+    "deadline": "2026-07-11T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-04-26T12:00:00Z"
+  },
+  {
+    "listing_id": "col_004",
+    "business_id": "biz_004",
+    "type": "collaboration",
+    "title": "Yeni ürünümüzü test edecek içerik üreticisi",
+    "description": "Glow Cilt Bakım için içerik üretecek influencer arıyoruz. Klinik cilt bakım merkezi ve ürün satışı.",
+    "budget": {
+      "min": 4472,
+      "max": 14698,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "preferred_tiers": [
+      "micro",
+      "mid"
+    ],
+    "target_categories": [
+      "cat_006",
+      "cat_004"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "35-44"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_001",
+      "sty_006"
+    ],
+    "deadline": "2026-07-15T12:00:00Z",
+    "status": "closed",
+    "created_at": "2026-05-12T12:00:00Z"
+  },
+  {
+    "listing_id": "col_005",
+    "business_id": "biz_005",
+    "type": "collaboration",
+    "title": "Instagram story serisi - mekan tanıtımı",
+    "description": "FitZone Studio için içerik üretecek influencer arıyoruz. Fonksiyonel antrenman ve CrossFit merkezi.",
+    "budget": {
+      "min": 1570,
+      "max": 3810,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "1 reel",
+      "3 story"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_009",
+      "cat_010"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "25-34",
+        "35-44"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_010",
+      "sty_006"
+    ],
+    "deadline": "2026-07-11T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-05-01T12:00:00Z"
+  },
+  {
+    "listing_id": "col_006",
+    "business_id": "biz_006",
+    "type": "collaboration",
+    "title": "Mağaza açılışı için sosyal medya desteği",
+    "description": "Botanik Kafe için içerik üretecek influencer arıyoruz. Doğal malzeme, bitki çayları, huzurlu ortam.",
+    "budget": {
+      "min": 2240,
+      "max": 4589,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "1 reel"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_001",
+      "cat_002"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "18-24",
+        "25-34"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_012",
+      "sty_015"
+    ],
+    "deadline": "2026-06-08T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-04-28T12:00:00Z"
+  },
+  {
+    "listing_id": "col_007",
+    "business_id": "biz_007",
+    "type": "collaboration",
+    "title": "Açılış günü canlı yayın desteği",
+    "description": "Teknosan için içerik üretecek influencer arıyoruz. Aksesuarlar ve gadget mağazası.",
+    "budget": {
+      "min": 4956,
+      "max": 11659,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "preferred_tiers": [
+      "micro",
+      "mid"
+    ],
+    "target_categories": [
+      "cat_007"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "25-34"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_006",
+      "sty_001"
+    ],
+    "deadline": "2026-06-04T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-04-19T12:00:00Z"
+  },
+  {
+    "listing_id": "col_008",
+    "business_id": "biz_008",
+    "type": "collaboration",
+    "title": "Ürün inceleme videosu (1 Reel)",
+    "description": "Kahve & Stil için içerik üretecek influencer arıyoruz. Moda odaklı konsept kafe.",
+    "budget": {
+      "min": 2500,
+      "max": 3825,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "1 reel",
+      "3 story"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_003",
+      "cat_002"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "18-24"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_011",
+      "sty_013"
+    ],
+    "deadline": "2026-07-12T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "listing_id": "col_009",
+    "business_id": "biz_009",
+    "type": "collaboration",
+    "title": "Yeni ürünümüzü test edecek içerik üreticisi",
+    "description": "Patili Dünya için içerik üretecek influencer arıyoruz. Doğal mama ve evcil hayvan aksesuarları.",
+    "budget": {
+      "min": 2391,
+      "max": 4366,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "2 post",
+      "1 reel"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_022",
+      "cat_001"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "25-34",
+        "35-44"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_007",
+      "sty_009"
+    ],
+    "deadline": "2026-07-16T12:00:00Z",
+    "status": "closed",
+    "created_at": "2026-05-13T12:00:00Z"
+  },
+  {
+    "listing_id": "col_010",
+    "business_id": "biz_010",
+    "type": "collaboration",
+    "title": "Instagram story serisi - mekan tanıtımı",
+    "description": "Çevik Mutfak için içerik üretecek influencer arıyoruz. Fast-casual, yerel malzeme odaklı restoran.",
+    "budget": {
+      "min": 2842,
+      "max": 4198,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_002"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "18-24"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_005",
+      "sty_002"
+    ],
+    "deadline": "2026-06-04T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-05-08T12:00:00Z"
+  },
+  {
+    "listing_id": "col_011",
+    "business_id": "biz_001",
+    "type": "collaboration",
+    "title": "Bahar koleksiyonu tanıtımı - 3 post + story serisi",
+    "description": "Coffee Roastery Kadıköy için içerik üretecek influencer arıyoruz. El yapımı filtre kahve ve özel demlemeler.",
+    "budget": {
+      "min": 1234,
+      "max": 2387,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_002",
+      "cat_001"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "25-34",
+        "18-24"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_001",
+      "sty_011"
+    ],
+    "deadline": "2026-06-23T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-04-20T12:00:00Z"
+  },
+  {
+    "listing_id": "col_012",
+    "business_id": "biz_002",
+    "type": "collaboration",
+    "title": "Yeni ürünümüzü test edecek içerik üreticisi",
+    "description": "Yeşil Tabak için içerik üretecek influencer arıyoruz. Vegan ve organik restoran.",
+    "budget": {
+      "min": 1060,
+      "max": 2772,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "1 reel",
+      "3 story"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_002",
+      "cat_023"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "18-24"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_012",
+      "sty_009"
+    ],
+    "deadline": "2026-07-14T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-05-12T12:00:00Z"
+  },
+  {
+    "listing_id": "col_013",
+    "business_id": "biz_003",
+    "type": "collaboration",
+    "title": "Organik marka elçisi - uzun vadeli işbirliği",
+    "description": "Urban Threads için içerik üretecek influencer arıyoruz. Erkek sokak giyim butik markası.",
+    "budget": {
+      "min": 4305,
+      "max": 14705,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "2 post",
+      "1 reel"
+    ],
+    "preferred_tiers": [
+      "micro",
+      "mid"
+    ],
+    "target_categories": [
+      "cat_003",
+      "cat_001"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "35-44"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_014",
+      "sty_005"
+    ],
+    "deadline": "2026-06-12T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-05-02T12:00:00Z"
+  },
+  {
+    "listing_id": "col_014",
+    "business_id": "biz_004",
+    "type": "collaboration",
+    "title": "Ürün inceleme videosu (1 Reel)",
+    "description": "Glow Cilt Bakım için içerik üretecek influencer arıyoruz. Klinik cilt bakım merkezi ve ürün satışı.",
+    "budget": {
+      "min": 4390,
+      "max": 10077,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "2 post",
+      "1 reel"
+    ],
+    "preferred_tiers": [
+      "micro",
+      "mid"
+    ],
+    "target_categories": [
+      "cat_006",
+      "cat_004"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "35-44"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_001",
+      "sty_006"
+    ],
+    "deadline": "2026-06-10T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-04-30T12:00:00Z"
+  },
+  {
+    "listing_id": "col_015",
+    "business_id": "biz_005",
+    "type": "collaboration",
+    "title": "Bahar koleksiyonu tanıtımı - 3 post + story serisi",
+    "description": "FitZone Studio için içerik üretecek influencer arıyoruz. Fonksiyonel antrenman ve CrossFit merkezi.",
+    "budget": {
+      "min": 2656,
+      "max": 4049,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "1 reel",
+      "3 story"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_009",
+      "cat_010"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "25-34",
+        "35-44"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_010",
+      "sty_006"
+    ],
+    "deadline": "2026-07-10T12:00:00Z",
+    "status": "expired",
+    "created_at": "2026-05-13T12:00:00Z"
+  },
+  {
+    "listing_id": "col_016",
+    "business_id": "biz_006",
+    "type": "collaboration",
+    "title": "Mağaza açılışı için sosyal medya desteği",
+    "description": "Botanik Kafe için içerik üretecek influencer arıyoruz. Doğal malzeme, bitki çayları, huzurlu ortam.",
+    "budget": {
+      "min": 1416,
+      "max": 2552,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "1 reel",
+      "3 story"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_001",
+      "cat_002"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "18-24",
+        "25-34"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_012",
+      "sty_015"
+    ],
+    "deadline": "2026-06-23T12:00:00Z",
+    "status": "closed",
+    "created_at": "2026-04-28T12:00:00Z"
+  },
+  {
+    "listing_id": "col_017",
+    "business_id": "biz_007",
+    "type": "collaboration",
+    "title": "Yeni ürünümüzü test edecek içerik üreticisi",
+    "description": "Teknosan için içerik üretecek influencer arıyoruz. Aksesuarlar ve gadget mağazası.",
+    "budget": {
+      "min": 4119,
+      "max": 6298,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "2 post",
+      "1 reel"
+    ],
+    "preferred_tiers": [
+      "micro",
+      "mid"
+    ],
+    "target_categories": [
+      "cat_007"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "25-34"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_006",
+      "sty_001"
+    ],
+    "deadline": "2026-07-13T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "listing_id": "col_018",
+    "business_id": "biz_008",
+    "type": "collaboration",
+    "title": "Organik marka elçisi - uzun vadeli işbirliği",
+    "description": "Kahve & Stil için içerik üretecek influencer arıyoruz. Moda odaklı konsept kafe.",
+    "budget": {
+      "min": 2491,
+      "max": 4806,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_003",
+      "cat_002"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "18-24"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_011",
+      "sty_013"
+    ],
+    "deadline": "2026-06-12T12:00:00Z",
+    "status": "closed",
+    "created_at": "2026-04-28T12:00:00Z"
+  },
+  {
+    "listing_id": "col_019",
+    "business_id": "biz_009",
+    "type": "collaboration",
+    "title": "Organik marka elçisi - uzun vadeli işbirliği",
+    "description": "Patili Dünya için içerik üretecek influencer arıyoruz. Doğal mama ve evcil hayvan aksesuarları.",
+    "budget": {
+      "min": 2694,
+      "max": 4664,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "1 reel"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_022",
+      "cat_001"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "25-34",
+        "35-44"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_007",
+      "sty_009"
+    ],
+    "deadline": "2026-06-22T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-04-29T12:00:00Z"
+  },
+  {
+    "listing_id": "col_020",
+    "business_id": "biz_010",
+    "type": "collaboration",
+    "title": "Bahar koleksiyonu tanıtımı - 3 post + story serisi",
+    "description": "Çevik Mutfak için içerik üretecek influencer arıyoruz. Fast-casual, yerel malzeme odaklı restoran.",
+    "budget": {
+      "min": 2747,
+      "max": 4029,
+      "currency": "TRY"
+    },
+    "deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "preferred_tiers": [
+      "nano",
+      "micro"
+    ],
+    "target_categories": [
+      "cat_002"
+    ],
+    "preferred_audience": {
+      "age_buckets": [
+        "18-24"
+      ],
+      "locations": [
+        "İstanbul"
+      ]
+    },
+    "preferred_styles": [
+      "sty_005",
+      "sty_002"
+    ],
+    "deadline": "2026-06-27T12:00:00Z",
+    "status": "active",
+    "created_at": "2026-04-19T12:00:00Z"
+  }
+]

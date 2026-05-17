@@ -1,0 +1,848 @@
+{
+  "sectors": [
+    {
+      "id": "sec_001",
+      "name": "Kafe",
+      "parent_category": "Yeme-İçme"
+    },
+    {
+      "id": "sec_002",
+      "name": "Spesiyalti Kahve",
+      "parent_category": "Yeme-İçme"
+    },
+    {
+      "id": "sec_003",
+      "name": "Brunch / Kahvaltı",
+      "parent_category": "Yeme-İçme"
+    },
+    {
+      "id": "sec_004",
+      "name": "Restoran",
+      "parent_category": "Yeme-İçme"
+    },
+    {
+      "id": "sec_005",
+      "name": "Fast Food",
+      "parent_category": "Yeme-İçme"
+    },
+    {
+      "id": "sec_006",
+      "name": "Pastane / Fırın",
+      "parent_category": "Yeme-İçme"
+    },
+    {
+      "id": "sec_007",
+      "name": "Butik",
+      "parent_category": "Moda"
+    },
+    {
+      "id": "sec_008",
+      "name": "Hazır Giyim",
+      "parent_category": "Moda"
+    },
+    {
+      "id": "sec_009",
+      "name": "Ayakkabı",
+      "parent_category": "Moda"
+    },
+    {
+      "id": "sec_010",
+      "name": "Aksesuar",
+      "parent_category": "Moda"
+    },
+    {
+      "id": "sec_011",
+      "name": "Kuaför / Berber",
+      "parent_category": "Güzellik"
+    },
+    {
+      "id": "sec_012",
+      "name": "Güzellik Salonu",
+      "parent_category": "Güzellik"
+    },
+    {
+      "id": "sec_013",
+      "name": "Tırnak Bakım",
+      "parent_category": "Güzellik"
+    },
+    {
+      "id": "sec_014",
+      "name": "Kozmetik Mağazası",
+      "parent_category": "Güzellik"
+    },
+    {
+      "id": "sec_015",
+      "name": "Fitness / Spor Salonu",
+      "parent_category": "Spor"
+    },
+    {
+      "id": "sec_016",
+      "name": "Pilates / Yoga",
+      "parent_category": "Spor"
+    },
+    {
+      "id": "sec_017",
+      "name": "Kitabevi",
+      "parent_category": "Kültür"
+    },
+    {
+      "id": "sec_018",
+      "name": "Sanat Galerisi",
+      "parent_category": "Kültür"
+    },
+    {
+      "id": "sec_019",
+      "name": "Teknoloji Mağazası",
+      "parent_category": "Perakende"
+    },
+    {
+      "id": "sec_020",
+      "name": "Ev Dekorasyon",
+      "parent_category": "Perakende"
+    },
+    {
+      "id": "sec_021",
+      "name": "Çiçekçi",
+      "parent_category": "Perakende"
+    },
+    {
+      "id": "sec_022",
+      "name": "Eczane",
+      "parent_category": "Sağlık"
+    },
+    {
+      "id": "sec_023",
+      "name": "Optik",
+      "parent_category": "Sağlık"
+    },
+    {
+      "id": "sec_024",
+      "name": "Oyuncakçı",
+      "parent_category": "Perakende"
+    },
+    {
+      "id": "sec_025",
+      "name": "Evcil Hayvan Mağazası",
+      "parent_category": "Perakende"
+    },
+    {
+      "id": "sec_026",
+      "name": "Kırtasiye",
+      "parent_category": "Perakende"
+    },
+    {
+      "id": "sec_027",
+      "name": "Hediyelik",
+      "parent_category": "Perakende"
+    },
+    {
+      "id": "sec_028",
+      "name": "Bar / Cocktail",
+      "parent_category": "Yeme-İçme"
+    },
+    {
+      "id": "sec_029",
+      "name": "Otel / Pansiyon",
+      "parent_category": "Konaklama"
+    },
+    {
+      "id": "sec_030",
+      "name": "Mücevher",
+      "parent_category": "Moda"
+    }
+  ],
+  "content_categories": [
+    {
+      "id": "cat_001",
+      "name": "Lifestyle"
+    },
+    {
+      "id": "cat_002",
+      "name": "Food & Drink"
+    },
+    {
+      "id": "cat_003",
+      "name": "Fashion"
+    },
+    {
+      "id": "cat_004",
+      "name": "Beauty"
+    },
+    {
+      "id": "cat_005",
+      "name": "Makeup"
+    },
+    {
+      "id": "cat_006",
+      "name": "Skincare"
+    },
+    {
+      "id": "cat_007",
+      "name": "Tech"
+    },
+    {
+      "id": "cat_008",
+      "name": "Travel"
+    },
+    {
+      "id": "cat_009",
+      "name": "Fitness"
+    },
+    {
+      "id": "cat_010",
+      "name": "Yoga & Wellness"
+    },
+    {
+      "id": "cat_011",
+      "name": "Parenting"
+    },
+    {
+      "id": "cat_012",
+      "name": "Gaming"
+    },
+    {
+      "id": "cat_013",
+      "name": "Education"
+    },
+    {
+      "id": "cat_014",
+      "name": "Finance"
+    },
+    {
+      "id": "cat_015",
+      "name": "Automotive"
+    },
+    {
+      "id": "cat_016",
+      "name": "Photography"
+    },
+    {
+      "id": "cat_017",
+      "name": "Art"
+    },
+    {
+      "id": "cat_018",
+      "name": "Music"
+    },
+    {
+      "id": "cat_019",
+      "name": "Home Decor"
+    },
+    {
+      "id": "cat_020",
+      "name": "Gardening"
+    },
+    {
+      "id": "cat_021",
+      "name": "Books"
+    },
+    {
+      "id": "cat_022",
+      "name": "Pets"
+    },
+    {
+      "id": "cat_023",
+      "name": "Sustainable Living"
+    },
+    {
+      "id": "cat_024",
+      "name": "Mental Health"
+    },
+    {
+      "id": "cat_025",
+      "name": "Comedy / Entertainment"
+    }
+  ],
+  "content_styles": [
+    {
+      "id": "sty_001",
+      "name": "Minimalist"
+    },
+    {
+      "id": "sty_002",
+      "name": "Renkli / Canlı"
+    },
+    {
+      "id": "sty_003",
+      "name": "Vintage"
+    },
+    {
+      "id": "sty_004",
+      "name": "Lüks / Premium"
+    },
+    {
+      "id": "sty_005",
+      "name": "Casual"
+    },
+    {
+      "id": "sty_006",
+      "name": "Profesyonel"
+    },
+    {
+      "id": "sty_007",
+      "name": "Eğlenceli / Komik"
+    },
+    {
+      "id": "sty_008",
+      "name": "Ciddi / Bilgilendirici"
+    },
+    {
+      "id": "sty_009",
+      "name": "Samimi"
+    },
+    {
+      "id": "sty_010",
+      "name": "İlham Verici"
+    },
+    {
+      "id": "sty_011",
+      "name": "Aesthetic"
+    },
+    {
+      "id": "sty_012",
+      "name": "Doğal / Organik"
+    },
+    {
+      "id": "sty_013",
+      "name": "Şık / Glamour"
+    },
+    {
+      "id": "sty_014",
+      "name": "Sokak Tarzı"
+    },
+    {
+      "id": "sty_015",
+      "name": "Sade / Sakin"
+    }
+  ],
+  "job_positions": [
+    {
+      "id": "pos_001",
+      "name": "Barista",
+      "typical_sectors": [
+        "sec_001",
+        "sec_002"
+      ]
+    },
+    {
+      "id": "pos_002",
+      "name": "Garson",
+      "typical_sectors": [
+        "sec_001",
+        "sec_004",
+        "sec_028"
+      ]
+    },
+    {
+      "id": "pos_003",
+      "name": "Kasiyer",
+      "typical_sectors": [
+        "perakende",
+        "yeme-içme"
+      ]
+    },
+    {
+      "id": "pos_004",
+      "name": "Mutfak Yardımcısı",
+      "typical_sectors": [
+        "sec_004",
+        "sec_006"
+      ]
+    },
+    {
+      "id": "pos_005",
+      "name": "Aşçı",
+      "typical_sectors": [
+        "sec_004"
+      ]
+    },
+    {
+      "id": "pos_006",
+      "name": "Pasta Şefi",
+      "typical_sectors": [
+        "sec_006"
+      ]
+    },
+    {
+      "id": "pos_007",
+      "name": "Satış Danışmanı",
+      "typical_sectors": [
+        "sec_007",
+        "sec_008",
+        "perakende"
+      ]
+    },
+    {
+      "id": "pos_008",
+      "name": "Mağaza Yöneticisi",
+      "typical_sectors": [
+        "perakende"
+      ]
+    },
+    {
+      "id": "pos_009",
+      "name": "Kurye / Moto Kurye",
+      "typical_sectors": [
+        "yeme-içme",
+        "perakende"
+      ]
+    },
+    {
+      "id": "pos_010",
+      "name": "Temizlik Personeli",
+      "typical_sectors": [
+        "tüm"
+      ]
+    },
+    {
+      "id": "pos_011",
+      "name": "Güvenlik",
+      "typical_sectors": [
+        "tüm"
+      ]
+    },
+    {
+      "id": "pos_012",
+      "name": "Depo Elemanı",
+      "typical_sectors": [
+        "perakende"
+      ]
+    },
+    {
+      "id": "pos_013",
+      "name": "Vale",
+      "typical_sectors": [
+        "sec_004",
+        "sec_029"
+      ]
+    },
+    {
+      "id": "pos_014",
+      "name": "Paketleme Elemanı",
+      "typical_sectors": [
+        "perakende"
+      ]
+    },
+    {
+      "id": "pos_015",
+      "name": "Host / Hostes",
+      "typical_sectors": [
+        "sec_004",
+        "sec_029"
+      ]
+    },
+    {
+      "id": "pos_016",
+      "name": "Resepsiyonist",
+      "typical_sectors": [
+        "sec_029",
+        "sec_012"
+      ]
+    },
+    {
+      "id": "pos_017",
+      "name": "Kuaför Yardımcısı",
+      "typical_sectors": [
+        "sec_011"
+      ]
+    },
+    {
+      "id": "pos_018",
+      "name": "Manikürist",
+      "typical_sectors": [
+        "sec_013"
+      ]
+    },
+    {
+      "id": "pos_019",
+      "name": "Personal Trainer",
+      "typical_sectors": [
+        "sec_015"
+      ]
+    },
+    {
+      "id": "pos_020",
+      "name": "Pilates Eğitmeni",
+      "typical_sectors": [
+        "sec_016"
+      ]
+    },
+    {
+      "id": "pos_021",
+      "name": "Yoga Eğitmeni",
+      "typical_sectors": [
+        "sec_016"
+      ]
+    },
+    {
+      "id": "pos_022",
+      "name": "Bar Tender",
+      "typical_sectors": [
+        "sec_028"
+      ]
+    },
+    {
+      "id": "pos_023",
+      "name": "Stajyer",
+      "typical_sectors": [
+        "tüm"
+      ]
+    },
+    {
+      "id": "pos_024",
+      "name": "Promosyon Personeli",
+      "typical_sectors": [
+        "etkinlik"
+      ]
+    },
+    {
+      "id": "pos_025",
+      "name": "Etkinlik Düzenleme",
+      "typical_sectors": [
+        "etkinlik"
+      ]
+    }
+  ],
+  "employment_types": [
+    {
+      "id": "emp_001",
+      "name": "Full-time",
+      "description": "Tam zamanlı"
+    },
+    {
+      "id": "emp_002",
+      "name": "Part-time",
+      "description": "Yarı zamanlı"
+    },
+    {
+      "id": "emp_003",
+      "name": "Tek seferlik",
+      "description": "Tek günlük / olay bazlı"
+    },
+    {
+      "id": "emp_004",
+      "name": "Sezonluk",
+      "description": "Yaz / kış sezonu"
+    },
+    {
+      "id": "emp_005",
+      "name": "Proje bazlı",
+      "description": "Belirli süreli proje"
+    },
+    {
+      "id": "emp_006",
+      "name": "Vardiyalı",
+      "description": "Düzensiz vardiya"
+    },
+    {
+      "id": "emp_007",
+      "name": "Stajyer",
+      "description": "Staj"
+    }
+  ],
+  "hashtag_groups": {
+    "kahve": [
+      "#kahve",
+      "#coffee",
+      "#filtrekahve",
+      "#espresso",
+      "#latte",
+      "#thirdwave",
+      "#spesiyaltikahve",
+      "#barista",
+      "#coffeelover",
+      "#cafe"
+    ],
+    "yemek": [
+      "#food",
+      "#foodie",
+      "#yemek",
+      "#lezzet",
+      "#delicious",
+      "#instafood",
+      "#foodporn",
+      "#brunch",
+      "#breakfast",
+      "#dinner",
+      "#gastronomy",
+      "#lezzetli"
+    ],
+    "moda": [
+      "#fashion",
+      "#moda",
+      "#ootd",
+      "#style",
+      "#outfit",
+      "#fashionblogger",
+      "#stylish",
+      "#streetstyle",
+      "#tarz",
+      "#kombins"
+    ],
+    "guzellik": [
+      "#beauty",
+      "#makeup",
+      "#skincare",
+      "#makyaj",
+      "#cilt",
+      "#guzellik",
+      "#mua",
+      "#beautyblogger",
+      "#ciltbakimi",
+      "#kozmetik"
+    ],
+    "fitness": [
+      "#fitness",
+      "#workout",
+      "#gym",
+      "#health",
+      "#fit",
+      "#bodybuilding",
+      "#training",
+      "#cardio",
+      "#spor",
+      "#antrenman"
+    ],
+    "seyahat": [
+      "#travel",
+      "#wanderlust",
+      "#explore",
+      "#seyahat",
+      "#gezi",
+      "#travelphotography",
+      "#vacation",
+      "#kesfet",
+      "#tatil"
+    ],
+    "teknoloji": [
+      "#tech",
+      "#technology",
+      "#gadget",
+      "#teknoloji",
+      "#inceleme",
+      "#review",
+      "#apple",
+      "#samsung",
+      "#setup"
+    ],
+    "lifestyle": [
+      "#lifestyle",
+      "#daily",
+      "#morning",
+      "#weekend",
+      "#sundayfunday",
+      "#enjoy",
+      "#happy",
+      "#günlük",
+      "#huzur"
+    ],
+    "lokasyon_istanbul": [
+      "#istanbul",
+      "#kadikoy",
+      "#besiktas",
+      "#karakoy",
+      "#moda",
+      "#galata",
+      "#bosphorus",
+      "#eminonu",
+      "#nisantasi",
+      "#bebek"
+    ],
+    "dekorasyon": [
+      "#homedecor",
+      "#evdekorasyon",
+      "#interior",
+      "#decor",
+      "#tasarim",
+      "#minimal",
+      "#dekorasyon"
+    ],
+    "evcilhayvan": [
+      "#pet",
+      "#kedi",
+      "#köpek",
+      "#cat",
+      "#dog",
+      "#evcilhayvan",
+      "#petsofinstagram"
+    ]
+  },
+  "locations": [
+    {
+      "id": "loc_001",
+      "name": "Kadıköy",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 40.9928,
+      "lng": 29.0277
+    },
+    {
+      "id": "loc_002",
+      "name": "Beşiktaş",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 41.0429,
+      "lng": 29.0079
+    },
+    {
+      "id": "loc_003",
+      "name": "Şişli",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 41.0602,
+      "lng": 28.9877
+    },
+    {
+      "id": "loc_004",
+      "name": "Beyoğlu",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 41.037,
+      "lng": 28.977
+    },
+    {
+      "id": "loc_005",
+      "name": "Üsküdar",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 41.0234,
+      "lng": 29.0157
+    },
+    {
+      "id": "loc_006",
+      "name": "Bakırköy",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 40.98,
+      "lng": 28.877
+    },
+    {
+      "id": "loc_007",
+      "name": "Sarıyer",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 41.167,
+      "lng": 29.05
+    },
+    {
+      "id": "loc_008",
+      "name": "Fatih",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 41.0186,
+      "lng": 28.94
+    },
+    {
+      "id": "loc_009",
+      "name": "Ataşehir",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 40.9833,
+      "lng": 29.1167
+    },
+    {
+      "id": "loc_010",
+      "name": "Maltepe",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 40.9337,
+      "lng": 29.13
+    },
+    {
+      "id": "loc_011",
+      "name": "Kartal",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 40.89,
+      "lng": 29.19
+    },
+    {
+      "id": "loc_012",
+      "name": "Pendik",
+      "type": "district",
+      "city": "İstanbul",
+      "lat": 40.8756,
+      "lng": 29.2339
+    },
+    {
+      "id": "loc_013",
+      "name": "Karaköy",
+      "type": "neighborhood",
+      "city": "İstanbul",
+      "lat": 41.022,
+      "lng": 28.974
+    },
+    {
+      "id": "loc_014",
+      "name": "Nişantaşı",
+      "type": "neighborhood",
+      "city": "İstanbul",
+      "lat": 41.049,
+      "lng": 28.993
+    },
+    {
+      "id": "loc_015",
+      "name": "Cihangir",
+      "type": "neighborhood",
+      "city": "İstanbul",
+      "lat": 41.032,
+      "lng": 28.983
+    },
+    {
+      "id": "loc_016",
+      "name": "Bebek",
+      "type": "neighborhood",
+      "city": "İstanbul",
+      "lat": 41.077,
+      "lng": 29.043
+    },
+    {
+      "id": "loc_017",
+      "name": "Moda",
+      "type": "neighborhood",
+      "city": "İstanbul",
+      "lat": 40.9854,
+      "lng": 29.0258
+    },
+    {
+      "id": "loc_018",
+      "name": "Bağdat Caddesi",
+      "type": "neighborhood",
+      "city": "İstanbul",
+      "lat": 40.96,
+      "lng": 29.09
+    },
+    {
+      "id": "loc_019",
+      "name": "Ankara Merkez",
+      "type": "city",
+      "city": "Ankara",
+      "lat": 39.9334,
+      "lng": 32.8597
+    },
+    {
+      "id": "loc_020",
+      "name": "İzmir Merkez",
+      "type": "city",
+      "city": "İzmir",
+      "lat": 38.4237,
+      "lng": 27.1428
+    },
+    {
+      "id": "loc_021",
+      "name": "Bursa Merkez",
+      "type": "city",
+      "city": "Bursa",
+      "lat": 40.1885,
+      "lng": 29.061
+    },
+    {
+      "id": "loc_022",
+      "name": "Antalya Merkez",
+      "type": "city",
+      "city": "Antalya",
+      "lat": 36.8969,
+      "lng": 30.7133
+    }
+  ]
+}
