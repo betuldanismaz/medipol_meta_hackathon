@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
-  title: "Medipol Meta Hackathon",
-  description: "Sosyal Medya YZ Ekosistemi",
+  title: "InfluMatch — Influencer ve İşletmeleri Eşleştiren Platform",
+  description:
+    "Kafeler, butikler ve influencer'lar için AI destekli, konum bazlı akıllı eşleşme.",
 };
 
 export default function RootLayout({
@@ -13,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
