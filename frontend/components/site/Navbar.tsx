@@ -23,7 +23,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 font-semibold text-lg shrink-0">
-          <Image src="/logo.svg" alt="InfluMatch logo" width={32} height={32} className="rounded-xl" />
+          <Image src="/Logo.png" alt="InfluMatch logo" width={36} height={36} className="object-contain" />
           <span className="tracking-tight">InfluMatch</span>
         </Link>
 

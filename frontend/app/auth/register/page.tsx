@@ -54,7 +54,7 @@ export default function RegisterPage() {
         <div className="w-full max-w-md">
           {/* Mobile logo */}
           <Link href="/" className="flex items-center gap-2 mb-8 lg:hidden">
-            <Image src="/logo.svg" alt="InfluMatch" width={28} height={28} className="rounded-lg" />
+            <Image src="/Logo.png" alt="InfluMatch" width={32} height={32} className="object-contain" />
             <span className="font-semibold">InfluMatch</span>
           </Link>
 
@@ -135,7 +135,7 @@ export default function RegisterPage() {
       <div className="hidden lg:flex bg-gradient-brand relative overflow-hidden flex-col justify-between p-12 text-primary-foreground order-1 lg:order-2">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(255,255,255,0.18),transparent_55%)]" />
         <Link href="/" className="relative flex items-center gap-2.5 font-semibold text-lg">
-          <Image src="/logo.svg" alt="InfluMatch" width={32} height={32} className="rounded-xl" />
+          <Image src="/Logo.png" alt="InfluMatch" width={40} height={40} className="object-contain brightness-0 invert" />
           InfluMatch
         </Link>
         <div className="relative">

@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 grid gap-10 md:grid-cols-4">
         <div>
           <Link href="/" className="flex items-center gap-2.5 font-semibold">
-            <Image src="/logo.svg" alt="InfluMatch logo" width={28} height={28} className="rounded-lg" />
+            <Image src="/Logo.png" alt="InfluMatch logo" width={32} height={32} className="object-contain" />
             <span>InfluMatch</span>
           </Link>
           <p className="mt-3 text-sm text-muted-foreground max-w-xs leading-relaxed">

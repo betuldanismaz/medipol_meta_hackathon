@@ -58,11 +58,11 @@ export default function DashboardLayout({
               className="flex items-center gap-3 px-5 pt-6 pb-5 group"
             >
               <Image
-                src="/logo.svg"
+                src="/Logo.png"
                 alt="InfluMatch"
-                width={36}
-                height={36}
-                className="rounded-xl shadow-sm"
+                width={40}
+                height={40}
+                className="object-contain"
               />
               <div className="flex flex-col leading-tight">
                 <span className="font-display text-xl tracking-tight">

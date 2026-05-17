@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   description:
     "Kafeler, butikler ve influencer'lar için AI destekli, konum bazlı akıllı eşleşme.",
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/Logo.png",
+    shortcut: "/Logo.png",
+    apple: "/Logo.png",
   },
   openGraph: {
     title: "InfluMatch — AI Destekli Eşleşme",
