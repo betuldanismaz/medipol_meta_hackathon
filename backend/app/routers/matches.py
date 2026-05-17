@@ -14,7 +14,7 @@ from app.models import (
     UserRole,
     UserTier,
 )
-from app.schemas import MatchRead, SwipePayload, SwipeResult
+from app.schemas import MatchDetail, MatchRead, SwipePayload, SwipeResult
 from app.services.negotiation_service import auto_start_negotiation_if_premium
 
 router = APIRouter(prefix="/matches", tags=["matches"])
@@ -113,3 +113,58 @@ def list_matches(
         query = query.filter(Match.candidate_id == current_user.id)
     rows = query.order_by(Match.created_at.desc()).all()
     return [MatchRead.model_validate(row) for row in rows]
+
+
+@router.get("/details", response_model=list[MatchDetail])
+def list_match_details(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> list[MatchDetail]:
+    from app.models import Message  # local import to avoid circular reference
+
+    query = db.query(Match)
+    if current_user.role == UserRole.BUSINESS:
+        owned_ids = [
+            row.id for row in db.query(Listing.id).filter(Listing.owner_id == current_user.id).all()
+        ]
+        query = query.filter(Match.listing_id.in_(owned_ids or [-1]))
+    else:
+        query = query.filter(Match.candidate_id == current_user.id)
+    rows = query.order_by(Match.created_at.desc()).all()
+
+    listing_ids = {m.listing_id for m in rows}
+    candidate_ids = {m.candidate_id for m in rows}
+    listings = {l.id: l for l in db.query(Listing).filter(Listing.id.in_(listing_ids or [-1])).all()}
+    owner_ids = {l.owner_id for l in listings.values()}
+    users = {
+        u.id: u
+        for u in db.query(User).filter(User.id.in_(candidate_ids | owner_ids or {-1})).all()
+    }
+
+    details: list[MatchDetail] = []
+    for match in rows:
+        listing = listings.get(match.listing_id)
+        if current_user.role == UserRole.BUSINESS:
+            counterpart = users.get(match.candidate_id)
+        else:
+            counterpart = users.get(listing.owner_id) if listing else None
+        last_msg = (
+            db.query(Message)
+            .filter(Message.match_id == match.id)
+            .order_by(Message.created_at.desc())
+            .first()
+        )
+        d = MatchDetail.model_validate(match)
+        d.listing_title = listing.title if listing else None
+        d.listing_cover_url = listing.cover_url if listing else None
+        if counterpart:
+            d.counterpart_id = counterpart.id
+            d.counterpart_display_name = counterpart.display_name
+            d.counterpart_avatar_url = counterpart.avatar_url
+        if last_msg:
+            d.last_message = last_msg.content
+            d.last_activity_at = last_msg.created_at
+        else:
+            d.last_activity_at = match.created_at
+        details.append(d)
+    return details

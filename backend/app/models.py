@@ -87,9 +87,12 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    external_id: Mapped[str | None] = mapped_column(String(64), unique=True, index=True)
     email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False, index=True)
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
     display_name: Mapped[str] = mapped_column(String(120), nullable=False)
+    username: Mapped[str | None] = mapped_column(String(80), unique=True, index=True)
+    avatar_url: Mapped[str | None] = mapped_column(String(500))
     role: Mapped[UserRole] = mapped_column(Enum(UserRole), nullable=False)
     tier: Mapped[UserTier] = mapped_column(
         Enum(UserTier), nullable=False, default=UserTier.FREE
@@ -98,8 +101,10 @@ class User(Base):
     agent_persona: Mapped[dict | None] = mapped_column(JSON)
     profile: Mapped[dict | None] = mapped_column(JSON)
     city: Mapped[str | None] = mapped_column(String(80))
+    district: Mapped[str | None] = mapped_column(String(80))
     latitude: Mapped[float | None] = mapped_column(Float)
     longitude: Mapped[float | None] = mapped_column(Float)
+    bio: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
     )
@@ -112,6 +117,9 @@ class User(Base):
     )
     memories: Mapped[list["ProfileMemory"]] = relationship(
         back_populates="user", cascade="all, delete-orphan"
+    )
+    posts: Mapped[list["InstagramPost"]] = relationship(
+        back_populates="influencer", cascade="all, delete-orphan"
     )
 
 
@@ -141,15 +149,19 @@ class Listing(Base):
     __tablename__ = "listings"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    external_id: Mapped[str | None] = mapped_column(String(64), unique=True, index=True)
     owner_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), nullable=False
     )
     type: Mapped[ListingType] = mapped_column(Enum(ListingType), nullable=False)
     title: Mapped[str] = mapped_column(String(160), nullable=False)
     description: Mapped[str] = mapped_column(Text, nullable=False)
+    category: Mapped[str | None] = mapped_column(String(80))
+    cover_url: Mapped[str | None] = mapped_column(String(500))
     budget_min: Mapped[float | None] = mapped_column(Float)
     budget_max: Mapped[float | None] = mapped_column(Float)
     city: Mapped[str | None] = mapped_column(String(80))
+    district: Mapped[str | None] = mapped_column(String(80))
     latitude: Mapped[float | None] = mapped_column(Float)
     longitude: Mapped[float | None] = mapped_column(Float)
     extras: Mapped[dict | None] = mapped_column(JSON)
@@ -281,6 +293,52 @@ class BillingEvent(Base):
     amount_try: Mapped[float] = mapped_column(Float, nullable=False)
     metadata_json: Mapped[dict | None] = mapped_column("metadata", JSON)
     status: Mapped[str] = mapped_column(String(32), default="mock_paid", nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+
+class InstagramPost(Base):
+    __tablename__ = "instagram_posts"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    external_id: Mapped[str | None] = mapped_column(String(64), unique=True, index=True)
+    influencer_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    type: Mapped[str] = mapped_column(String(20), nullable=False, default="post")
+    caption: Mapped[str | None] = mapped_column(Text)
+    hashtags: Mapped[list | None] = mapped_column(JSON)
+    mentioned_brands: Mapped[list | None] = mapped_column(JSON)
+    location_tag: Mapped[str | None] = mapped_column(String(160))
+    posted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    metrics: Mapped[dict | None] = mapped_column(JSON)
+
+    influencer: Mapped["User"] = relationship(back_populates="posts")
+
+
+class TaxonomyTerm(Base):
+    __tablename__ = "taxonomy_terms"
+    __table_args__ = (UniqueConstraint("kind", "code", name="uq_taxonomy_kind_code"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    kind: Mapped[str] = mapped_column(String(32), nullable=False, index=True)
+    code: Mapped[str] = mapped_column(String(64), nullable=False)
+    label: Mapped[str] = mapped_column(String(160), nullable=False)
+    parent_code: Mapped[str | None] = mapped_column(String(64))
+
+
+class Message(Base):
+    __tablename__ = "messages"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    match_id: Mapped[int] = mapped_column(
+        ForeignKey("matches.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    sender_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), nullable=False
+    )
+    content: Mapped[str] = mapped_column(Text, nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
     )
