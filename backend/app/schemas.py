@@ -299,6 +299,34 @@ class MatchDetail(MatchRead):
 
 
 # ---------------------------------------------------------------------------
+# ML scoring
+# ---------------------------------------------------------------------------
+class MatchBreakdown(BaseModel):
+    nicheMatch: int
+    locationMatch: int
+    engagementFit: int
+    audienceFit: int
+    budgetFit: int
+    campaignExperience: int
+
+
+class MatchScoreResult(BaseModel):
+    score: int                              # 0-100
+    label: Literal["iyi_match", "orta_match", "kotu_match"]
+    reasons: list[str] = Field(default_factory=list)
+    risks: list[str] = Field(default_factory=list)
+    breakdown: MatchBreakdown
+
+
+class MLHealth(BaseModel):
+    model_loaded: bool
+    adapter: str
+    model_version: str
+    feature_count: int
+    sample_inference_ms: float | None = None
+
+
+# ---------------------------------------------------------------------------
 # Agent / negotiation
 # ---------------------------------------------------------------------------
 class ProposedTerms(BaseModel):

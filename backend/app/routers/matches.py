@@ -14,7 +14,15 @@ from app.models import (
     UserRole,
     UserTier,
 )
-from app.schemas import MatchDetail, MatchRead, SwipePayload, SwipeResult
+from app.ml.ranking import score_pair
+from app.schemas import (
+    MatchBreakdown,
+    MatchDetail,
+    MatchRead,
+    MatchScoreResult,
+    SwipePayload,
+    SwipeResult,
+)
 from app.services.negotiation_service import auto_start_negotiation_if_premium
 
 router = APIRouter(prefix="/matches", tags=["matches"])
@@ -113,6 +121,45 @@ def list_matches(
         query = query.filter(Match.candidate_id == current_user.id)
     rows = query.order_by(Match.created_at.desc()).all()
     return [MatchRead.model_validate(row) for row in rows]
+
+
+@router.get("/score", response_model=MatchScoreResult)
+def get_match_score(
+    listing_id: int,
+    candidate_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> MatchScoreResult:
+    """Tek (listing, candidate) pair için ML skor + reasons + breakdown.
+
+    Auth gerekli — sadece taraflardan biri sorgulayabilir (business owner veya
+    candidate kendisi).
+    """
+    listing = db.get(Listing, listing_id)
+    if listing is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Listing not found")
+    candidate = db.get(User, candidate_id)
+    if candidate is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Candidate not found")
+    business = db.get(User, listing.owner_id)
+    if business is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Listing owner not found")
+
+    # Yetki: business kendi listing'i veya candidate kendisi sorgulayabilir
+    if current_user.id != business.id and current_user.id != candidate.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Bu skoru sorgulama yetkiniz yok.",
+        )
+
+    result = score_pair(db, candidate, listing, business)
+    return MatchScoreResult(
+        score=int(round(result.score)),
+        label=result.label,
+        reasons=result.reasons,
+        risks=result.risks,
+        breakdown=MatchBreakdown(**result.breakdown),
+    )
 
 
 @router.get("/details", response_model=list[MatchDetail])

@@ -41,12 +41,15 @@ export default function NegotiationInboxPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold flex items-center gap-2">
-          <Bot className="w-7 h-7 text-[var(--brand)]" />
-          Agent Inbox
+      <div className="animate-rise">
+        <p className="text-eyebrow flex items-center gap-2">
+          <Bot className="w-3.5 h-3.5 text-[var(--brand)]" />
+          Otonom müzakere
+        </p>
+        <h1 className="font-display text-5xl md:text-6xl mt-3 leading-[1.05]">
+          Agent <span className="italic text-gradient">Inbox</span>
         </h1>
-        <p className="text-muted-foreground mt-1">
+        <p className="text-muted-foreground mt-3 max-w-md">
           Aktif tüm müzakereler. Premium'sun, her şey paralel yürür.
         </p>
       </div>
@@ -70,7 +73,7 @@ export default function NegotiationInboxPage() {
           <Link
             key={item.negotiation.id}
             href={`/dashboard/negotiations/${item.negotiation.id}`}
-            className="group rounded-2xl border border-border bg-card hover:border-foreground/30 transition p-5 flex items-center justify-between gap-4"
+            className="group surface-glass surface-hairline rounded-2xl hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)] transition-all duration-300 p-5 flex items-center justify-between gap-4"
           >
             <div className="min-w-0">
               <div className="flex items-center gap-2 mb-1">

@@ -68,17 +68,20 @@ function BillingInner() {
 
   return (
     <div className="max-w-3xl space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold flex items-center gap-2">
-          <CreditCard className="w-7 h-7 text-[var(--brand)]" />
-          Premium & Ödeme
+      <div className="animate-rise">
+        <p className="text-eyebrow flex items-center gap-2">
+          <CreditCard className="w-3.5 h-3.5 text-[var(--brand)]" />
+          Plan & ödeme
+        </p>
+        <h1 className="font-display text-5xl md:text-6xl mt-3 leading-[1.05]">
+          Pre<span className="italic text-gradient">mium</span>
         </h1>
-        <p className="text-muted-foreground mt-1 text-sm">
+        <p className="text-muted-foreground mt-3 max-w-md text-sm">
           MVP mock ödeme — gerçek Stripe / iyzico v2'de eklenecek.
         </p>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card p-5">
+      <div className="surface-glass surface-hairline rounded-2xl p-5 animate-rise" style={{ animationDelay: "120ms" }}>
         <div className="flex items-center justify-between">
           <div>
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
@@ -102,19 +105,22 @@ function BillingInner() {
       </div>
 
       <div
-        className={`rounded-3xl border-2 ${
+        className={`surface-glass-strong surface-hairline relative rounded-3xl ${
           requestedPlan === planForRole
-            ? "border-[var(--brand)] shadow-[var(--shadow-glow)]"
-            : "border-border"
-        } bg-card p-8`}
+            ? "ring-2 ring-[var(--brand)] shadow-[var(--shadow-glow)]"
+            : ""
+        } p-8 animate-rise`}
+        style={{ animationDelay: "200ms" }}
       >
         <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
           <Sparkles className="w-3.5 h-3.5 text-[var(--brand)]" />
           {isBusiness ? "İşletme" : "Influencer / Çalışan"} planı
         </div>
-        <h2 className="text-2xl font-bold">{planLabel} Premium</h2>
-        <div className="mt-2 flex items-baseline gap-1">
-          <span className="text-4xl font-bold">₺{price}</span>
+        <h2 className="font-display text-3xl tracking-tight">
+          {planLabel} <span className="italic">Premium</span>
+        </h2>
+        <div className="mt-3 flex items-baseline gap-1">
+          <span className="font-display text-5xl tracking-tight">₺{price}</span>
           <span className="text-muted-foreground">/ ay</span>
         </div>
         <ul className="mt-5 space-y-2 text-sm">
