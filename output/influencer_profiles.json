@@ -1,0 +1,1324 @@
+[
+  {
+    "id": "inf_001",
+    "display_name": "Elif Aydın",
+    "username": "@elifgezgin",
+    "bio": "Keşfedilmemiş sokaklar ve sakin köşeler",
+    "tier": "nano",
+    "follower_count": 2824,
+    "following_count": 39,
+    "post_count": 512,
+    "account_created_at": "2025-03-13T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Kadıköy",
+      "lat": 40.983396,
+      "lng": 29.022073
+    },
+    "content_categories": [
+      "cat_008",
+      "cat_001"
+    ],
+    "content_styles": [
+      "sty_009",
+      "sty_012"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.35,
+        "25-34": 0.05,
+        "35-44": 0.16,
+        "45+": 0.44
+      },
+      "gender_distribution": {
+        "female": 0.5,
+        "male": 0.49,
+        "other": 0.01
+      },
+      "location_distribution": {
+        "İstanbul": 0.57,
+        "Ankara": 0.12,
+        "İzmir": 0.09,
+        "diğer": 0.22
+      },
+      "income_distribution": {
+        "bütçe": 0.4,
+        "orta": 0.18,
+        "premium": 0.42
+      },
+      "interest_tags": [
+        "seyahat",
+        "lifestyle"
+      ]
+    },
+    "rate_range": {
+      "min": 500,
+      "max": 2000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.041,
+    "agent_preferences_id": "agp_inf_001",
+    "verification_status": "pending",
+    "profile_completion": 0.94,
+    "past_collaboration_count": 0,
+    "last_active_at": "2026-05-05T07:00:00Z"
+  },
+  {
+    "id": "inf_002",
+    "display_name": "Kaan Polat",
+    "username": "@kaanfit",
+    "bio": "Doğal beslenme ve outdoor antrenman",
+    "tier": "nano",
+    "follower_count": 7924,
+    "following_count": 255,
+    "post_count": 350,
+    "account_created_at": "2025-02-18T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "Ankara",
+      "district": "Ankara Merkez",
+      "lat": 39.937995,
+      "lng": 32.860425
+    },
+    "content_categories": [
+      "cat_009",
+      "cat_010"
+    ],
+    "content_styles": [
+      "sty_008",
+      "sty_006"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.35,
+        "25-34": 0.15,
+        "35-44": 0.21,
+        "45+": 0.29
+      },
+      "gender_distribution": {
+        "female": 0.45,
+        "male": 0.52,
+        "other": 0.03
+      },
+      "location_distribution": {
+        "İstanbul": 0.45,
+        "Ankara": 0.06,
+        "İzmir": 0.04,
+        "diğer": 0.45
+      },
+      "income_distribution": {
+        "bütçe": 0.3,
+        "orta": 0.41,
+        "premium": 0.29
+      },
+      "interest_tags": [
+        "fitness",
+        "wellness"
+      ]
+    },
+    "rate_range": {
+      "min": 500,
+      "max": 2000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0536,
+    "agent_preferences_id": "agp_inf_002",
+    "verification_status": "pending",
+    "profile_completion": 0.91,
+    "past_collaboration_count": 0,
+    "last_active_at": "2026-05-07T05:00:00Z"
+  },
+  {
+    "id": "inf_003",
+    "display_name": "İrem Koç",
+    "username": "@iremscraftlab",
+    "bio": "El yapımı dekor ve minimalist yaşam",
+    "tier": "nano",
+    "follower_count": 5741,
+    "following_count": 98,
+    "post_count": 459,
+    "account_created_at": "2023-05-21T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Beşiktaş",
+      "lat": 41.03709,
+      "lng": 29.00324
+    },
+    "content_categories": [
+      "cat_019",
+      "cat_001"
+    ],
+    "content_styles": [
+      "sty_001",
+      "sty_011"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.38,
+        "25-34": 0.27,
+        "35-44": 0.26,
+        "45+": 0.09
+      },
+      "gender_distribution": {
+        "female": 0.7,
+        "male": 0.27,
+        "other": 0.03
+      },
+      "location_distribution": {
+        "İstanbul": 0.46,
+        "Ankara": 0.1,
+        "İzmir": 0.09,
+        "diğer": 0.35
+      },
+      "income_distribution": {
+        "bütçe": 0.55,
+        "orta": 0.15,
+        "premium": 0.3
+      },
+      "interest_tags": [
+        "dekorasyon",
+        "lifestyle"
+      ]
+    },
+    "rate_range": {
+      "min": 500,
+      "max": 2000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0794,
+    "agent_preferences_id": "agp_inf_003",
+    "verification_status": "pending",
+    "profile_completion": 0.98,
+    "past_collaboration_count": 5,
+    "last_active_at": "2026-05-05T19:00:00Z"
+  },
+  {
+    "id": "inf_004",
+    "display_name": "Burak Şen",
+    "username": "@burakpetworld",
+    "bio": "Patili dostlar ve şehir hayatı",
+    "tier": "nano",
+    "follower_count": 4598,
+    "following_count": 113,
+    "post_count": 147,
+    "account_created_at": "2024-03-11T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Üsküdar",
+      "lat": 41.031663,
+      "lng": 29.017044
+    },
+    "content_categories": [
+      "cat_022"
+    ],
+    "content_styles": [
+      "sty_007",
+      "sty_009"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.31,
+        "25-34": 0.11,
+        "35-44": 0.22,
+        "45+": 0.36
+      },
+      "gender_distribution": {
+        "female": 0.69,
+        "male": 0.28,
+        "other": 0.03
+      },
+      "location_distribution": {
+        "İstanbul": 0.42,
+        "Ankara": 0.05,
+        "İzmir": 0.05,
+        "diğer": 0.48
+      },
+      "income_distribution": {
+        "bütçe": 0.64,
+        "orta": 0.18,
+        "premium": 0.18
+      },
+      "interest_tags": [
+        "evcil hayvan"
+      ]
+    },
+    "rate_range": {
+      "min": 500,
+      "max": 2000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0674,
+    "agent_preferences_id": "agp_inf_004",
+    "verification_status": "pending",
+    "profile_completion": 0.92,
+    "past_collaboration_count": 4,
+    "last_active_at": "2026-05-12T13:00:00Z"
+  },
+  {
+    "id": "inf_005",
+    "display_name": "Melis Tan",
+    "username": "@melisnaturel",
+    "bio": "Doğal cilt bakım rutinleri",
+    "tier": "nano",
+    "follower_count": 8019,
+    "following_count": 104,
+    "post_count": 192,
+    "account_created_at": "2024-07-08T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İzmir",
+      "district": "İzmir Merkez",
+      "lat": 38.426249,
+      "lng": 27.148642
+    },
+    "content_categories": [
+      "cat_006",
+      "cat_004"
+    ],
+    "content_styles": [
+      "sty_012",
+      "sty_015"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.23,
+        "25-34": 0.06,
+        "35-44": 0.21,
+        "45+": 0.5
+      },
+      "gender_distribution": {
+        "female": 0.54,
+        "male": 0.45,
+        "other": 0.01
+      },
+      "location_distribution": {
+        "İstanbul": 0.65,
+        "Ankara": 0.1,
+        "İzmir": 0.04,
+        "diğer": 0.21
+      },
+      "income_distribution": {
+        "bütçe": 0.23,
+        "orta": 0.41,
+        "premium": 0.36
+      },
+      "interest_tags": [
+        "cilt bakımı",
+        "güzellik"
+      ]
+    },
+    "rate_range": {
+      "min": 500,
+      "max": 2000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0759,
+    "agent_preferences_id": "agp_inf_005",
+    "verification_status": "pending",
+    "profile_completion": 0.75,
+    "past_collaboration_count": 5,
+    "last_active_at": "2026-05-15T15:00:00Z"
+  },
+  {
+    "id": "inf_006",
+    "display_name": "Zeynep Karagöz",
+    "username": "@zeynepfoodie",
+    "bio": "İstanbul'da brunch avcısı | Reklam: DM",
+    "tier": "micro",
+    "follower_count": 80381,
+    "following_count": 3760,
+    "post_count": 349,
+    "account_created_at": "2022-07-27T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Kadıköy",
+      "lat": 40.998039,
+      "lng": 29.027854
+    },
+    "content_categories": [
+      "cat_002",
+      "cat_001"
+    ],
+    "content_styles": [
+      "sty_011",
+      "sty_009"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.07,
+        "25-34": 0.3,
+        "35-44": 0.39,
+        "45+": 0.24
+      },
+      "gender_distribution": {
+        "female": 0.67,
+        "male": 0.31,
+        "other": 0.02
+      },
+      "location_distribution": {
+        "İstanbul": 0.44,
+        "Ankara": 0.07,
+        "İzmir": 0.03,
+        "diğer": 0.46
+      },
+      "income_distribution": {
+        "bütçe": 0.28,
+        "orta": 0.48,
+        "premium": 0.24
+      },
+      "interest_tags": [
+        "yemek",
+        "lifestyle"
+      ]
+    },
+    "rate_range": {
+      "min": 2000,
+      "max": 8000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0425,
+    "agent_preferences_id": "agp_inf_006",
+    "verification_status": "pending",
+    "profile_completion": 0.97,
+    "past_collaboration_count": 19,
+    "last_active_at": "2026-05-03T12:00:00Z"
+  },
+  {
+    "id": "inf_007",
+    "display_name": "Can Demir",
+    "username": "@canstreetbites",
+    "bio": "Sokak lezzetleri ve yeni mekanlar",
+    "tier": "micro",
+    "follower_count": 88504,
+    "following_count": 1122,
+    "post_count": 326,
+    "account_created_at": "2022-03-13T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Beyoğlu",
+      "lat": 41.045939,
+      "lng": 28.968713
+    },
+    "content_categories": [
+      "cat_002",
+      "cat_008"
+    ],
+    "content_styles": [
+      "sty_005",
+      "sty_014"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.23,
+        "25-34": 0.05,
+        "35-44": 0.35,
+        "45+": 0.37
+      },
+      "gender_distribution": {
+        "female": 0.41,
+        "male": 0.56,
+        "other": 0.03
+      },
+      "location_distribution": {
+        "İstanbul": 0.61,
+        "Ankara": 0.13,
+        "İzmir": 0.05,
+        "diğer": 0.21
+      },
+      "income_distribution": {
+        "bütçe": 0.14,
+        "orta": 0.4,
+        "premium": 0.46
+      },
+      "interest_tags": [
+        "yemek",
+        "seyahat"
+      ]
+    },
+    "rate_range": {
+      "min": 2000,
+      "max": 8000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0297,
+    "agent_preferences_id": "agp_inf_007",
+    "verification_status": "pending",
+    "profile_completion": 0.81,
+    "past_collaboration_count": 16,
+    "last_active_at": "2026-05-13T19:00:00Z"
+  },
+  {
+    "id": "inf_008",
+    "display_name": "Selin Çelik",
+    "username": "@selintechtips",
+    "bio": "Gadget incelemeleri ve üretkenlik ipuçları",
+    "tier": "micro",
+    "follower_count": 36365,
+    "following_count": 870,
+    "post_count": 310,
+    "account_created_at": "2025-01-06T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Ataşehir",
+      "lat": 40.980062,
+      "lng": 29.118466
+    },
+    "content_categories": [
+      "cat_007",
+      "cat_001"
+    ],
+    "content_styles": [
+      "sty_006",
+      "sty_001"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.21,
+        "25-34": 0.2,
+        "35-44": 0.09,
+        "45+": 0.5
+      },
+      "gender_distribution": {
+        "female": 0.54,
+        "male": 0.44,
+        "other": 0.02
+      },
+      "location_distribution": {
+        "İstanbul": 0.46,
+        "Ankara": 0.14,
+        "İzmir": 0.06,
+        "diğer": 0.34
+      },
+      "income_distribution": {
+        "bütçe": 0.13,
+        "orta": 0.45,
+        "premium": 0.42
+      },
+      "interest_tags": [
+        "teknoloji",
+        "lifestyle"
+      ]
+    },
+    "rate_range": {
+      "min": 2000,
+      "max": 8000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0414,
+    "agent_preferences_id": "agp_inf_008",
+    "verification_status": "pending",
+    "profile_completion": 0.77,
+    "past_collaboration_count": 10,
+    "last_active_at": "2026-05-12T15:00:00Z"
+  },
+  {
+    "id": "inf_009",
+    "display_name": "Arda Kılıç",
+    "username": "@ardastreetstyle",
+    "bio": "Erkek sokak stili ve moda trendleri",
+    "tier": "micro",
+    "follower_count": 73624,
+    "following_count": 2403,
+    "post_count": 274,
+    "account_created_at": "2024-11-05T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Şişli",
+      "lat": 41.052139,
+      "lng": 28.986321
+    },
+    "content_categories": [
+      "cat_003",
+      "cat_001"
+    ],
+    "content_styles": [
+      "sty_014",
+      "sty_005"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.19,
+        "25-34": 0.21,
+        "35-44": 0.31,
+        "45+": 0.29
+      },
+      "gender_distribution": {
+        "female": 0.45,
+        "male": 0.52,
+        "other": 0.03
+      },
+      "location_distribution": {
+        "İstanbul": 0.52,
+        "Ankara": 0.1,
+        "İzmir": 0.08,
+        "diğer": 0.3
+      },
+      "income_distribution": {
+        "bütçe": 0.63,
+        "orta": 0.09,
+        "premium": 0.28
+      },
+      "interest_tags": [
+        "moda",
+        "lifestyle"
+      ]
+    },
+    "rate_range": {
+      "min": 2000,
+      "max": 8000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0264,
+    "agent_preferences_id": "agp_inf_009",
+    "verification_status": "pending",
+    "profile_completion": 0.83,
+    "past_collaboration_count": 6,
+    "last_active_at": "2026-05-14T06:00:00Z"
+  },
+  {
+    "id": "inf_010",
+    "display_name": "Defne Şahin",
+    "username": "@defneminimal",
+    "bio": "Minimalist yaşam, sade güzellik",
+    "tier": "micro",
+    "follower_count": 34931,
+    "following_count": 1476,
+    "post_count": 180,
+    "account_created_at": "2025-02-03T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "Antalya",
+      "district": "Antalya Merkez",
+      "lat": 36.899943,
+      "lng": 30.714112
+    },
+    "content_categories": [
+      "cat_001",
+      "cat_019"
+    ],
+    "content_styles": [
+      "sty_001",
+      "sty_015"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.05,
+        "25-34": 0.11,
+        "35-44": 0.62,
+        "45+": 0.22
+      },
+      "gender_distribution": {
+        "female": 0.45,
+        "male": 0.54,
+        "other": 0.01
+      },
+      "location_distribution": {
+        "İstanbul": 0.49,
+        "Ankara": 0.14,
+        "İzmir": 0.04,
+        "diğer": 0.33
+      },
+      "income_distribution": {
+        "bütçe": 0.24,
+        "orta": 0.28,
+        "premium": 0.48
+      },
+      "interest_tags": [
+        "lifestyle",
+        "dekorasyon"
+      ]
+    },
+    "rate_range": {
+      "min": 2000,
+      "max": 8000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0361,
+    "agent_preferences_id": "agp_inf_010",
+    "verification_status": "pending",
+    "profile_completion": 0.96,
+    "past_collaboration_count": 8,
+    "last_active_at": "2026-05-11T12:00:00Z"
+  },
+  {
+    "id": "inf_011",
+    "display_name": "Berk Doğan",
+    "username": "@berkmixology",
+    "bio": "Fine dining ve kokteyl kültürü",
+    "tier": "micro",
+    "follower_count": 61173,
+    "following_count": 2887,
+    "post_count": 578,
+    "account_created_at": "2024-07-04T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Beyoğlu",
+      "lat": 41.030798,
+      "lng": 28.971354
+    },
+    "content_categories": [
+      "cat_002",
+      "cat_001"
+    ],
+    "content_styles": [
+      "sty_004",
+      "sty_013"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.08,
+        "25-34": 0.57,
+        "35-44": 0.08,
+        "45+": 0.27
+      },
+      "gender_distribution": {
+        "female": 0.67,
+        "male": 0.31,
+        "other": 0.02
+      },
+      "location_distribution": {
+        "İstanbul": 0.48,
+        "Ankara": 0.15,
+        "İzmir": 0.1,
+        "diğer": 0.27
+      },
+      "income_distribution": {
+        "bütçe": 0.06,
+        "orta": 0.33,
+        "premium": 0.61
+      },
+      "interest_tags": [
+        "yemek",
+        "lifestyle"
+      ]
+    },
+    "rate_range": {
+      "min": 2000,
+      "max": 8000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.028,
+    "agent_preferences_id": "agp_inf_011",
+    "verification_status": "pending",
+    "profile_completion": 0.87,
+    "past_collaboration_count": 4,
+    "last_active_at": "2026-05-09T10:00:00Z"
+  },
+  {
+    "id": "inf_012",
+    "display_name": "Naz Yılmaz",
+    "username": "@nazmakeup",
+    "bio": "Günlük makyaj ve saç bakımı",
+    "tier": "micro",
+    "follower_count": 34356,
+    "following_count": 1528,
+    "post_count": 120,
+    "account_created_at": "2021-11-26T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "Bursa",
+      "district": "Bursa Merkez",
+      "lat": 40.18014,
+      "lng": 29.064147
+    },
+    "content_categories": [
+      "cat_005",
+      "cat_004"
+    ],
+    "content_styles": [
+      "sty_002",
+      "sty_013"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.31,
+        "25-34": 0.18,
+        "35-44": 0.15,
+        "45+": 0.36
+      },
+      "gender_distribution": {
+        "female": 0.42,
+        "male": 0.55,
+        "other": 0.03
+      },
+      "location_distribution": {
+        "İstanbul": 0.47,
+        "Ankara": 0.14,
+        "İzmir": 0.07,
+        "diğer": 0.32
+      },
+      "income_distribution": {
+        "bütçe": 0.42,
+        "orta": 0.37,
+        "premium": 0.21
+      },
+      "interest_tags": [
+        "makyaj",
+        "güzellik"
+      ]
+    },
+    "rate_range": {
+      "min": 2000,
+      "max": 8000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0221,
+    "agent_preferences_id": "agp_inf_012",
+    "verification_status": "pending",
+    "profile_completion": 0.9,
+    "past_collaboration_count": 17,
+    "last_active_at": "2026-05-12T10:00:00Z"
+  },
+  {
+    "id": "inf_013",
+    "display_name": "Ayşe Kaya",
+    "username": "@aysekstyle",
+    "bio": "Moda ve güzellik | PR: hello@ayse.com",
+    "tier": "mid",
+    "follower_count": 104883,
+    "following_count": 3907,
+    "post_count": 150,
+    "account_created_at": "2024-01-03T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Nişantaşı",
+      "lat": 41.046391,
+      "lng": 28.986155
+    },
+    "content_categories": [
+      "cat_003",
+      "cat_004"
+    ],
+    "content_styles": [
+      "sty_013",
+      "sty_004"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.26,
+        "25-34": 0.23,
+        "35-44": 0.2,
+        "45+": 0.31
+      },
+      "gender_distribution": {
+        "female": 0.75,
+        "male": 0.22,
+        "other": 0.03
+      },
+      "location_distribution": {
+        "İstanbul": 0.37,
+        "Ankara": 0.07,
+        "İzmir": 0.05,
+        "diğer": 0.51
+      },
+      "income_distribution": {
+        "bütçe": 0.43,
+        "orta": 0.04,
+        "premium": 0.53
+      },
+      "interest_tags": [
+        "moda",
+        "güzellik"
+      ]
+    },
+    "rate_range": {
+      "min": 8000,
+      "max": 25000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0219,
+    "agent_preferences_id": "agp_inf_013",
+    "verification_status": "pending",
+    "profile_completion": 0.82,
+    "past_collaboration_count": 31,
+    "last_active_at": "2026-05-16T08:00:00Z"
+  },
+  {
+    "id": "inf_014",
+    "display_name": "Murat Özkan",
+    "username": "@muratgurme",
+    "bio": "Gastronomi yazarı ve restoran keşifçisi",
+    "tier": "mid",
+    "follower_count": 238656,
+    "following_count": 5721,
+    "post_count": 350,
+    "account_created_at": "2022-07-17T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Beşiktaş",
+      "lat": 41.042671,
+      "lng": 29.016007
+    },
+    "content_categories": [
+      "cat_002",
+      "cat_008"
+    ],
+    "content_styles": [
+      "sty_006",
+      "sty_009"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.49,
+        "25-34": 0.08,
+        "35-44": 0.26,
+        "45+": 0.17
+      },
+      "gender_distribution": {
+        "female": 0.44,
+        "male": 0.54,
+        "other": 0.02
+      },
+      "location_distribution": {
+        "İstanbul": 0.43,
+        "Ankara": 0.11,
+        "İzmir": 0.08,
+        "diğer": 0.38
+      },
+      "income_distribution": {
+        "bütçe": 0.04,
+        "orta": 0.52,
+        "premium": 0.44
+      },
+      "interest_tags": [
+        "yemek",
+        "seyahat"
+      ]
+    },
+    "rate_range": {
+      "min": 8000,
+      "max": 25000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0167,
+    "agent_preferences_id": "agp_inf_014",
+    "verification_status": "pending",
+    "profile_completion": 0.81,
+    "past_collaboration_count": 33,
+    "last_active_at": "2026-05-09T19:00:00Z"
+  },
+  {
+    "id": "inf_015",
+    "display_name": "Pınar Aksu",
+    "username": "@pinarwellness",
+    "bio": "Yoga eğitmeni ve wellness içerik üreticisi",
+    "tier": "mid",
+    "follower_count": 469972,
+    "following_count": 16797,
+    "post_count": 231,
+    "account_created_at": "2022-12-19T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Sarıyer",
+      "lat": 41.159549,
+      "lng": 29.046165
+    },
+    "content_categories": [
+      "cat_010",
+      "cat_009"
+    ],
+    "content_styles": [
+      "sty_010",
+      "sty_012"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.26,
+        "25-34": 0.23,
+        "35-44": 0.25,
+        "45+": 0.26
+      },
+      "gender_distribution": {
+        "female": 0.4,
+        "male": 0.59,
+        "other": 0.01
+      },
+      "location_distribution": {
+        "İstanbul": 0.61,
+        "Ankara": 0.14,
+        "İzmir": 0.07,
+        "diğer": 0.18
+      },
+      "income_distribution": {
+        "bütçe": 0.36,
+        "orta": 0.42,
+        "premium": 0.22
+      },
+      "interest_tags": [
+        "wellness",
+        "fitness"
+      ]
+    },
+    "rate_range": {
+      "min": 8000,
+      "max": 25000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0214,
+    "agent_preferences_id": "agp_inf_015",
+    "verification_status": "pending",
+    "profile_completion": 0.93,
+    "past_collaboration_count": 38,
+    "last_active_at": "2026-05-03T23:00:00Z"
+  },
+  {
+    "id": "inf_016",
+    "display_name": "Emre Tuncer",
+    "username": "@emrereviews",
+    "bio": "Teknoloji ve oyun dünyası",
+    "tier": "mid",
+    "follower_count": 425405,
+    "following_count": 17764,
+    "post_count": 105,
+    "account_created_at": "2024-05-15T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "Ankara",
+      "district": "Ankara Merkez",
+      "lat": 39.938131,
+      "lng": 32.856344
+    },
+    "content_categories": [
+      "cat_007",
+      "cat_012"
+    ],
+    "content_styles": [
+      "sty_008",
+      "sty_005"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.27,
+        "25-34": 0.24,
+        "35-44": 0.25,
+        "45+": 0.24
+      },
+      "gender_distribution": {
+        "female": 0.72,
+        "male": 0.26,
+        "other": 0.02
+      },
+      "location_distribution": {
+        "İstanbul": 0.4,
+        "Ankara": 0.13,
+        "İzmir": 0.04,
+        "diğer": 0.43
+      },
+      "income_distribution": {
+        "bütçe": 0.24,
+        "orta": 0.64,
+        "premium": 0.12
+      },
+      "interest_tags": [
+        "teknoloji",
+        "oyun"
+      ]
+    },
+    "rate_range": {
+      "min": 8000,
+      "max": 25000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0262,
+    "agent_preferences_id": "agp_inf_016",
+    "verification_status": "pending",
+    "profile_completion": 0.95,
+    "past_collaboration_count": 37,
+    "last_active_at": "2026-05-10T05:00:00Z"
+  },
+  {
+    "id": "inf_017",
+    "display_name": "Dilan Arslan",
+    "username": "@dilanbeauty",
+    "bio": "Dermatolog onaylı cilt bakım protokolleri",
+    "tier": "mid",
+    "follower_count": 204633,
+    "following_count": 3628,
+    "post_count": 488,
+    "account_created_at": "2023-07-15T12:00:00Z",
+    "verified": false,
+    "location": {
+      "city": "İstanbul",
+      "district": "Kadıköy",
+      "lat": 40.988372,
+      "lng": 29.019088
+    },
+    "content_categories": [
+      "cat_004",
+      "cat_006"
+    ],
+    "content_styles": [
+      "sty_011",
+      "sty_004"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.33,
+        "25-34": 0.16,
+        "35-44": 0.22,
+        "45+": 0.29
+      },
+      "gender_distribution": {
+        "female": 0.56,
+        "male": 0.42,
+        "other": 0.02
+      },
+      "location_distribution": {
+        "İstanbul": 0.59,
+        "Ankara": 0.07,
+        "İzmir": 0.03,
+        "diğer": 0.31
+      },
+      "income_distribution": {
+        "bütçe": 0.66,
+        "orta": 0.28,
+        "premium": 0.06
+      },
+      "interest_tags": [
+        "güzellik",
+        "cilt bakımı"
+      ]
+    },
+    "rate_range": {
+      "min": 8000,
+      "max": 25000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0272,
+    "agent_preferences_id": "agp_inf_017",
+    "verification_status": "pending",
+    "profile_completion": 0.95,
+    "past_collaboration_count": 18,
+    "last_active_at": "2026-05-14T18:00:00Z"
+  },
+  {
+    "id": "inf_018",
+    "display_name": "Yasemin Erdoğan",
+    "username": "@yaseminlifestyle",
+    "bio": "Lifestyle | Moda | Seyahat | İş birliği: mgmt@yasemin.com",
+    "tier": "macro",
+    "follower_count": 639180,
+    "following_count": 10180,
+    "post_count": 474,
+    "account_created_at": "2022-02-22T12:00:00Z",
+    "verified": true,
+    "location": {
+      "city": "İstanbul",
+      "district": "Bebek",
+      "lat": 41.070802,
+      "lng": 29.033888
+    },
+    "content_categories": [
+      "cat_001",
+      "cat_003",
+      "cat_008"
+    ],
+    "content_styles": [
+      "sty_004",
+      "sty_013"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.18,
+        "25-34": 0.22,
+        "35-44": 0.32,
+        "45+": 0.28
+      },
+      "gender_distribution": {
+        "female": 0.61,
+        "male": 0.37,
+        "other": 0.02
+      },
+      "location_distribution": {
+        "İstanbul": 0.59,
+        "Ankara": 0.09,
+        "İzmir": 0.1,
+        "diğer": 0.22
+      },
+      "income_distribution": {
+        "bütçe": 0.49,
+        "orta": 0.39,
+        "premium": 0.12
+      },
+      "interest_tags": [
+        "lifestyle",
+        "moda",
+        "seyahat"
+      ]
+    },
+    "rate_range": {
+      "min": 25000,
+      "max": 60000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0104,
+    "agent_preferences_id": "agp_inf_018",
+    "verification_status": "verified_bio_code",
+    "profile_completion": 0.85,
+    "past_collaboration_count": 80,
+    "last_active_at": "2026-05-07T02:00:00Z"
+  },
+  {
+    "id": "inf_019",
+    "display_name": "Ozan Acar",
+    "username": "@ozanfitcoach",
+    "bio": "Online PT | 500K+ kişiye ilham",
+    "tier": "macro",
+    "follower_count": 826712,
+    "following_count": 34638,
+    "post_count": 382,
+    "account_created_at": "2022-04-08T12:00:00Z",
+    "verified": true,
+    "location": {
+      "city": "İstanbul",
+      "district": "Beşiktaş",
+      "lat": 41.035446,
+      "lng": 29.006309
+    },
+    "content_categories": [
+      "cat_009",
+      "cat_001"
+    ],
+    "content_styles": [
+      "sty_010",
+      "sty_006"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.3,
+        "25-34": 0.22,
+        "35-44": 0.29,
+        "45+": 0.19
+      },
+      "gender_distribution": {
+        "female": 0.7,
+        "male": 0.28,
+        "other": 0.02
+      },
+      "location_distribution": {
+        "İstanbul": 0.44,
+        "Ankara": 0.08,
+        "İzmir": 0.06,
+        "diğer": 0.42
+      },
+      "income_distribution": {
+        "bütçe": 0.35,
+        "orta": 0.6,
+        "premium": 0.05
+      },
+      "interest_tags": [
+        "fitness",
+        "lifestyle"
+      ]
+    },
+    "rate_range": {
+      "min": 25000,
+      "max": 60000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0131,
+    "agent_preferences_id": "agp_inf_019",
+    "verification_status": "verified_bio_code",
+    "profile_completion": 0.82,
+    "past_collaboration_count": 47,
+    "last_active_at": "2026-05-04T18:00:00Z"
+  },
+  {
+    "id": "inf_020",
+    "display_name": "Deniz Soylu",
+    "username": "@denizsoylu",
+    "bio": "1M+ takipçi | Marka elçisi | PR: @mgmt",
+    "tier": "mega",
+    "follower_count": 2272261,
+    "following_count": 44963,
+    "post_count": 166,
+    "account_created_at": "2023-10-14T12:00:00Z",
+    "verified": true,
+    "location": {
+      "city": "İstanbul",
+      "district": "Nişantaşı",
+      "lat": 41.049309,
+      "lng": 28.995659
+    },
+    "content_categories": [
+      "cat_001",
+      "cat_003",
+      "cat_008"
+    ],
+    "content_styles": [
+      "sty_004",
+      "sty_002"
+    ],
+    "primary_language": "tr",
+    "audience_demographics": {
+      "age_distribution": {
+        "18-24": 0.14,
+        "25-34": 0.31,
+        "35-44": 0.29,
+        "45+": 0.26
+      },
+      "gender_distribution": {
+        "female": 0.56,
+        "male": 0.42,
+        "other": 0.02
+      },
+      "location_distribution": {
+        "İstanbul": 0.41,
+        "Ankara": 0.1,
+        "İzmir": 0.09,
+        "diğer": 0.4
+      },
+      "income_distribution": {
+        "bütçe": 0.46,
+        "orta": 0.42,
+        "premium": 0.12
+      },
+      "interest_tags": [
+        "lifestyle",
+        "moda",
+        "seyahat"
+      ]
+    },
+    "rate_range": {
+      "min": 60000,
+      "max": 200000,
+      "currency": "TRY"
+    },
+    "engagement_rate": 0.0115,
+    "agent_preferences_id": "agp_inf_020",
+    "verification_status": "verified_bio_code",
+    "profile_completion": 0.81,
+    "past_collaboration_count": 110,
+    "last_active_at": "2026-05-08T10:00:00Z"
+  }
+]

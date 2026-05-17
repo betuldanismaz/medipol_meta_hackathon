@@ -5,17 +5,25 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.database import Base, engine
-from app.routers import health
+from app.routers import (
+    auth,
+    billing,
+    health,
+    listings,
+    matches,
+    negotiations,
+    users,
+)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # TODO: replace with Alembic migrations before production
+    # MVP için: tabloları otomatik oluştur (Alembic v2'de eklenecek)
     Base.metadata.create_all(bind=engine)
     yield
 
 
-app = FastAPI(title="Medipol Meta Hackathon API", lifespan=lifespan)
+app = FastAPI(title="Medipol Meta Hackathon API", version="2.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -26,8 +34,14 @@ app.add_middleware(
 )
 
 app.include_router(health.router)
+app.include_router(auth.router)
+app.include_router(users.router)
+app.include_router(listings.router)
+app.include_router(matches.router)
+app.include_router(negotiations.router)
+app.include_router(billing.router)
 
 
 @app.get("/")
 def root() -> dict[str, str]:
-    return {"service": "medipol-meta-hackathon-api"}
+    return {"service": "medipol-meta-hackathon-api", "version": "2.0"}

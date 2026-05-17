@@ -1,0 +1,945 @@
+[
+  {
+    "id": "agp_inf_001",
+    "user_id": "inf_001",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 500,
+      "ideal_budget": 1250,
+      "dealbreakers": [
+        "Haftada 2'den fazla post istemeyin",
+        "Reels dışında içerik üretmem"
+      ],
+      "preferred_deliverables": [
+        "post",
+        "reel"
+      ],
+      "max_revisions": 1,
+      "payment_terms": "tamamı peşin",
+      "communication_tone": "samimi",
+      "deadline_flexibility": "esnek",
+      "exclusive_collab_acceptable": false,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_002",
+    "user_id": "inf_002",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 500,
+      "ideal_budget": 1250,
+      "dealbreakers": [
+        "Ücretsiz ürün karşılığı çalışmam",
+        "Script zorlaması istemem, doğal olmalı"
+      ],
+      "preferred_deliverables": [
+        "post",
+        "story"
+      ],
+      "max_revisions": 3,
+      "payment_terms": "tamamı peşin",
+      "communication_tone": "samimi",
+      "deadline_flexibility": "esnek",
+      "exclusive_collab_acceptable": false,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_003",
+    "user_id": "inf_003",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 500,
+      "ideal_budget": 1250,
+      "dealbreakers": [
+        "Rakip marka ile aynı dönemde çalışmam",
+        "Script zorlaması istemem, doğal olmalı",
+        "Ücretsiz ürün karşılığı çalışmam",
+        "Siyasi içerik üretmem"
+      ],
+      "preferred_deliverables": [
+        "post",
+        "story"
+      ],
+      "max_revisions": 3,
+      "payment_terms": "post öncesi %50",
+      "communication_tone": "rahat",
+      "deadline_flexibility": "görüşülebilir",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 30,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_004",
+    "user_id": "inf_004",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 500,
+      "ideal_budget": 1250,
+      "dealbreakers": [
+        "Ücretsiz ürün karşılığı çalışmam",
+        "Siyasi içerik üretmem",
+        "Alkol markası reklamı yapmam"
+      ],
+      "preferred_deliverables": [
+        "reel",
+        "story"
+      ],
+      "max_revisions": 2,
+      "payment_terms": "tamamı peşin",
+      "communication_tone": "samimi",
+      "deadline_flexibility": "esnek değil",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_005",
+    "user_id": "inf_005",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 500,
+      "ideal_budget": 1250,
+      "dealbreakers": [
+        "Siyasi içerik üretmem",
+        "Script zorlaması istemem, doğal olmalı"
+      ],
+      "preferred_deliverables": [
+        "reel",
+        "canlı yayın"
+      ],
+      "max_revisions": 2,
+      "payment_terms": "post öncesi %50",
+      "communication_tone": "rahat",
+      "deadline_flexibility": "görüşülebilir",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 14,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_006",
+    "user_id": "inf_006",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 2000,
+      "ideal_budget": 5000,
+      "dealbreakers": [
+        "Script zorlaması istemem, doğal olmalı",
+        "Ücretsiz ürün karşılığı çalışmam"
+      ],
+      "preferred_deliverables": [
+        "reel",
+        "post"
+      ],
+      "max_revisions": 2,
+      "payment_terms": "post öncesi %50",
+      "communication_tone": "profesyonel",
+      "deadline_flexibility": "görüşülebilir",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_007",
+    "user_id": "inf_007",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 2000,
+      "ideal_budget": 5000,
+      "dealbreakers": [
+        "Reels dışında içerik üretmem",
+        "Ücretsiz ürün karşılığı çalışmam"
+      ],
+      "preferred_deliverables": [
+        "story",
+        "post"
+      ],
+      "max_revisions": 2,
+      "payment_terms": "tamamı peşin",
+      "communication_tone": "profesyonel",
+      "deadline_flexibility": "esnek değil",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_008",
+    "user_id": "inf_008",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 2000,
+      "ideal_budget": 5000,
+      "dealbreakers": [
+        "Alkol markası reklamı yapmam",
+        "Script zorlaması istemem, doğal olmalı"
+      ],
+      "preferred_deliverables": [
+        "story",
+        "post"
+      ],
+      "max_revisions": 3,
+      "payment_terms": "tamamı peşin",
+      "communication_tone": "rahat",
+      "deadline_flexibility": "görüşülebilir",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 30,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_009",
+    "user_id": "inf_009",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 2000,
+      "ideal_budget": 5000,
+      "dealbreakers": [
+        "Alkol markası reklamı yapmam",
+        "Rakip marka ile aynı dönemde çalışmam",
+        "Script zorlaması istemem, doğal olmalı"
+      ],
+      "preferred_deliverables": [
+        "story",
+        "canlı yayın"
+      ],
+      "max_revisions": 3,
+      "payment_terms": "tamamı peşin",
+      "communication_tone": "rahat",
+      "deadline_flexibility": "esnek",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 14,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_010",
+    "user_id": "inf_010",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 2000,
+      "ideal_budget": 5000,
+      "dealbreakers": [
+        "Siyasi içerik üretmem",
+        "Gece çekim yapamam"
+      ],
+      "preferred_deliverables": [
+        "story",
+        "canlı yayın"
+      ],
+      "max_revisions": 2,
+      "payment_terms": "post öncesi %50",
+      "communication_tone": "samimi",
+      "deadline_flexibility": "esnek",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 30,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_011",
+    "user_id": "inf_011",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 2000,
+      "ideal_budget": 5000,
+      "dealbreakers": [
+        "Rakip marka ile aynı dönemde çalışmam",
+        "Reels dışında içerik üretmem"
+      ],
+      "preferred_deliverables": [
+        "reel",
+        "canlı yayın"
+      ],
+      "max_revisions": 3,
+      "payment_terms": "post öncesi %50",
+      "communication_tone": "samimi",
+      "deadline_flexibility": "esnek",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_012",
+    "user_id": "inf_012",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 2000,
+      "ideal_budget": 5000,
+      "dealbreakers": [
+        "Gece çekim yapamam",
+        "Reels dışında içerik üretmem",
+        "Alkol markası reklamı yapmam"
+      ],
+      "preferred_deliverables": [
+        "post",
+        "story"
+      ],
+      "max_revisions": 3,
+      "payment_terms": "teslimde ödeme",
+      "communication_tone": "samimi",
+      "deadline_flexibility": "esnek değil",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 30,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_013",
+    "user_id": "inf_013",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 8000,
+      "ideal_budget": 16500,
+      "dealbreakers": [
+        "Reels dışında içerik üretmem",
+        "Siyasi içerik üretmem",
+        "Alkol markası reklamı yapmam"
+      ],
+      "preferred_deliverables": [
+        "reel",
+        "canlı yayın"
+      ],
+      "max_revisions": 2,
+      "payment_terms": "teslimde ödeme",
+      "communication_tone": "samimi",
+      "deadline_flexibility": "esnek değil",
+      "exclusive_collab_acceptable": false,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_014",
+    "user_id": "inf_014",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 8000,
+      "ideal_budget": 16500,
+      "dealbreakers": [
+        "Ücretsiz ürün karşılığı çalışmam",
+        "Gece çekim yapamam",
+        "Reels dışında içerik üretmem"
+      ],
+      "preferred_deliverables": [
+        "post",
+        "canlı yayın"
+      ],
+      "max_revisions": 1,
+      "payment_terms": "teslimde ödeme",
+      "communication_tone": "profesyonel",
+      "deadline_flexibility": "esnek değil",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_015",
+    "user_id": "inf_015",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 8000,
+      "ideal_budget": 16500,
+      "dealbreakers": [
+        "Script zorlaması istemem, doğal olmalı",
+        "Siyasi içerik üretmem",
+        "Ücretsiz ürün karşılığı çalışmam"
+      ],
+      "preferred_deliverables": [
+        "canlı yayın",
+        "story"
+      ],
+      "max_revisions": 1,
+      "payment_terms": "post öncesi %50",
+      "communication_tone": "samimi",
+      "deadline_flexibility": "görüşülebilir",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 14,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_016",
+    "user_id": "inf_016",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 8000,
+      "ideal_budget": 16500,
+      "dealbreakers": [
+        "Rakip marka ile aynı dönemde çalışmam",
+        "Alkol markası reklamı yapmam",
+        "Gece çekim yapamam",
+        "Haftada 2'den fazla post istemeyin"
+      ],
+      "preferred_deliverables": [
+        "reel",
+        "canlı yayın"
+      ],
+      "max_revisions": 3,
+      "payment_terms": "tamamı peşin",
+      "communication_tone": "rahat",
+      "deadline_flexibility": "esnek değil",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_017",
+    "user_id": "inf_017",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 8000,
+      "ideal_budget": 16500,
+      "dealbreakers": [
+        "Alkol markası reklamı yapmam",
+        "Gece çekim yapamam",
+        "Script zorlaması istemem, doğal olmalı"
+      ],
+      "preferred_deliverables": [
+        "canlı yayın",
+        "story"
+      ],
+      "max_revisions": 1,
+      "payment_terms": "post öncesi %50",
+      "communication_tone": "profesyonel",
+      "deadline_flexibility": "görüşülebilir",
+      "exclusive_collab_acceptable": false,
+      "exclusivity_max_days": 14,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_018",
+    "user_id": "inf_018",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 25000,
+      "ideal_budget": 42500,
+      "dealbreakers": [
+        "Script zorlaması istemem, doğal olmalı",
+        "Rakip marka ile aynı dönemde çalışmam"
+      ],
+      "preferred_deliverables": [
+        "canlı yayın",
+        "reel"
+      ],
+      "max_revisions": 1,
+      "payment_terms": "post öncesi %50",
+      "communication_tone": "profesyonel",
+      "deadline_flexibility": "esnek",
+      "exclusive_collab_acceptable": false,
+      "exclusivity_max_days": 30,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_019",
+    "user_id": "inf_019",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 25000,
+      "ideal_budget": 42500,
+      "dealbreakers": [
+        "Ücretsiz ürün karşılığı çalışmam",
+        "Alkol markası reklamı yapmam"
+      ],
+      "preferred_deliverables": [
+        "post",
+        "reel"
+      ],
+      "max_revisions": 3,
+      "payment_terms": "tamamı peşin",
+      "communication_tone": "profesyonel",
+      "deadline_flexibility": "görüşülebilir",
+      "exclusive_collab_acceptable": true,
+      "exclusivity_max_days": 0,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_inf_020",
+    "user_id": "inf_020",
+    "role": "influencer",
+    "preferences": {
+      "min_acceptable_budget": 60000,
+      "ideal_budget": 130000,
+      "dealbreakers": [
+        "Script zorlaması istemem, doğal olmalı",
+        "Reels dışında içerik üretmem",
+        "Rakip marka ile aynı dönemde çalışmam"
+      ],
+      "preferred_deliverables": [
+        "reel",
+        "canlı yayın"
+      ],
+      "max_revisions": 3,
+      "payment_terms": "tamamı peşin",
+      "communication_tone": "rahat",
+      "deadline_flexibility": "görüşülebilir",
+      "exclusive_collab_acceptable": false,
+      "exclusivity_max_days": 30,
+      "non_negotiable_items": [
+        "payment_terms"
+      ],
+      "negotiable_items": [
+        "budget",
+        "deliverables",
+        "deadline"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_001",
+    "user_id": "biz_001",
+    "role": "business",
+    "preferences": {
+      "max_budget": 18188,
+      "ideal_budget": 5472,
+      "dealbreakers": [
+        "Negatif tonlu içerik istemiyoruz",
+        "İçerik onayı zorunlu",
+        "7 gün içinde teslim şart"
+      ],
+      "required_deliverables": [
+        "1 reel",
+        "3 story"
+      ],
+      "optional_deliverables": [
+        "3 story"
+      ],
+      "exclusivity_required": true,
+      "exclusivity_days": 0,
+      "communication_tone": "profesyonel",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_002",
+    "user_id": "biz_002",
+    "role": "business",
+    "preferences": {
+      "max_budget": 11991,
+      "ideal_budget": 2700,
+      "dealbreakers": [
+        "Kendi logomuzun görünmesi zorunlu",
+        "Stüdyoda çekim zorunlu"
+      ],
+      "required_deliverables": [
+        "2 post"
+      ],
+      "optional_deliverables": [
+        "1 post"
+      ],
+      "exclusivity_required": false,
+      "exclusivity_days": 0,
+      "communication_tone": "profesyonel",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_003",
+    "user_id": "biz_003",
+    "role": "business",
+    "preferences": {
+      "max_budget": 14852,
+      "ideal_budget": 4201,
+      "dealbreakers": [
+        "Kendi logomuzun görünmesi zorunlu",
+        "7 gün içinde teslim şart",
+        "Stüdyoda çekim zorunlu"
+      ],
+      "required_deliverables": [
+        "1 reel"
+      ],
+      "optional_deliverables": [
+        "3 story"
+      ],
+      "exclusivity_required": false,
+      "exclusivity_days": 30,
+      "communication_tone": "profesyonel",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_004",
+    "user_id": "biz_004",
+    "role": "business",
+    "preferences": {
+      "max_budget": 8858,
+      "ideal_budget": 5635,
+      "dealbreakers": [
+        "Rakip markayı aynı dönemde tanıtmasın",
+        "İçerik onayı zorunlu",
+        "Kendi logomuzun görünmesi zorunlu"
+      ],
+      "required_deliverables": [
+        "2 post"
+      ],
+      "optional_deliverables": [
+        "3 story"
+      ],
+      "exclusivity_required": false,
+      "exclusivity_days": 60,
+      "communication_tone": "samimi",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_005",
+    "user_id": "biz_005",
+    "role": "business",
+    "preferences": {
+      "max_budget": 16389,
+      "ideal_budget": 2479,
+      "dealbreakers": [
+        "Minimum 10K takipçi bekliyoruz",
+        "Stüdyoda çekim zorunlu"
+      ],
+      "required_deliverables": [
+        "1 reel",
+        "3 story"
+      ],
+      "optional_deliverables": [
+        "1 post"
+      ],
+      "exclusivity_required": true,
+      "exclusivity_days": 60,
+      "communication_tone": "samimi",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_006",
+    "user_id": "biz_006",
+    "role": "business",
+    "preferences": {
+      "max_budget": 11454,
+      "ideal_budget": 8274,
+      "dealbreakers": [
+        "Minimum 10K takipçi bekliyoruz",
+        "İçerik onayı zorunlu",
+        "Negatif tonlu içerik istemiyoruz"
+      ],
+      "required_deliverables": [
+        "1 reel"
+      ],
+      "optional_deliverables": [
+        "1 canlı yayın"
+      ],
+      "exclusivity_required": true,
+      "exclusivity_days": 14,
+      "communication_tone": "samimi",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_007",
+    "user_id": "biz_007",
+    "role": "business",
+    "preferences": {
+      "max_budget": 10624,
+      "ideal_budget": 2937,
+      "dealbreakers": [
+        "Negatif tonlu içerik istemiyoruz",
+        "7 gün içinde teslim şart"
+      ],
+      "required_deliverables": [
+        "1 reel",
+        "3 story"
+      ],
+      "optional_deliverables": [
+        "1 post"
+      ],
+      "exclusivity_required": false,
+      "exclusivity_days": 0,
+      "communication_tone": "samimi",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_008",
+    "user_id": "biz_008",
+    "role": "business",
+    "preferences": {
+      "max_budget": 4992,
+      "ideal_budget": 9796,
+      "dealbreakers": [
+        "Minimum 10K takipçi bekliyoruz",
+        "Rakip markayı aynı dönemde tanıtmasın",
+        "Kendi logomuzun görünmesi zorunlu"
+      ],
+      "required_deliverables": [
+        "1 reel",
+        "3 story"
+      ],
+      "optional_deliverables": [
+        "1 canlı yayın"
+      ],
+      "exclusivity_required": true,
+      "exclusivity_days": 14,
+      "communication_tone": "profesyonel",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_009",
+    "user_id": "biz_009",
+    "role": "business",
+    "preferences": {
+      "max_budget": 6577,
+      "ideal_budget": 2634,
+      "dealbreakers": [
+        "Rakip markayı aynı dönemde tanıtmasın",
+        "Stüdyoda çekim zorunlu",
+        "Kendi logomuzun görünmesi zorunlu"
+      ],
+      "required_deliverables": [
+        "1 reel"
+      ],
+      "optional_deliverables": [
+        "3 story"
+      ],
+      "exclusivity_required": false,
+      "exclusivity_days": 30,
+      "communication_tone": "profesyonel",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  },
+  {
+    "id": "agp_biz_010",
+    "user_id": "biz_010",
+    "role": "business",
+    "preferences": {
+      "max_budget": 5339,
+      "ideal_budget": 7258,
+      "dealbreakers": [
+        "Minimum 10K takipçi bekliyoruz",
+        "Negatif tonlu içerik istemiyoruz",
+        "Rakip markayı aynı dönemde tanıtmasın"
+      ],
+      "required_deliverables": [
+        "2 post"
+      ],
+      "optional_deliverables": [
+        "1 canlı yayın"
+      ],
+      "exclusivity_required": false,
+      "exclusivity_days": 30,
+      "communication_tone": "profesyonel",
+      "non_negotiable_items": [
+        "required_deliverables"
+      ],
+      "negotiable_items": [
+        "budget",
+        "timeline",
+        "optional_deliverables"
+      ]
+    }
+  }
+]

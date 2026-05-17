@@ -1,0 +1,255 @@
+[
+  {
+    "agreement_id": "agr_001",
+    "match_id": "mch_001",
+    "status": "completed",
+    "final_budget": 3237,
+    "final_deliverables": [
+      "1 reel"
+    ],
+    "agent_negotiation_turns": 7,
+    "agreed_at": "2026-04-28T21:56:00Z",
+    "completed_at": "2026-05-16T21:56:00Z"
+  },
+  {
+    "agreement_id": "agr_002",
+    "match_id": "mch_002",
+    "status": "completed",
+    "final_budget": 2222,
+    "final_deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "agent_negotiation_turns": 9,
+    "agreed_at": "2026-04-26T06:06:00Z",
+    "completed_at": "2026-05-07T06:06:00Z"
+  },
+  {
+    "agreement_id": "agr_003",
+    "match_id": "mch_003",
+    "status": "cancelled",
+    "final_budget": 2529,
+    "final_deliverables": [
+      "1 reel",
+      "3 story"
+    ],
+    "agent_negotiation_turns": 4,
+    "agreed_at": "2026-04-23T17:46:00Z",
+    "completed_at": "2026-05-06T17:46:00Z"
+  },
+  {
+    "agreement_id": "agr_004",
+    "match_id": "mch_004",
+    "status": "in_progress",
+    "final_budget": 2054,
+    "final_deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "agent_negotiation_turns": 3,
+    "agreed_at": "2026-05-13T18:29:00Z",
+    "completed_at": "2026-05-22T18:29:00Z"
+  },
+  {
+    "agreement_id": "agr_005",
+    "match_id": "mch_006",
+    "status": "completed",
+    "final_budget": 3309,
+    "final_deliverables": [
+      "1 reel"
+    ],
+    "agent_negotiation_turns": 6,
+    "agreed_at": "2026-05-17T20:23:00Z",
+    "completed_at": "2026-06-02T20:23:00Z"
+  },
+  {
+    "agreement_id": "agr_006",
+    "match_id": "mch_007",
+    "status": "completed",
+    "final_budget": 3429,
+    "final_deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "agent_negotiation_turns": 3,
+    "agreed_at": "2026-05-13T20:02:00Z",
+    "completed_at": "2026-05-21T20:02:00Z"
+  },
+  {
+    "agreement_id": "agr_007",
+    "match_id": "mch_008",
+    "status": "in_progress",
+    "final_budget": 3131,
+    "final_deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "agent_negotiation_turns": 8,
+    "agreed_at": "2026-04-30T15:01:00Z",
+    "completed_at": "2026-05-14T15:01:00Z"
+  },
+  {
+    "agreement_id": "agr_008",
+    "match_id": "mch_009",
+    "status": "completed",
+    "final_budget": 2501,
+    "final_deliverables": [
+      "1 reel",
+      "3 story"
+    ],
+    "agent_negotiation_turns": 5,
+    "agreed_at": "2026-04-29T22:03:00Z",
+    "completed_at": "2026-05-09T22:03:00Z"
+  },
+  {
+    "agreement_id": "agr_009",
+    "match_id": "mch_010",
+    "status": "completed",
+    "final_budget": 3006,
+    "final_deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "agent_negotiation_turns": 5,
+    "agreed_at": "2026-04-22T10:32:00Z",
+    "completed_at": "2026-05-02T10:32:00Z"
+  },
+  {
+    "agreement_id": "agr_010",
+    "match_id": "mch_011",
+    "status": "completed",
+    "final_budget": 1735,
+    "final_deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "agent_negotiation_turns": 5,
+    "agreed_at": "2026-05-07T06:13:00Z",
+    "completed_at": "2026-05-24T06:13:00Z"
+  },
+  {
+    "agreement_id": "agr_011",
+    "match_id": "mch_012",
+    "status": "in_progress",
+    "final_budget": 9930,
+    "final_deliverables": [
+      "2 post",
+      "1 reel"
+    ],
+    "agent_negotiation_turns": 3,
+    "agreed_at": "2026-05-15T08:36:00Z",
+    "completed_at": "2026-05-29T08:36:00Z"
+  },
+  {
+    "agreement_id": "agr_012",
+    "match_id": "mch_013",
+    "status": "completed",
+    "final_budget": 3658,
+    "final_deliverables": [
+      "1 reel"
+    ],
+    "agent_negotiation_turns": 9,
+    "agreed_at": "2026-05-14T04:34:00Z",
+    "completed_at": "2026-06-01T04:34:00Z"
+  },
+  {
+    "agreement_id": "agr_013",
+    "match_id": "mch_014",
+    "status": "cancelled",
+    "final_budget": 2004,
+    "final_deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "agent_negotiation_turns": 10,
+    "agreed_at": "2026-04-23T21:07:00Z",
+    "completed_at": "2026-05-11T21:07:00Z"
+  },
+  {
+    "agreement_id": "agr_014",
+    "match_id": "mch_015",
+    "status": "in_progress",
+    "final_budget": 2890,
+    "final_deliverables": [
+      "1 reel"
+    ],
+    "agent_negotiation_turns": 9,
+    "agreed_at": "2026-05-07T02:11:00Z",
+    "completed_at": "2026-05-16T02:11:00Z"
+  },
+  {
+    "agreement_id": "agr_015",
+    "match_id": "mch_018",
+    "status": "in_progress",
+    "final_budget": 6492,
+    "final_deliverables": [
+      "2 post",
+      "1 reel"
+    ],
+    "agent_negotiation_turns": 9,
+    "agreed_at": "2026-05-08T17:31:00Z",
+    "completed_at": "2026-05-27T17:31:00Z"
+  },
+  {
+    "agreement_id": "agr_016",
+    "match_id": "mch_020",
+    "status": "in_progress",
+    "final_budget": 10483,
+    "final_deliverables": [
+      "3 post",
+      "5 story"
+    ],
+    "agent_negotiation_turns": 9,
+    "agreed_at": "2026-04-27T13:36:00Z",
+    "completed_at": "2026-05-13T13:36:00Z"
+  },
+  {
+    "agreement_id": "agr_017",
+    "match_id": "mch_021",
+    "status": "completed",
+    "final_budget": 3660,
+    "final_deliverables": [
+      "1 reel"
+    ],
+    "agent_negotiation_turns": 10,
+    "agreed_at": "2026-05-10T14:15:00Z",
+    "completed_at": "2026-05-27T14:15:00Z"
+  },
+  {
+    "agreement_id": "agr_018",
+    "match_id": "mch_022",
+    "status": "cancelled",
+    "final_budget": 2749,
+    "final_deliverables": [
+      "1 reel"
+    ],
+    "agent_negotiation_turns": 6,
+    "agreed_at": "2026-04-24T12:00:00Z",
+    "completed_at": "2026-05-15T12:00:00Z"
+  },
+  {
+    "agreement_id": "agr_019",
+    "match_id": "mch_023",
+    "status": "completed",
+    "final_budget": 3175,
+    "final_deliverables": [
+      "1 reel"
+    ],
+    "agent_negotiation_turns": 8,
+    "agreed_at": "2026-04-26T12:40:00Z",
+    "completed_at": "2026-05-08T12:40:00Z"
+  },
+  {
+    "agreement_id": "agr_020",
+    "match_id": "mch_024",
+    "status": "completed",
+    "final_budget": 2503,
+    "final_deliverables": [
+      "1 reel",
+      "3 story"
+    ],
+    "agent_negotiation_turns": 9,
+    "agreed_at": "2026-04-29T00:30:00Z",
+    "completed_at": "2026-05-20T00:30:00Z"
+  }
+]
