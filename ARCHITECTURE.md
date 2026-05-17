@@ -30,6 +30,63 @@ Docker Compose starts three services:
 
 The backend currently creates SQLAlchemy tables on startup for MVP speed. Alembic migrations are still a production-readiness task.
 
+## Architecture Flowchart
+
+```mermaid
+flowchart TD
+    User[Browser User] --> Frontend[Next.js Frontend]
+    Frontend --> ApiClient[frontend/lib/api.ts]
+    ApiClient --> Mock{NEXT_PUBLIC_USE_MOCK?}
+    Mock -- true --> MockApi[Mock API and Demo Data]
+    Mock -- false --> Backend[FastAPI Backend]
+
+    Backend --> Auth[/Auth Router/]
+    Backend --> Users[/Users Router/]
+    Backend --> Listings[/Listings Router/]
+    Backend --> Matches[/Matches Router/]
+    Backend --> Billing[/Billing Router/]
+    Backend --> Negotiations[/Negotiations Router/]
+    Backend --> Health[/Health Router/]
+
+    Auth --> DB[(PostgreSQL)]
+    Users --> DB
+    Listings --> DB
+    Matches --> DB
+    Billing --> DB
+    Negotiations --> DB
+    Health --> DB
+
+    Matches --> MatchDecision{Both sides accepted?}
+    MatchDecision -- no --> MatchState[Pending or Rejected Match]
+    MatchDecision -- yes --> PremiumCheck{Both users premium?}
+    PremiumCheck -- no --> Paywall[Paywall or Human Chat Fallback]
+    PremiumCheck -- yes --> NegotiationService[Negotiation Service]
+
+    NegotiationService --> AgentService[Agent Service]
+    AgentService --> OpenAICheck{OPENAI_API_KEY set?}
+    OpenAICheck -- yes --> OpenAI[OpenAI gpt-5-nano]
+    OpenAICheck -- no --> FallbackAgent[Deterministic Fallback Agent]
+    OpenAI --> AgentTurn[Structured Agent Turn JSON]
+    FallbackAgent --> AgentTurn
+
+    AgentTurn --> Messages[Negotiation Messages]
+    Messages --> DB
+    Messages --> WebSocketHub[WebSocket Hub]
+    WebSocketHub --> LiveUI[Future Live Negotiation UI]
+
+    NegotiationService --> Agreement{Agents agree?}
+    Agreement -- yes --> AgreementRecord[Agreement Proposed]
+    Agreement -- no --> ContinueOrExpire[Continue, Expire, Reject, or Human Takeover]
+    AgreementRecord --> DB
+
+    RankingPlanned[Planned Ranking Pipeline] -.-> Retrieval[retrieval.py]
+    Retrieval -.-> Features[feature_extractor.py]
+    Features -.-> Predictor[predictor.py XGBoost or fallback]
+    Predictor -.-> Distribution[distribution.py]
+    Distribution -.-> Serializers[serializers.py]
+    Serializers -.-> Frontend
+```
+
 ## Frontend Architecture
 
 The frontend lives under `frontend/` and uses:
