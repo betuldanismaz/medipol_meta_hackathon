@@ -297,8 +297,4 @@ v1plan.md dosyasında tanımlanan AI Model Eğitim Verisi ve V1 Eşleştirme gü
 - [x] **Yeni Keşif Akışı:** Influencer (işbirliği ilanı + işletme), Çalışan (iş ilanı + işletme), İşletme (influencer + çalışan) görecek şekilde filtreleri kodla.
 - [x] **V1 Unit Testleri:** Yukarıdaki 5 bileşeni ve yeni akışı test eden en az 11 adet unit test yaz.
 
-### 2. AI Model Eğitim Verisi (Eğer Mock Data İşlemine Girilecekse)
-*(Not: Emir AI/ML sorumlusu olduğu için, veri ekibi mock data'ları ürettikten sonra veya Emir bizzat üretiyorsa bu adımlar yürütülecektir.)*
-- [x] **Feature Extraction Pipeline:** 1000 adet (influencer, collab_listing) eğitim çifti (training pair) için 16 farklı numerik ve kategorik feature çıkar.
-- [x] **Synthetic Labeling:** Çıkarılan çiftlere 3-sınıflı (0=kötü, 1=orta, 2=iyi) sentetik etiket üret.
-- [x] **Data Splitting & Training:** Train (%70), Validation (%15) ve Test (%15) split'lerini oluşturarak LightGBM/XGBoost eğitim ortamını (veya en azından veri şemasını) hazırla.
+
