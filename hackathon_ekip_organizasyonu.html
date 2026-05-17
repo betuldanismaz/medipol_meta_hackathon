@@ -1,0 +1,314 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{padding:1rem 0;font-size:14px;color:var(--color-text-primary)}
+.section{margin-bottom:20px}
+.sec-label{font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:8px;letter-spacing:.03em}
+.person-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:20px}
+.person-card{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:10px 8px;text-align:center}
+.avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;margin:0 auto 6px}
+.person-name{font-size:12px;font-weight:500;color:var(--color-text-primary)}
+.person-role{font-size:11px;color:var(--color-text-secondary);margin-top:2px;line-height:1.3}
+.av-purple{background:#EEEDFE;color:#3C3489}
+.av-teal{background:#E1F5EE;color:#085041}
+.av-amber{background:#FAEEDA;color:#633806}
+.av-blue{background:#E6F1FB;color:#0C447C}
+.av-coral{background:#FAECE7;color:#712B13}
+@media(prefers-color-scheme:dark){
+.av-purple{background:#26215C;color:#CECBF6}
+.av-teal{background:#04342C;color:#9FE1CB}
+.av-amber{background:#412402;color:#FAC775}
+.av-blue{background:#042C53;color:#B5D4F4}
+.av-coral{background:#4A1B0C;color:#F5C4B3}
+}
+.timeline{display:grid;grid-template-columns:64px 1fr;gap:0}
+.tl-time{font-size:11px;color:var(--color-text-tertiary);padding:10px 10px 0 0;text-align:right;line-height:1.2;white-space:nowrap}
+.tl-body{border-left:1.5px solid var(--color-border-secondary);padding:0 0 0 14px;position:relative}
+.tl-block{margin-bottom:14px;padding-bottom:14px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.tl-block:last-child{border-bottom:none;margin-bottom:0}
+.tl-dot{position:absolute;left:-5px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--color-background-primary);margin-top:2px}
+.tl-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.tl-title{font-size:13px;font-weight:500}
+.phase-badge{font-size:11px;padding:2px 8px;border-radius:999px;font-weight:500}
+.pb-setup{background:#EEEDFE;color:#3C3489}
+.pb-build{background:#E1F5EE;color:#085041}
+.pb-merge{background:#FAEEDA;color:#633806}
+.pb-demo{background:#E6F1FB;color:#0C447C}
+@media(prefers-color-scheme:dark){
+.pb-setup{background:#26215C;color:#CECBF6}
+.pb-build{background:#04342C;color:#9FE1CB}
+.pb-merge{background:#412402;color:#FAC775}
+.pb-demo{background:#042C53;color:#B5D4F4}
+}
+.dot-setup{background:#7F77DD}
+.dot-build{background:#1D9E75}
+.dot-merge{background:#BA7517}
+.dot-demo{background:#378ADD}
+.task-list{display:flex;flex-direction:column;gap:6px}
+.task-row{display:flex;align-items:flex-start;gap:8px;padding:7px 10px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:8px}
+.task-chips{display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap}
+.chip{font-size:10px;padding:2px 6px;border-radius:999px;font-weight:500;white-space:nowrap}
+.chip-b{background:#EEEDFE;color:#3C3489}
+.chip-o{background:#FAECE7;color:#712B13}
+.chip-em{background:#E1F5EE;color:#085041}
+.chip-er{background:#FAEEDA;color:#633806}
+.chip-m{background:#E6F1FB;color:#0C447C}
+.chip-all{background:#F1EFE8;color:#444441}
+@media(prefers-color-scheme:dark){
+.chip-b{background:#26215C;color:#CECBF6}
+.chip-o{background:#4A1B0C;color:#F5C4B3}
+.chip-em{background:#04342C;color:#9FE1CB}
+.chip-er{background:#412402;color:#FAC775}
+.chip-m{background:#042C53;color:#B5D4F4}
+.chip-all{background:#2C2C2A;color:#D3D1C7}
+}
+.task-text{font-size:12px;color:var(--color-text-primary);line-height:1.5;flex:1}
+.task-tech{font-size:11px;color:var(--color-text-tertiary);margin-left:auto;white-space:nowrap;padding-left:6px}
+.branch-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.branch-card{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:10px 12px}
+.branch-name{font-family:var(--font-mono);font-size:12px;font-weight:500;margin-bottom:4px;color:var(--color-text-primary)}
+.branch-owner{font-size:11px;color:var(--color-text-secondary)}
+.checkpoint{background:var(--color-background-secondary);border:1.5px solid var(--color-border-secondary);border-radius:10px;padding:10px 14px;margin-bottom:8px}
+.checkpoint-header{font-size:12px;font-weight:500;margin-bottom:4px}
+.checkpoint-items{font-size:11px;color:var(--color-text-secondary);line-height:1.7}
+.api-table{width:100%;border-collapse:collapse;font-size:12px}
+.api-table th{text-align:left;font-size:11px;font-weight:500;color:var(--color-text-secondary);padding:4px 8px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.api-table td{padding:6px 8px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top}
+.api-table tr:last-child td{border-bottom:none}
+.method{font-family:var(--font-mono);font-size:10px;padding:1px 5px;border-radius:4px;font-weight:500}
+.get{background:#E1F5EE;color:#085041}.post{background:#E6F1FB;color:#0C447C}
+@media(prefers-color-scheme:dark){.get{background:#04342C;color:#9FE1CB}.post{background:#042C53;color:#B5D4F4}}
+.endpoint{font-family:var(--font-mono);font-size:11px;color:var(--color-text-primary)}
+</style>
+
+<div class="wrap">
+
+<div class="sec-label">Ekip — rol dağılımı</div>
+<div class="person-grid">
+  <div class="person-card">
+    <div class="avatar av-purple">BE</div>
+    <div class="person-name">Betül</div>
+    <div class="person-role">Frontend lead swipe UI</div>
+  </div>
+  <div class="person-card">
+    <div class="avatar av-coral">ÖM</div>
+    <div class="person-name">Ömer</div>
+    <div class="person-role">Backend lead FastAPI</div>
+  </div>
+  <div class="person-card">
+    <div class="avatar av-teal">EM</div>
+    <div class="person-name">Emir</div>
+    <div class="person-role">YZ eşleştirme mantığı</div>
+  </div>
+  <div class="person-card">
+    <div class="avatar av-amber">ER</div>
+    <div class="person-name">Emre</div>
+    <div class="person-role">Frontend Next.js setup</div>
+  </div>
+  <div class="person-card">
+    <div class="avatar av-blue">ME</div>
+    <div class="person-name">Mehmet</div>
+    <div class="person-role">Mock data + sunum</div>
+  </div>
+</div>
+
+<div class="sec-label">Branch stratejisi</div>
+<div class="branch-grid">
+  <div class="branch-card">
+    <div class="branch-name">main</div>
+    <div class="branch-owner">Sadece merge — kimse direkt push etmez</div>
+  </div>
+  <div class="branch-card">
+    <div class="branch-name">feat/frontend-swipe</div>
+    <div class="branch-owner">Betül + Emre</div>
+  </div>
+  <div class="branch-card">
+    <div class="branch-name">feat/backend-api</div>
+    <div class="branch-owner">Ömer</div>
+  </div>
+  <div class="branch-card">
+    <div class="branch-name">feat/ai-matching</div>
+    <div class="branch-owner">Emir</div>
+  </div>
+</div>
+
+<div class="sec-label">API contract — önce bunu belirleyin (saat 0)</div>
+<table class="api-table">
+  <thead><tr><th>Method</th><th>Endpoint</th><th>Ne döner</th><th>Kim yazar</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><span class="method get">GET</span></td>
+      <td class="endpoint">/api/profiles</td>
+      <td>Influencer listesi (id, name, niche, followers, score)</td>
+      <td><span class="chip chip-o">Ömer</span></td>
+    </tr>
+    <tr>
+      <td><span class="method post">POST</span></td>
+      <td class="endpoint">/api/swipe</td>
+      <td>Body: {user_id, target_id, direction} → match:bool</td>
+      <td><span class="chip chip-o">Ömer</span></td>
+    </tr>
+    <tr>
+      <td><span class="method get">GET</span></td>
+      <td class="endpoint">/api/match-score</td>
+      <td>Query: ?inf_id&biz_id → score 0-100 + reasoning</td>
+      <td><span class="chip chip-em">Emir</span></td>
+    </tr>
+    <tr>
+      <td><span class="method get">GET</span></td>
+      <td class="endpoint">/api/matches</td>
+      <td>Onaylı eşleşme listesi</td>
+      <td><span class="chip chip-o">Ömer</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="height:16px"></div>
+<div class="sec-label">Zaman çizelgesi</div>
+
+<div class="timeline">
+
+  <div class="tl-time">Saat 0<br>0:00</div>
+  <div class="tl-body">
+    <div class="tl-dot dot-setup" style="top:10px"></div>
+    <div class="tl-block">
+      <div class="tl-header">
+        <span class="phase-badge pb-setup">Setup</span>
+        <span class="tl-title">Repo + API contract</span>
+      </div>
+      <div class="task-list">
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-er">Emre</span></div>
+          <div class="task-text">Next.js projesi kur, <code>/api</code> proxy config yaz, Tailwind ekle</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-o">Ömer</span></div>
+          <div class="task-text">FastAPI boilerplate + CORS + mock endpoint'ler (hepsi 200 döner)</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-em">Emir</span></div>
+          <div class="task-text">Eşleştirme skoru formülü kağıda yaz, LLM mi, kural tabanlı mı — karar ver</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-m">Mehmet</span></div>
+          <div class="task-text">10 influencer + 8 işletme mock JSON hazırla (gerçekçi, Türkiye odaklı)</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-b">Betül</span></div>
+          <div class="task-text">Swipe kartı component tasarımı — figma/kağıt sketch, sonra kod</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-time">Saat 1<br>1:00</div>
+  <div class="tl-body">
+    <div class="tl-dot dot-build" style="top:10px"></div>
+    <div class="tl-block">
+      <div class="tl-header">
+        <span class="phase-badge pb-build">Build</span>
+        <span class="tl-title">Paralel geliştirme</span>
+      </div>
+      <div class="task-list">
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-b">Betül</span><span class="chip chip-er">Emre</span></div>
+          <div class="task-text">Swipe ekranı: profil kartı, sağ/sol gesture, match animasyonu — Next.js pages/index.tsx</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-o">Ömer</span></div>
+          <div class="task-text">Gerçek endpoint'leri yaz: profiller mock JSON'dan dönsün, swipe mantığı basit in-memory dict</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-em">Emir</span></div>
+          <div class="task-text">match-score endpoint: niche overlap + follower tier + geçmiş skoru — Python fonksiyon</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-m">Mehmet</span></div>
+          <div class="task-text">Sunum deck 5 slayt: problem, çözüm, YZ farkı, demo, traction potential</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-time">Saat 2<br>2:00</div>
+  <div class="tl-body">
+    <div class="tl-dot dot-merge" style="top:10px"></div>
+    <div class="tl-block">
+      <div class="tl-header">
+        <span class="phase-badge pb-merge">Checkpoint</span>
+        <span class="tl-title">Frontend + Backend birleşme</span>
+      </div>
+      <div class="checkpoint">
+        <div class="checkpoint-header">Bu noktada çalışıyor olması gerekenler</div>
+        <div class="checkpoint-items">
+          — Next.js, FastAPI'ye istek atıyor (CORS yok, proxy çalışıyor)<br>
+          — Profil kartları gerçek mock veriden geliyor<br>
+          — Sağ kaydırma → POST /api/swipe → match bildirimi görünüyor<br>
+          — match-score sayfada gösteriliyor (sayı olarak yeterli)
+        </div>
+      </div>
+      <div class="task-list">
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-all">Herkes</span></div>
+          <div class="task-text">15 dakika e2e test — bulunan bug'ı hemen not et, öncelik sırası ver</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-time">Saat 2:15</div>
+  <div class="tl-body">
+    <div class="tl-dot dot-build" style="top:10px"></div>
+    <div class="tl-block">
+      <div class="tl-header">
+        <span class="phase-badge pb-build">Build</span>
+        <span class="tl-title">Polish + YZ görselleştirme</span>
+      </div>
+      <div class="task-list">
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-b">Betül</span></div>
+          <div class="task-text">Match ekranı, skor gösterimi, basit matches listesi sayfası</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-em">Emir</span></div>
+          <div class="task-text">Skor açıklaması: "Neden eşleştik?" — 1-2 cümle reasoning döndür (jüri için kritik)</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-o">Ömer</span></div>
+          <div class="task-text">Bug fix, endpoint stabilize, basit hata mesajları ekle</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-er">Emre</span></div>
+          <div class="task-text">UI polish: renkler, spacing, mobil görünüm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-time">Saat 3<br>3:00</div>
+  <div class="tl-body">
+    <div class="tl-dot dot-demo" style="top:10px"></div>
+    <div class="tl-block">
+      <div class="tl-header">
+        <span class="phase-badge pb-demo">Demo</span>
+        <span class="tl-title">Sunum hazırlığı</span>
+      </div>
+      <div class="task-list">
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-m">Mehmet</span><span class="chip chip-b">Betül</span></div>
+          <div class="task-text">Demo senaryosunu prova et — 3 dakika: problem hikayesi → swipe → match → skor açıklaması</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-em">Emir</span></div>
+          <div class="task-text">"YZ burada tam olarak ne yapıyor?" sorusuna 30 saniyelik cevabı ezberle</div>
+        </div>
+        <div class="task-row">
+          <div class="task-chips"><span class="chip chip-o">Ömer</span><span class="chip chip-er">Emre</span></div>
+          <div class="task-text">Son bug fix, deploy veya localhost demo hazır hale getir</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
