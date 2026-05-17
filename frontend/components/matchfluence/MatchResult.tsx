@@ -22,72 +22,75 @@ export default function MatchResult({
   onBackToCards,
 }: MatchResultProps) {
   const best = selectedInfluencers[0] ?? rankedInfluencers[0];
+  const visibleSelected = selectedInfluencers.length > 0 ? selectedInfluencers : best ? [best] : [];
 
   if (!best) {
     return null;
   }
 
   return (
-    <section className="mx-auto min-h-screen w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+    <section className="mx-auto min-h-[calc(100vh-4rem)] w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <DemoDataBadge isMock={isMock} />
-          <h1 className="mt-4 text-3xl font-black text-white sm:text-5xl">Match sonucu</h1>
-          <p className="mt-3 max-w-2xl text-slate-300">
-            {campaign.businessName} kampanyasi icin secilen adaylar ve aciklanabilir skor kirilimi.
+          <h1 className="mt-4 text-3xl font-black text-slate-950 sm:text-5xl">Match sonucu</h1>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            {campaign.businessName} icin secilen adaylar ve en guclu skor.
           </p>
         </div>
         <div className="flex gap-2">
           <button
             onClick={onBackToCards}
-            className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10"
+            className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
           >
             Kartlara don
           </button>
           <button
             onClick={onRestart}
-            className="rounded-2xl bg-white px-4 py-3 text-sm font-black text-slate-950"
+            className="rounded-2xl bg-slate-950 px-4 py-3 text-sm font-black text-white transition hover:bg-slate-800"
           >
             Yeni demo
           </button>
         </div>
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-[.95fr_1.05fr]">
-        <div className="card-gradient rounded-[2rem] p-5">
-          <p className="text-sm font-semibold uppercase tracking-wide text-emerald-200">En iyi aday</p>
+      <div className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="matchfluence-panel rounded-3xl p-5">
+          <p className="text-sm font-semibold uppercase tracking-wide text-emerald-600">
+            En iyi aday
+          </p>
           <div className="mt-4 flex items-start justify-between gap-4">
             <div>
-              <h2 className="text-3xl font-black text-white">{best.name}</h2>
-              <p className="mt-1 text-sm text-slate-300">{best.location}</p>
+              <h2 className="text-3xl font-black text-slate-950">{best.name}</h2>
+              <p className="mt-1 text-sm text-slate-500">{best.location}</p>
               <p className="mt-1 text-xs text-slate-400">{best.handle}</p>
             </div>
-            <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-white/10 text-4xl">
-              {best.avatar}
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 text-lg font-black text-slate-700">
+              {best.name
+                .split(" ")
+                .map((part) => part[0])
+                .join("")
+                .slice(0, 2)}
             </div>
           </div>
-          <div className="mt-5 rounded-3xl bg-emerald-300/10 p-5">
+
+          <div className="mt-5 rounded-2xl bg-slate-50 p-5">
             <div className="flex items-end justify-between">
-              <span className="text-sm font-bold text-emerald-100">Match Score</span>
-              <span className="text-6xl font-black text-emerald-100">{best.matchScore.score}</span>
+              <span className="text-sm font-bold text-slate-600">Match Score</span>
+              <span className="text-6xl font-black text-emerald-600">
+                {best.matchScore.score}
+              </span>
             </div>
-            <div className="mt-3 h-4 overflow-hidden rounded-full bg-white/10">
+            <div className="mt-3 h-4 overflow-hidden rounded-full bg-slate-200">
               <div
-                className="h-full rounded-full bg-emerald-300"
+                className="h-full rounded-full bg-emerald-400"
                 style={{ width: `${best.matchScore.score}%` }}
               />
             </div>
           </div>
+
           <div className="mt-5">
             <ScoreBreakdown breakdown={best.matchScore.breakdown} />
-          </div>
-          <div className="mt-5 rounded-3xl border border-white/10 bg-white/[0.05] p-4">
-            <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Neden onerildi?</p>
-            <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-200">
-              {best.matchScore.reasons.map((reason) => (
-                <li key={reason}>{reason}</li>
-              ))}
-            </ul>
           </div>
         </div>
 
@@ -98,21 +101,25 @@ export default function MatchResult({
             <Stat label="Analiz edilen" value={rankedInfluencers.length} />
           </div>
 
-          <div className="card-gradient rounded-[2rem] p-5">
-            <h3 className="text-xl font-black text-white">Secilen adaylar</h3>
+          <div className="matchfluence-panel rounded-3xl p-5">
+            <h3 className="text-xl font-black text-slate-950">Secilen adaylar</h3>
             <div className="mt-4 space-y-3">
-              {(selectedInfluencers.length > 0 ? selectedInfluencers : [best]).map((influencer) => (
+              {visibleSelected.map((influencer) => (
                 <ResultRow key={influencer.id} influencer={influencer} />
               ))}
             </div>
           </div>
 
-          <div className="card-gradient rounded-[2rem] p-5">
-            <h3 className="text-xl font-black text-white">Juriye anlatim cumlesi</h3>
-            <p className="mt-3 text-sm leading-6 text-slate-300">
-              Matchfluence AI, takipci sayisini tek basina basari gostergesi kabul etmez. Skor motoru; niche uyumu, lokasyon yakinligi, engagement sagligi, hedef kitle ortusmesi, butce uygunlugu ve gecmis kampanya deneyimini birlikte hesaplar. Bu sayede lokal isletmeler icin daha uygun maliyetli ve daha yuksek etkilesim potansiyelli mikro-influencer onerileri one cikarilir.
+          <details className="matchfluence-soft-panel rounded-3xl p-5">
+            <summary className="cursor-pointer text-sm font-black text-slate-700">
+              Kisa demo anlatimi
+            </summary>
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              Matchfluence AI, takipci sayisini tek basina yeterli gormez. Niche, lokasyon,
+              etkileşim, hedef kitle ve butce uyumunu birlikte hesaplayarak daha uygun
+              mikro-influencer onerileri sunar.
             </p>
-          </div>
+          </details>
         </div>
       </div>
     </section>
@@ -121,31 +128,28 @@ export default function MatchResult({
 
 function ResultRow({ influencer }: { influencer: RankedInfluencer }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-4">
+    <div className="rounded-2xl border border-slate-100 bg-white p-4">
       <div className="flex items-start justify-between gap-3">
-        <div className="flex gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-2xl">
-            {influencer.avatar}
-          </div>
-          <div>
-            <h4 className="font-black text-white">{influencer.name}</h4>
-            <p className="mt-1 text-xs text-slate-400">{influencer.niches.join(" | ")}</p>
-          </div>
+        <div>
+          <h4 className="font-black text-slate-950">{influencer.name}</h4>
+          <p className="mt-1 text-xs text-slate-500">{influencer.niches.join(" | ")}</p>
         </div>
-        <div className="rounded-2xl bg-white px-3 py-2 text-sm font-black text-slate-950">
+        <div className="rounded-xl bg-slate-950 px-3 py-2 text-sm font-black text-white">
           {influencer.matchScore.score}
         </div>
       </div>
-      <p className="mt-3 text-sm leading-6 text-slate-300">{influencer.matchScore.reasons.join(" ")}</p>
+      <p className="mt-3 text-sm leading-6 text-slate-600">
+        {influencer.matchScore.reasons.slice(0, 2).join(" ")}
+      </p>
     </div>
   );
 }
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-4 text-center">
-      <div className="text-3xl font-black text-white">{value}</div>
-      <div className="mt-1 text-xs text-slate-400">{label}</div>
+    <div className="matchfluence-soft-panel rounded-2xl p-4 text-center">
+      <div className="text-3xl font-black text-slate-950">{value}</div>
+      <div className="mt-1 text-xs text-slate-500">{label}</div>
     </div>
   );
 }
