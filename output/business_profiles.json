@@ -1,0 +1,452 @@
+[
+  {
+    "id": "biz_001",
+    "name": "Coffee Roastery Kadıköy",
+    "sector_id": "sec_002",
+    "subcategory": "spesiyalti kahve",
+    "description": "El yapımı filtre kahve ve özel demlemeler",
+    "location": {
+      "city": "İstanbul",
+      "district": "Kadıköy",
+      "neighborhood": "Kadıköy",
+      "lat": 40.992354,
+      "lng": 29.031561,
+      "address": "Kadıköy Cad. No: 76"
+    },
+    "brand_style": [
+      "sty_001",
+      "sty_011"
+    ],
+    "brand_voice": "profesyonel",
+    "size": "küçük",
+    "business_age_months": 55,
+    "target_audience": {
+      "age_buckets": [
+        "25-34",
+        "18-24"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "bütçe",
+        "premium"
+      ],
+      "interest_tags": [
+        "yemek",
+        "lifestyle"
+      ]
+    },
+    "verified": true,
+    "profile_completion": 0.92,
+    "past_collaboration_count": 3,
+    "past_collaboration_categories": [
+      "cat_002",
+      "cat_001"
+    ],
+    "agent_preferences_id": "agp_biz_001",
+    "created_at": "2025-03-15T12:00:00Z"
+  },
+  {
+    "id": "biz_002",
+    "name": "Yeşil Tabak",
+    "sector_id": "sec_004",
+    "subcategory": "restoran",
+    "description": "Vegan ve organik restoran",
+    "location": {
+      "city": "İstanbul",
+      "district": "Beşiktaş",
+      "neighborhood": "Beşiktaş",
+      "lat": 41.042151,
+      "lng": 29.004659,
+      "address": "Beşiktaş Cad. No: 92"
+    },
+    "brand_style": [
+      "sty_012",
+      "sty_009"
+    ],
+    "brand_voice": "enerjik",
+    "size": "küçük",
+    "business_age_months": 12,
+    "target_audience": {
+      "age_buckets": [
+        "18-24"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "orta",
+        "bütçe"
+      ],
+      "interest_tags": [
+        "yemek",
+        "sürdürülebilirlik"
+      ]
+    },
+    "verified": true,
+    "profile_completion": 0.87,
+    "past_collaboration_count": 10,
+    "past_collaboration_categories": [
+      "cat_002",
+      "cat_023"
+    ],
+    "agent_preferences_id": "agp_biz_002",
+    "created_at": "2025-03-27T12:00:00Z"
+  },
+  {
+    "id": "biz_003",
+    "name": "Urban Threads",
+    "sector_id": "sec_007",
+    "subcategory": "butik",
+    "description": "Erkek sokak giyim butik markası",
+    "location": {
+      "city": "İstanbul",
+      "district": "Nişantaşı",
+      "neighborhood": "Nişantaşı",
+      "lat": 41.052914,
+      "lng": 28.994127,
+      "address": "Nişantaşı Cad. No: 95"
+    },
+    "brand_style": [
+      "sty_014",
+      "sty_005"
+    ],
+    "brand_voice": "enerjik",
+    "size": "orta",
+    "business_age_months": 63,
+    "target_audience": {
+      "age_buckets": [
+        "35-44"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "orta",
+        "premium"
+      ],
+      "interest_tags": [
+        "moda",
+        "lifestyle"
+      ]
+    },
+    "verified": false,
+    "profile_completion": 0.76,
+    "past_collaboration_count": 8,
+    "past_collaboration_categories": [
+      "cat_003",
+      "cat_001"
+    ],
+    "agent_preferences_id": "agp_biz_003",
+    "created_at": "2025-03-21T12:00:00Z"
+  },
+  {
+    "id": "biz_004",
+    "name": "Glow Cilt Bakım",
+    "sector_id": "sec_012",
+    "subcategory": "güzellik salonu",
+    "description": "Klinik cilt bakım merkezi ve ürün satışı",
+    "location": {
+      "city": "İstanbul",
+      "district": "Şişli",
+      "neighborhood": "Şişli",
+      "lat": 41.062977,
+      "lng": 28.987546,
+      "address": "Şişli Cad. No: 33"
+    },
+    "brand_style": [
+      "sty_001",
+      "sty_006"
+    ],
+    "brand_voice": "premium",
+    "size": "orta",
+    "business_age_months": 62,
+    "target_audience": {
+      "age_buckets": [
+        "35-44"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "orta",
+        "bütçe"
+      ],
+      "interest_tags": [
+        "cilt bakımı",
+        "güzellik"
+      ]
+    },
+    "verified": false,
+    "profile_completion": 0.78,
+    "past_collaboration_count": 2,
+    "past_collaboration_categories": [
+      "cat_006",
+      "cat_004"
+    ],
+    "agent_preferences_id": "agp_biz_004",
+    "created_at": "2026-02-06T12:00:00Z"
+  },
+  {
+    "id": "biz_005",
+    "name": "FitZone Studio",
+    "sector_id": "sec_015",
+    "subcategory": "fitness / spor salonu",
+    "description": "Fonksiyonel antrenman ve CrossFit merkezi",
+    "location": {
+      "city": "İstanbul",
+      "district": "Beşiktaş",
+      "neighborhood": "Beşiktaş",
+      "lat": 41.039408,
+      "lng": 29.00673,
+      "address": "Beşiktaş Cad. No: 22"
+    },
+    "brand_style": [
+      "sty_010",
+      "sty_006"
+    ],
+    "brand_voice": "profesyonel",
+    "size": "küçük",
+    "business_age_months": 14,
+    "target_audience": {
+      "age_buckets": [
+        "25-34",
+        "35-44"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "premium",
+        "orta"
+      ],
+      "interest_tags": [
+        "fitness",
+        "wellness"
+      ]
+    },
+    "verified": true,
+    "profile_completion": 0.75,
+    "past_collaboration_count": 13,
+    "past_collaboration_categories": [
+      "cat_009",
+      "cat_010"
+    ],
+    "agent_preferences_id": "agp_biz_005",
+    "created_at": "2025-09-30T12:00:00Z"
+  },
+  {
+    "id": "biz_006",
+    "name": "Botanik Kafe",
+    "sector_id": "sec_001",
+    "subcategory": "kafe",
+    "description": "Doğal malzeme, bitki çayları, huzurlu ortam",
+    "location": {
+      "city": "İstanbul",
+      "district": "Cihangir",
+      "neighborhood": "Cihangir",
+      "lat": 41.036048,
+      "lng": 28.983841,
+      "address": "Cihangir Cad. No: 92"
+    },
+    "brand_style": [
+      "sty_012",
+      "sty_015"
+    ],
+    "brand_voice": "samimi",
+    "size": "küçük",
+    "business_age_months": 54,
+    "target_audience": {
+      "age_buckets": [
+        "18-24",
+        "25-34"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "orta",
+        "premium"
+      ],
+      "interest_tags": [
+        "lifestyle",
+        "yemek"
+      ]
+    },
+    "verified": true,
+    "profile_completion": 0.94,
+    "past_collaboration_count": 13,
+    "past_collaboration_categories": [
+      "cat_001",
+      "cat_002"
+    ],
+    "agent_preferences_id": "agp_biz_006",
+    "created_at": "2025-07-16T12:00:00Z"
+  },
+  {
+    "id": "biz_007",
+    "name": "Teknosan",
+    "sector_id": "sec_019",
+    "subcategory": "teknoloji mağazası",
+    "description": "Aksesuarlar ve gadget mağazası",
+    "location": {
+      "city": "İstanbul",
+      "district": "Ataşehir",
+      "neighborhood": "Ataşehir",
+      "lat": 40.985775,
+      "lng": 29.117161,
+      "address": "Ataşehir Cad. No: 80"
+    },
+    "brand_style": [
+      "sty_006",
+      "sty_001"
+    ],
+    "brand_voice": "profesyonel",
+    "size": "orta",
+    "business_age_months": 68,
+    "target_audience": {
+      "age_buckets": [
+        "25-34"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "orta",
+        "premium"
+      ],
+      "interest_tags": [
+        "teknoloji"
+      ]
+    },
+    "verified": false,
+    "profile_completion": 0.78,
+    "past_collaboration_count": 12,
+    "past_collaboration_categories": [
+      "cat_007"
+    ],
+    "agent_preferences_id": "agp_biz_007",
+    "created_at": "2025-04-12T12:00:00Z"
+  },
+  {
+    "id": "biz_008",
+    "name": "Kahve & Stil",
+    "sector_id": "sec_001",
+    "subcategory": "kafe",
+    "description": "Moda odaklı konsept kafe",
+    "location": {
+      "city": "İstanbul",
+      "district": "Karaköy",
+      "neighborhood": "Karaköy",
+      "lat": 41.01865,
+      "lng": 28.973674,
+      "address": "Karaköy Cad. No: 19"
+    },
+    "brand_style": [
+      "sty_011",
+      "sty_013"
+    ],
+    "brand_voice": "samimi",
+    "size": "küçük",
+    "business_age_months": 56,
+    "target_audience": {
+      "age_buckets": [
+        "18-24"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "premium",
+        "orta"
+      ],
+      "interest_tags": [
+        "moda",
+        "yemek"
+      ]
+    },
+    "verified": false,
+    "profile_completion": 0.82,
+    "past_collaboration_count": 1,
+    "past_collaboration_categories": [
+      "cat_003",
+      "cat_002"
+    ],
+    "agent_preferences_id": "agp_biz_008",
+    "created_at": "2025-12-05T12:00:00Z"
+  },
+  {
+    "id": "biz_009",
+    "name": "Patili Dünya",
+    "sector_id": "sec_025",
+    "subcategory": "evcil hayvan mağazası",
+    "description": "Doğal mama ve evcil hayvan aksesuarları",
+    "location": {
+      "city": "İstanbul",
+      "district": "Kadıköy",
+      "neighborhood": "Kadıköy",
+      "lat": 40.991591,
+      "lng": 29.024817,
+      "address": "Kadıköy Cad. No: 44"
+    },
+    "brand_style": [
+      "sty_007",
+      "sty_009"
+    ],
+    "brand_voice": "premium",
+    "size": "küçük",
+    "business_age_months": 54,
+    "target_audience": {
+      "age_buckets": [
+        "25-34",
+        "35-44"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "bütçe",
+        "orta"
+      ],
+      "interest_tags": [
+        "evcil hayvan",
+        "lifestyle"
+      ]
+    },
+    "verified": false,
+    "profile_completion": 0.83,
+    "past_collaboration_count": 11,
+    "past_collaboration_categories": [
+      "cat_022",
+      "cat_001"
+    ],
+    "agent_preferences_id": "agp_biz_009",
+    "created_at": "2025-12-24T12:00:00Z"
+  },
+  {
+    "id": "biz_010",
+    "name": "Çevik Mutfak",
+    "sector_id": "sec_004",
+    "subcategory": "restoran",
+    "description": "Fast-casual, yerel malzeme odaklı restoran",
+    "location": {
+      "city": "İstanbul",
+      "district": "Kadıköy",
+      "neighborhood": "Kadıköy",
+      "lat": 40.994301,
+      "lng": 29.030512,
+      "address": "Kadıköy Cad. No: 86"
+    },
+    "brand_style": [
+      "sty_005",
+      "sty_002"
+    ],
+    "brand_voice": "samimi",
+    "size": "küçük",
+    "business_age_months": 9,
+    "target_audience": {
+      "age_buckets": [
+        "18-24"
+      ],
+      "gender_preference": "all",
+      "income_groups": [
+        "bütçe",
+        "premium"
+      ],
+      "interest_tags": [
+        "yemek"
+      ]
+    },
+    "verified": false,
+    "profile_completion": 0.82,
+    "past_collaboration_count": 3,
+    "past_collaboration_categories": [
+      "cat_002"
+    ],
+    "agent_preferences_id": "agp_biz_010",
+    "created_at": "2025-07-03T12:00:00Z"
+  }
+]
