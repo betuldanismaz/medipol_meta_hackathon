@@ -137,5 +137,34 @@ class TestInfluMatchV1Final(unittest.TestCase):
         self.assertEqual(res["score"], 92) # Clamped
         self.assertEqual(res["breakdown"]["position_match"], 35)
 
+    def test_filter_discoverable_worker(self):
+        profiles = [
+            {"type": "business"}, {"type": "worker"},
+            {"type": "influencer"}, {"type": "job_listing"}
+        ]
+        res = filter_discoverable_profiles("worker", profiles)
+        self.assertEqual(len(res), 2)
+        types = [p["type"] for p in res]
+        self.assertIn("business", types)
+        self.assertIn("job_listing", types)
+
+    def test_calculate_v1_score_symmetry(self):
+        # İşletme (Business) özneli sorgularda skorun doğru hesaplanıp hesaplanmadığını test eder.
+        influencer = {
+            "type": "influencer", "niche": "moda", "city": "istanbul", 
+            "followers": 25000, "engagement_rate": 0.06, "last_active_at": self.today_str
+        }
+        business = {
+            "type": "business", "niche": "moda", "city": "istanbul", "target_followers": "micro"
+        }
+        
+        res1 = calculate_v1_score(influencer, business)
+        res2 = calculate_v1_score(business, influencer)
+        
+        # Her iki yönden de eşleşmenin skoru birebir aynı (92) olmalı.
+        self.assertEqual(res1["score"], 92)
+        self.assertEqual(res2["score"], 92)
+        self.assertEqual(res1["breakdown"]["semantic_match"], res2["breakdown"]["semantic_match"])
+
 if __name__ == '__main__':
     unittest.main()

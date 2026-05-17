@@ -35,12 +35,23 @@ TARGET_MAP = {
 
 def calculate_v1_score(entity: dict, target: dict) -> dict:
     try:
-        is_worker = str(entity.get("type", "")).strip().lower() in ["worker", "employee", "çalışan"]
+        e_type = str(entity.get("type", "")).strip().lower()
+        t_type = str(target.get("type", "")).strip().lower()
+        
+        # Eğer işletme eşleşmeyi başlatıyorsa (entity=business), skoru doğru hesaplamak için rolleri yer değiştir.
+        if e_type in ["business", "işletme"]:
+            candidate = target
+            listing = entity
+        else:
+            candidate = entity
+            listing = target
+            
+        is_worker = str(candidate.get("type", "")).strip().lower() in ["worker", "employee", "çalışan"]
         
         # --- ORTAK BİLEŞENLER ---
         # Konum Uyumu (Max 20 Puan)
-        e_city = str(entity.get("city", "")).strip().lower()
-        t_city = str(target.get("city", "")).strip().lower()
+        e_city = str(candidate.get("city", "")).strip().lower()
+        t_city = str(listing.get("city", "")).strip().lower()
         
         location_match = 5
         if e_city and t_city and e_city == t_city:
@@ -48,7 +59,7 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
 
         # Aktiflik/Zamanellik Skoru (Max 10 Puan)
         activity = 0
-        last_active = entity.get("last_active_at")
+        last_active = candidate.get("last_active_at")
         if last_active:
             try:
                 active_date = datetime.strptime(str(last_active), "%Y-%m-%d").date()
@@ -68,17 +79,17 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
             # --- ÇALIŞAN (WORKER) BİLEŞENLERİ ---
             
             # 1. Pozisyon Uyumu (Max 35 Puan)
-            preferred = entity.get("preferred_positions", [])
+            preferred = candidate.get("preferred_positions", [])
             if isinstance(preferred, str):
                 preferred = [preferred]
-            target_pos = target.get("position_id")
+            target_pos = listing.get("position_id")
             
             position_match = 35 if (target_pos and target_pos in preferred) else 10
             
             # 2. Deneyim Yılı Uyumu (Max 20 Puan)
             try:
-                w_exp = float(entity.get("experience_years", 0))
-                j_req = float(target.get("required_experience_years", 0))
+                w_exp = float(candidate.get("experience_years", 0))
+                j_req = float(listing.get("required_experience_years", 0))
                 if w_exp >= j_req:
                     experience_match = 20
                 else:
@@ -89,8 +100,8 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
                 
             # 3. Maaş Beklentisi Uyumu (Max 15 Puan)
             try:
-                w_min = float(entity.get("rate_range", {}).get("min", 0))
-                j_wage = float(target.get("wage", {}).get("amount", 0))
+                w_min = float(candidate.get("rate_range", {}).get("min", 0))
+                j_wage = float(listing.get("wage", {}).get("amount", 0))
                 
                 if w_min == 0 or j_wage == 0:
                     wage_match = 10
@@ -122,8 +133,8 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
             # --- INFLUENCER BİLEŞENLERİ ---
             
             # 1. Semantic/Niş Uyumu (Max 35 Puan)
-            e_niche = str(entity.get("niche", "")).strip().lower()
-            t_niche = str(target.get("niche", "")).strip().lower()
+            e_niche = str(candidate.get("niche", "")).strip().lower()
+            t_niche = str(listing.get("niche", "")).strip().lower()
             
             semantic_match = 10
             if e_niche and t_niche:
@@ -140,11 +151,11 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
 
             # 2. Takipçi Tier Uyumu (Max 20 Puan)
             try:
-                followers = int(entity.get("followers", 0))
+                followers = int(candidate.get("followers", 0))
             except (ValueError, TypeError):
                 followers = 0
                 
-            target_str = str(target.get("target_followers", "micro")).strip().lower().replace(" ", "")
+            target_str = str(listing.get("target_followers", "micro")).strip().lower().replace(" ", "")
             target_tier = TARGET_MAP.get(target_str, "micro")
             
             e_tier = "nano"
@@ -168,7 +179,7 @@ def calculate_v1_score(entity: dict, target: dict) -> dict:
 
             # 3. Etkileşim Oranı (Max 15 Puan)
             try:
-                engagement_val = float(entity.get("engagement_rate", 0.0))
+                engagement_val = float(candidate.get("engagement_rate", 0.0))
             except (ValueError, TypeError):
                 engagement_val = 0.0
                 
