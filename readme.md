@@ -1,52 +1,203 @@
-# 🚀 Hackathon Projesi — Sosyal Medya YZ Ekosistemi
+# InfluMatch
 
-## Ekip
-| İsim | Sorumluluk Alanı |
-|------|-----------------|
-| Betül | Trend Araştırma (F1) + İçerik Öneri Sistemi (F8) |
-| Ömer | Hesap Yönetimi (F2) + Algoritma Manipülasyon (F7) |
-| Emir | Dezenformasyon & Deep Search (F3) |
-| Emre | Otomatik Moderasyon (F4) + Troll/Bot Tespiti (F5) |
-| Mehmet | Duygu Analizi & Filtre (F6) |
+InfluMatch is a Medipol Meta Hackathon MVP for matching local businesses with influencers. The product idea is a swipe-based discovery flow: businesses and influencers review profile cards, swipe right to apply, and receive an explainable match score for each potential collaboration.
 
-## Proje Kapsamı
-8 modüllü, birbirine entegre bir sosyal medya YZ ekosistemi:
+## Project Status
 
-1. **F1** — İçerik üreticileri için trend & konu araştırması (medya formatında sunum)
-2. **F2** — İçerik üreticisinin kendi hesabını yönetmesi
-3. **F3** — Dezenformasyon ve siber zorbalık için deep search + özet sistemi
-4. **F4** — Kötü kelimeleri pozitif dile dönüştüren otomatik moderasyon
-5. **F5** — Troll ve botları izole eden sunucu yönlendirme sistemi
-6. **F6** — Duygu analizi ile zararlı akımları tespit ve filtre
-7. **F7** — Algoritma manipülasyonu & oyunlaştırma (platform = tuval)
-8. **F8** — Yorum/etkileşim analizi ile kişiselleştirilmiş içerik önerisi
+This repository currently contains the project scaffold and health-check integration:
 
-## Repo Yapısı
-```
-/arastirma/     → Her modül için araştırma notları, kaynaklar, kısıtlar
-/agents/        → Her modül için agent sistem promptları
-/prompts/       → Geliştirme sürecinde kullanılan meta-promptlar
-/ekip/          → Kişi bazlı görev takibi
+- Frontend: Next.js, React, TypeScript, Tailwind CSS
+- Backend: FastAPI, SQLAlchemy, Pydantic
+- Database: PostgreSQL through Docker Compose
+- Current backend endpoints: `/` and `/health`
+- Target MVP endpoints are documented below and in the team prompt files
+
+## Repository Structure
+
+```text
+.
++-- backend/          FastAPI app, database setup, API routers
++-- frontend/         Next.js app
++-- agents_team/      Role-specific team instructions
++-- prompts/          Implementation prompts and coordination notes
++-- files/            Shared files/assets area
++-- docker-compose.yml
++-- .env.example
++-- GIT_REHBERI.md
 ```
 
-## Kapsam Dışı (Scope Out)
-> Bu liste halüsinasyon engellemek için kritiktir. Aşağıdakiler bu projede **yapılmaz**:
-- Gerçek zamanlı platform API erişimi (Twitter/X, Instagram, TikTok resmi API'leri kapsam dışı — mock data kullanılır)
-- Kullanıcı kimlik doğrulama altyapısı (OAuth, 2FA vb.)
-- Mobil uygulama geliştirme
-- Reklam/monetizasyon modülleri
-- Veri tabanı altyapısı kurulumu (demo için in-memory/mock)
-- Yasal uyumluluk danışmanlığı (GDPR, KVKK implementasyonu)
+## Requirements
 
-## Teknoloji Seçimleri
-- **LLM:** Claude API (claude-sonnet-4-20250514)
-- **Embedding:** sentence-transformers veya OpenAI embeddings (araştırılacak)
-- **Backend:** Python / FastAPI
-- **Frontend:** React + Tailwind
-- **Demo Verisi:** Sentetik + kamuya açık veri setleri
+- Docker and Docker Compose
+- Node.js 20+ if running the frontend outside Docker
+- Python 3.12+ if running the backend outside Docker
 
-## Geliştirme Kuralları
-1. Her modülün kendi `/arastirma/` klasörü var — koda başlamadan önce okunmalı
-2. Agent promptları `/agents/` klasöründe — doğrudan kopyalanıp kullanılır
-3. Kapsam dışı liste değiştirilmek istenirse tüm ekip onayı gerekir
-4. Her commit mesajı `[F1]`, `[F3]` gibi modül etiketi içermeli
+## Quick Start
+
+Run the full stack with Docker:
+
+```bash
+docker compose up --build
+```
+
+Then open:
+
+- Frontend: `http://localhost:3000`
+- Backend root: `http://localhost:8000`
+- Backend health: `http://localhost:8000/health`
+- FastAPI docs: `http://localhost:8000/docs`
+- PostgreSQL: `localhost:5432`
+
+Stop the stack:
+
+```bash
+docker compose down
+```
+
+To also remove the local database volume:
+
+```bash
+docker compose down -v
+```
+
+## Environment
+
+The Docker setup already provides default development environment values. To override them, copy `.env.example` to `.env` and add local values there.
+
+Default service configuration:
+
+```text
+DATABASE_URL=postgresql://app:app@db:5432/app
+CORS_ORIGINS=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:8000
+API_URL_INTERNAL=http://backend:8000
+```
+
+## Local Development Without Docker
+
+Backend:
+
+```bash
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Frontend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+If the backend is not running inside Docker, set a reachable `DATABASE_URL` before starting FastAPI.
+
+## Current API
+
+### `GET /`
+
+Returns the backend service identifier.
+
+```json
+{
+  "service": "medipol-meta-hackathon-api"
+}
+```
+
+### `GET /health`
+
+Checks API and database connectivity.
+
+```json
+{
+  "status": "ok",
+  "db": "ok"
+}
+```
+
+## Target MVP API Contract
+
+The hackathon MVP is expected to grow toward this contract:
+
+```text
+GET  /api/profiles
+POST /api/swipe
+GET  /api/match-score?inf_id=inf_1&biz_id=biz_1
+GET  /api/matches
+```
+
+Expected response shapes:
+
+```json
+[
+  {
+    "id": "inf_1",
+    "name": "Ayse Kaya",
+    "type": "influencer",
+    "niche": "moda",
+    "followers": 28000,
+    "city": "Istanbul",
+    "bio": "Sustainable fashion content",
+    "avatar_url": null
+  }
+]
+```
+
+```json
+{
+  "match": true,
+  "match_id": "match_abc123"
+}
+```
+
+```json
+{
+  "score": 78,
+  "reasons": [
+    "Niche overlap is strong",
+    "Follower tier is compatible",
+    "Same city"
+  ]
+}
+```
+
+## Team Areas
+
+- Backend lead: FastAPI routes, mock data service, swipe logic, match persistence
+- Frontend infrastructure: Next.js setup, shared API helpers, types, routing
+- Frontend UI: profile cards, swipe controls, match banner, matches page
+- Matching logic: 0-100 compatibility score and explainable reasons
+- Data and demo: mock profile data, pitch deck, demo scenario
+
+Role-specific notes are in `agents_team/`. Implementation prompts are in `prompts/`.
+
+## Useful Commands
+
+```bash
+# Check Git state
+git status --short
+
+# Start all services
+docker compose up --build
+
+# Rebuild only the frontend image
+docker compose build frontend
+
+# Rebuild only the backend image
+docker compose build backend
+
+# Follow backend logs
+docker compose logs -f backend
+
+# Follow frontend logs
+docker compose logs -f frontend
+```
+
+## Notes
+
+- The backend currently creates SQLAlchemy tables at startup for development convenience.
+- Replace startup table creation with Alembic migrations before production.
+- Keep secrets in `.env` or `.env.local`; do not commit API keys.
