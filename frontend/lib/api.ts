@@ -1,53 +1,33 @@
 import type {
-<<<<<<< HEAD
+  CampaignInput,
   InfluencerProfile,
   LegacyMatch,
   LegacyMatchScore,
   LegacyProfile,
   LegacySwipePayload,
   LegacySwipeResult,
-=======
-  CampaignInput,
->>>>>>> main
   MatchRecord,
   MatchScore,
   RankedInfluencer,
   SwipePayload,
   SwipeResponse,
 } from "@/types";
-<<<<<<< HEAD
-=======
 import {
   getProfilesMock,
   postSwipeMock,
   getMatchScoreMock,
   getMatchesMock,
 } from "@/lib/mockApi";
->>>>>>> main
 
 const API_URL =
   typeof window === "undefined"
     ? process.env.API_URL_INTERNAL ?? "http://backend:8000"
     : process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
-<<<<<<< HEAD
 
 const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK === "true";
 
 export type HealthStatus = { status: string; db: string };
 
-=======
-
-const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK === "true";
-
-export type HealthStatus = { status: string; db: string };
-
-export async function getHealth(): Promise<HealthStatus> {
-  const res = await fetch(`${API_URL}/health`, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Health check failed: ${res.status}`);
-  return res.json();
-}
-
->>>>>>> main
 async function fetchJson<T>(path: string, init?: RequestInit): Promise<T> {
   let response: Response;
   try {
@@ -68,24 +48,26 @@ async function fetchJson<T>(path: string, init?: RequestInit): Promise<T> {
   return response.json() as Promise<T>;
 }
 
-<<<<<<< HEAD
 export async function getHealth(): Promise<HealthStatus> {
   return fetchJson<HealthStatus>("/health");
 }
 
-export async function getProfiles(): Promise<RankedInfluencer[]> {
-=======
-export async function getProfiles(campaign: CampaignInput): Promise<RankedInfluencer[]> {
-  if (USE_MOCK) return getProfilesMock(campaign);
->>>>>>> main
+export async function getProfiles(campaign?: CampaignInput): Promise<RankedInfluencer[]> {
+  if (USE_MOCK) {
+    if (!campaign) throw new Error("Mock profil listesi icin kampanya bilgisi gerekli.");
+    return getProfilesMock(campaign);
+  }
   return fetchJson<RankedInfluencer[]>("/api/profiles");
 }
 
 export async function postSwipe(
   payload: SwipePayload,
-  campaign: CampaignInput,
+  campaign?: CampaignInput,
 ): Promise<SwipeResponse> {
-  if (USE_MOCK) return postSwipeMock(payload, campaign);
+  if (USE_MOCK) {
+    if (!campaign) throw new Error("Mock swipe icin kampanya bilgisi gerekli.");
+    return postSwipeMock(payload, campaign);
+  }
   return fetchJson<SwipeResponse>("/api/swipe", {
     method: "POST",
     body: JSON.stringify(payload),
@@ -94,12 +76,15 @@ export async function postSwipe(
 
 export async function getMatchScore(
   influencerId: string,
-  campaign: CampaignInput,
+  campaign: CampaignInput | string,
 ): Promise<MatchScore> {
-  if (USE_MOCK) return getMatchScoreMock(influencerId, campaign);
+  if (USE_MOCK) {
+    if (typeof campaign === "string") throw new Error("Mock skor icin kampanya bilgisi gerekli.");
+    return getMatchScoreMock(influencerId, campaign);
+  }
   const query = new URLSearchParams({
     inf_id: influencerId,
-    biz_id: campaign.businessId,
+    biz_id: typeof campaign === "string" ? campaign : campaign.businessId,
   }).toString();
   return fetchJson<MatchScore>(`/api/match-score?${query}`);
 }
