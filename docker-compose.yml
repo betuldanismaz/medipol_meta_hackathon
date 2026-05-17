@@ -22,6 +22,8 @@ services:
       CORS_ORIGINS: http://localhost:3000
     volumes:
       - ./backend/app:/app/app
+      - ./backend/scripts:/app/scripts
+      - ./output:/output:ro
     ports:
       - "8000:8000"
     depends_on:
