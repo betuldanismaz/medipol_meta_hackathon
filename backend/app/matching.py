@@ -293,3 +293,48 @@ def calculate_score(influencer: dict, business: dict) -> dict:
                 "engagement": 5
             }
         }
+
+
+def get_allowed_discover_types(user_type: str) -> list[str]:
+    """
+    Kullanıcı rolüne göre karşısına çıkabilecek hedef profil tiplerini döner.
+    Geliştirilen kurallar:
+    - influencer -> sadece business
+    - employee / çalışan -> sadece business
+    - business -> sadece influencer
+    """
+    user_type = str(user_type).strip().lower()
+    if user_type == "influencer":
+        return ["business"]
+    elif user_type in ["employee", "çalışan"]:
+        return ["business"]
+    elif user_type in ["business", "işletme"]:
+        return ["influencer"]
+    return []
+
+
+def filter_discoverable_profiles(user_profile: dict, all_profiles: list[dict]) -> list[dict]:
+    """
+    Kullanıcının kendi profil bilgisine göre keşif havuzundaki profilleri filtreler.
+    Kullanıcının kendisini havuzdan eler ve yalnızca görmeye izni olduğu profil tiplerini tutar.
+    """
+    if not user_profile:
+        return []
+        
+    user_id = user_profile.get("id")
+    user_type = str(user_profile.get("type", "")).strip().lower()
+    
+    allowed_types = get_allowed_discover_types(user_type)
+    
+    filtered = []
+    for profile in all_profiles:
+        # Kendi profilini filtrele
+        if profile.get("id") == user_id:
+            continue
+            
+        # Sadece izin verilen profil tiplerini ekle
+        p_type = str(profile.get("type", "")).strip().lower()
+        if p_type in allowed_types:
+            filtered.append(profile)
+            
+    return filtered

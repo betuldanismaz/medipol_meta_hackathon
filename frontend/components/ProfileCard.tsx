@@ -1,51 +1,52 @@
+<<<<<<< HEAD
 import type { LegacyProfile } from "@/types";
 
 type Props = {
   profile: LegacyProfile;
+=======
+import type { InfluencerProfile } from "@/types";
+
+type Props = {
+  profile: InfluencerProfile;
+>>>>>>> main
 };
 
 export default function ProfileCard({ profile }: Props) {
-  const initials = profile.name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
-
   return (
     <div className="w-80 rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-lg overflow-hidden">
       {/* Avatar */}
-      <div className="h-48 bg-gradient-to-br from-violet-400 to-indigo-500 flex items-center justify-center">
-        {profile.avatar_url ? (
-          <img
-            src={profile.avatar_url}
-            alt={profile.name}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <span className="text-5xl font-bold text-white">{initials}</span>
-        )}
+      <div className="h-48 bg-linear-to-br from-violet-400 to-indigo-500 flex items-center justify-center">
+        <span className="text-7xl">{profile.avatar}</span>
       </div>
 
       {/* Bilgiler */}
       <div className="p-5 space-y-2">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold truncate">{profile.name}</h2>
-          <span className="text-xs px-2 py-1 rounded-full bg-violet-100 text-violet-700 dark:bg-violet-900 dark:text-violet-300 shrink-0 ml-2">
-            {profile.type === "influencer" ? "Influencer" : "İşletme"}
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <h2 className="text-xl font-bold leading-tight">{profile.name}</h2>
+            <p className="text-sm text-zinc-400">{profile.handle}</p>
+          </div>
+          <span className="text-xs px-2 py-1 rounded-full bg-violet-100 text-violet-700 dark:bg-violet-900 dark:text-violet-300 shrink-0 mt-1">
+            Influencer
           </span>
         </div>
 
-        <div className="flex gap-3 text-sm text-zinc-500 dark:text-zinc-400">
-          <span>#{profile.niche}</span>
-          <span>•</span>
-          <span>{profile.city}</span>
-          {profile.type === "influencer" && (
-            <>
-              <span>•</span>
-              <span>{profile.followers.toLocaleString("tr-TR")} takipçi</span>
-            </>
-          )}
+        <div className="flex flex-wrap gap-2 text-xs text-zinc-500 dark:text-zinc-400">
+          <span>📍 {profile.location}</span>
+          <span>👥 {profile.followers.toLocaleString("tr-TR")}</span>
+          <span>⚡ %{profile.engagementRate} etkileşim</span>
+          <span>💰 {profile.price.toLocaleString("tr-TR")} TL</span>
+        </div>
+
+        <div className="flex flex-wrap gap-1">
+          {profile.niches.map((niche) => (
+            <span
+              key={niche}
+              className="text-xs px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300"
+            >
+              #{niche}
+            </span>
+          ))}
         </div>
 
         <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-snug">{profile.bio}</p>

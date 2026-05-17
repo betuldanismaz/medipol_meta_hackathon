@@ -5,7 +5,7 @@ import os
 # app modülünün import edilebilmesi için path ayarla
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from app.matching import calculate_score, niche_score, follower_score, location_score, engagement_score
+from app.matching import calculate_score, niche_score, follower_score, location_score, engagement_score, get_allowed_discover_types, filter_discoverable_profiles
 
 class TestMatchingAlgorithm(unittest.TestCase):
 
@@ -137,6 +137,42 @@ class TestMatchingAlgorithm(unittest.TestCase):
         corrupted_inf = {"followers": "çok fazla", "engagement_rate": "belirsiz"}
         result = calculate_score(corrupted_inf, empty_biz)
         self.assertTrue(10 <= result["score"] <= 92)
+
+    def test_discovery_filtering(self):
+        # 1. get_allowed_discover_types testleri
+        self.assertEqual(get_allowed_discover_types("influencer"), ["business"])
+        self.assertEqual(get_allowed_discover_types("employee"), ["business"])
+        self.assertEqual(get_allowed_discover_types("çalışan"), ["business"])
+        self.assertEqual(get_allowed_discover_types("business"), ["influencer"])
+        self.assertEqual(get_allowed_discover_types("işletme"), ["influencer"])
+        self.assertEqual(get_allowed_discover_types("unknown"), [])
+
+        # 2. filter_discoverable_profiles testleri
+        profiles_pool = [
+            {"id": "inf_1", "type": "influencer", "name": "Ayşe"},
+            {"id": "inf_2", "type": "influencer", "name": "Fatma"},
+            {"id": "biz_1", "type": "business", "name": "Kafe A"},
+            {"id": "biz_2", "type": "business", "name": "Butik B"},
+            {"id": "emp_1", "type": "employee", "name": "Ahmet"}
+        ]
+
+        # Influencer sadece business görmeli (kendisi hariç)
+        inf_user = {"id": "inf_1", "type": "influencer"}
+        filtered_for_inf = filter_discoverable_profiles(inf_user, profiles_pool)
+        self.assertEqual(len(filtered_for_inf), 2)
+        self.assertTrue(all(p["type"] == "business" for p in filtered_for_inf))
+
+        # Employee sadece business görmeli (kendisi hariç)
+        emp_user = {"id": "emp_1", "type": "employee"}
+        filtered_for_emp = filter_discoverable_profiles(emp_user, profiles_pool)
+        self.assertEqual(len(filtered_for_emp), 2)
+        self.assertTrue(all(p["type"] == "business" for p in filtered_for_emp))
+
+        # Business sadece influencer görmeli (kendisi hariç)
+        biz_user = {"id": "biz_1", "type": "business"}
+        filtered_for_biz = filter_discoverable_profiles(biz_user, profiles_pool)
+        self.assertEqual(len(filtered_for_biz), 2)
+        self.assertTrue(all(p["type"] == "influencer" for p in filtered_for_biz))
 
 
 if __name__ == "__main__":
