@@ -131,11 +131,11 @@ git push origin main
 
 Aynı dosyayı iki kişi değiştirdiyse Git çakışma işaretler:
 ```
-<<<<<<< HEAD
+  <<<<<<< HEAD
 senin değişikliğin
-=======
+  =======
 diğerinin değişikliği
->>>>>>> main
+  >>>>>>> main
 ```
 
 Çözüm: İkisini karşılaştır, doğru olanı bırak, işaretleri sil, commit at. Emin değilsen diğer kişiyi çağır, birlikte bakın.

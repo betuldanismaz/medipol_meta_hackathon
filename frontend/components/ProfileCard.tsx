@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import type { LegacyProfile } from "@/types";
-
-type Props = {
-  profile: LegacyProfile;
-=======
 import type { InfluencerProfile } from "@/types";
 
 type Props = {
   profile: InfluencerProfile;
->>>>>>> main
 };
 
 export default function ProfileCard({ profile }: Props) {

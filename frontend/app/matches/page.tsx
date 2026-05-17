@@ -1,16 +1,12 @@
 import Link from "next/link";
-<<<<<<< HEAD
-import { getLegacyMatches } from "@/lib/api";
-=======
 import { getMatches } from "@/lib/api";
 import { matchfluenceInfluencers } from "@/data/matchfluenceInfluencers";
->>>>>>> main
 import ScoreBadge from "@/components/ScoreBadge";
 
 export default async function MatchesPage() {
   let matches;
   try {
-    matches = await getLegacyMatches();
+    matches = await getMatches();
   } catch {
     return (
       <main className="min-h-screen flex items-center justify-center">
