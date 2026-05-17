@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Sparkles, LayoutDashboard, Heart, MessageSquare, User, BarChart3, LogOut } from "lucide-react";
+import { Sparkles, LayoutDashboard, Heart, MessageSquare, User, BarChart3, LogOut, Bot, CreditCard } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const nav = [
   { to: "/dashboard", label: "Özet", icon: LayoutDashboard, exact: true },
   { to: "/dashboard/matches", label: "Eşleşmeler", icon: Heart, exact: false },
+  { to: "/dashboard/negotiations", label: "Agent Inbox", icon: Bot, exact: false },
   { to: "/dashboard/messages", label: "Mesajlar", icon: MessageSquare, exact: false },
   { to: "/dashboard/analytics", label: "İstatistik", icon: BarChart3, exact: false },
   { to: "/dashboard/profile", label: "Profil", icon: User, exact: false },
+  { to: "/dashboard/billing", label: "Premium", icon: CreditCard, exact: false },
 ] as const;
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {

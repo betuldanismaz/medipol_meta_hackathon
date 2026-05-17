@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy.orm import Session
 
 from app.database import get_db
@@ -66,14 +66,19 @@ def get_listing(listing_id: int, db: Session = Depends(get_db)) -> ListingRead:
     return ListingRead.model_validate(listing)
 
 
-@router.delete("/{listing_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete(
+    "/{listing_id}",
+    status_code=status.HTTP_204_NO_CONTENT,
+    response_class=Response,
+)
 def delete_listing(
     listing_id: int,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
-) -> None:
+) -> Response:
     listing = db.get(Listing, listing_id)
     if not listing or listing.owner_id != current_user.id:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Listing not found")
     db.delete(listing)
     db.commit()
+    return Response(status_code=status.HTTP_204_NO_CONTENT)

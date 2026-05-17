@@ -3,7 +3,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     database_url: str = "postgresql://app:app@db:5432/app"
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = (
+        "http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001"
+    )
 
     openai_api_key: str = ""
     openai_model: str = "gpt-5-nano"
