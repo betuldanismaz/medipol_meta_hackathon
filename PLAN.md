@@ -106,9 +106,9 @@ Frontend → /api/profiles?role=...&context_id=...
 
 ### Detaylı plan
 
-Bu fazın tam dosya yolları, schema detayları, dikkat edilmesi gerekenler ve end-to-end verification adımları:
+Bu fazın tam dosya yolları, schema detayları, notebook ↔ backend kontratları, feature parity ve end-to-end verification adımları:
 
-`C:\Users\esrao\.claude\plans\imdi-frontendi-ve-backendi-eager-breeze.md`
+**[`ML_PLAN.md`](./ML_PLAN.md)** — `untitled24.py` Colab notebook'u odaklı entegrasyon planı.
 
 ---
 

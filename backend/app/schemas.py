@@ -84,16 +84,21 @@ class TokenResponse(BaseModel):
 class UserRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: int
+    external_id: str | None = None
     email: EmailStr
     display_name: str
+    username: str | None = None
+    avatar_url: str | None = None
     role: UserRole
     tier: UserTier
     premium_until: datetime | None = None
     agent_persona: AgentPersona | None = None
     profile: dict[str, Any] | None = None
     city: str | None = None
+    district: str | None = None
     latitude: float | None = None
     longitude: float | None = None
+    bio: str | None = None
     created_at: datetime
 
 
@@ -101,9 +106,35 @@ class UserUpdate(BaseModel):
     display_name: str | None = None
     profile: dict[str, Any] | None = None
     city: str | None = None
+    district: str | None = None
     latitude: float | None = None
     longitude: float | None = None
+    bio: str | None = None
+    avatar_url: str | None = None
     agent_persona: AgentPersona | None = None
+
+
+class PublicProfileRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    external_id: str | None = None
+    display_name: str
+    username: str | None = None
+    avatar_url: str | None = None
+    role: UserRole
+    tier: UserTier
+    city: str | None = None
+    district: str | None = None
+    bio: str | None = None
+    profile: dict[str, Any] | None = None
+
+
+class UserStats(BaseModel):
+    active_matches: int
+    weekly_swipes: int
+    pending_negotiations: int
+    confirmed_agreements: int
+    total_listings: int = 0
 
 
 # ---------------------------------------------------------------------------
@@ -113,9 +144,12 @@ class ListingCreate(BaseModel):
     type: ListingType
     title: str = Field(..., min_length=2, max_length=160)
     description: str
+    category: str | None = None
+    cover_url: str | None = None
     budget_min: float | None = None
     budget_max: float | None = None
     city: str | None = None
+    district: str | None = None
     latitude: float | None = None
     longitude: float | None = None
     extras: dict[str, Any] | None = None
@@ -124,18 +158,108 @@ class ListingCreate(BaseModel):
 class ListingRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: int
+    external_id: str | None = None
     owner_id: int
     type: ListingType
     title: str
     description: str
+    category: str | None = None
+    cover_url: str | None = None
     budget_min: float | None = None
     budget_max: float | None = None
     city: str | None = None
+    district: str | None = None
     latitude: float | None = None
     longitude: float | None = None
     extras: dict[str, Any] | None = None
     active: bool
     created_at: datetime
+
+
+class ListingPublic(ListingRead):
+    business_name: str | None = None
+    business_avatar_url: str | None = None
+    business_sector: str | None = None
+
+
+# ---------------------------------------------------------------------------
+# Instagram posts / taxonomy / messages / discovery / analytics
+# ---------------------------------------------------------------------------
+class InstagramPostRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    external_id: str | None = None
+    influencer_id: int
+    type: str
+    caption: str | None = None
+    hashtags: list[str] | None = None
+    mentioned_brands: list[str] | None = None
+    location_tag: str | None = None
+    posted_at: datetime | None = None
+    metrics: dict[str, Any] | None = None
+
+
+class TaxonomyTermRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    kind: str
+    code: str
+    label: str
+    parent_code: str | None = None
+
+
+class TaxonomyResponse(BaseModel):
+    sectors: list[TaxonomyTermRead] = Field(default_factory=list)
+    categories: list[TaxonomyTermRead] = Field(default_factory=list)
+    content_styles: list[TaxonomyTermRead] = Field(default_factory=list)
+    positions: list[TaxonomyTermRead] = Field(default_factory=list)
+
+
+class MessageRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    match_id: int
+    sender_id: int
+    content: str
+    created_at: datetime
+
+
+class MessageCreate(BaseModel):
+    match_id: int
+    content: str = Field(..., min_length=1, max_length=4000)
+
+
+class ConversationItem(BaseModel):
+    match_id: int
+    counterpart_id: int
+    counterpart_display_name: str
+    counterpart_avatar_url: str | None = None
+    last_message: str | None = None
+    last_message_at: datetime | None = None
+
+
+class DiscoveryCard(BaseModel):
+    user: PublicProfileRead | None = None
+    listing: ListingPublic | None = None
+    score: int
+    reasons: list[str] = Field(default_factory=list)
+
+
+class DiscoveryFeed(BaseModel):
+    cards: list[DiscoveryCard] = Field(default_factory=list)
+
+
+class AnalyticsMonthly(BaseModel):
+    month: str
+    views: int
+    engagement: float
+
+
+class AnalyticsResponse(BaseModel):
+    total_views: int
+    average_engagement: float
+    estimated_sales_lift_pct: float
+    monthly: list[AnalyticsMonthly] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -162,6 +286,16 @@ class MatchRead(BaseModel):
     candidate_id: int
     status: MatchStatus
     created_at: datetime
+
+
+class MatchDetail(MatchRead):
+    listing_title: str | None = None
+    listing_cover_url: str | None = None
+    counterpart_id: int | None = None
+    counterpart_display_name: str | None = None
+    counterpart_avatar_url: str | None = None
+    last_message: str | None = None
+    last_activity_at: datetime | None = None
 
 
 # ---------------------------------------------------------------------------
