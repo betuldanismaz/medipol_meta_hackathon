@@ -50,16 +50,21 @@ export type ProposedTerms = {
 
 export type AuthUser = {
   id: number;
+  external_id: string | null;
   email: string;
   display_name: string;
+  username: string | null;
+  avatar_url: string | null;
   role: UserRole;
   tier: UserTier;
   premium_until: string | null;
   agent_persona: AgentPersona | null;
   profile: Record<string, unknown> | null;
   city: string | null;
+  district: string | null;
   latitude: number | null;
   longitude: number | null;
+  bio: string | null;
   created_at: string;
 };
 

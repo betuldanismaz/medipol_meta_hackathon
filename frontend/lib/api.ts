@@ -215,7 +215,18 @@ export function getMe(): Promise<AuthUser> {
 }
 
 export function updateMe(
-  patch: Partial<Pick<AuthUser, "display_name" | "city" | "latitude" | "longitude">> & {
+  patch: Partial<
+    Pick<
+      AuthUser,
+      | "display_name"
+      | "city"
+      | "district"
+      | "latitude"
+      | "longitude"
+      | "bio"
+      | "avatar_url"
+    >
+  > & {
     agent_persona?: AgentPersona;
     profile?: Record<string, unknown>;
   },
@@ -303,5 +314,109 @@ export function upgradePlanMock(
   return fetchJson<AuthUser>("/billing/mock/upgrade", {
     method: "POST",
     body: JSON.stringify({ plan, months }),
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Public / discovery / stats / messages / analytics (v2)
+// ---------------------------------------------------------------------------
+import type {
+  AnalyticsResponse,
+  ConversationItem,
+  DiscoveryFeed,
+  InstagramPostRead,
+  ListingPublic,
+  MatchDetail,
+  MessageRead,
+  PublicProfile,
+  SwipeResultV2,
+  TaxonomyResponse,
+  UserStats,
+} from "@/types/agent";
+
+export function getPublicListings(
+  filters: { city?: string; category?: string; q?: string; limit?: number } = {},
+): Promise<ListingPublic[]> {
+  const params = new URLSearchParams();
+  if (filters.city) params.set("city", filters.city);
+  if (filters.category) params.set("category", filters.category);
+  if (filters.q) params.set("q", filters.q);
+  if (filters.limit) params.set("limit", String(filters.limit));
+  const qs = params.toString();
+  return fetchJson<ListingPublic[]>(`/public/listings${qs ? `?${qs}` : ""}`);
+}
+
+export function getPublicListing(id: number): Promise<ListingPublic> {
+  return fetchJson<ListingPublic>(`/public/listings/${id}`);
+}
+
+export function getPublicInfluencers(
+  filters: { tier?: string; city?: string; niche?: string; q?: string; limit?: number } = {},
+): Promise<PublicProfile[]> {
+  const params = new URLSearchParams();
+  if (filters.tier) params.set("tier", filters.tier);
+  if (filters.city) params.set("city", filters.city);
+  if (filters.niche) params.set("niche", filters.niche);
+  if (filters.q) params.set("q", filters.q);
+  if (filters.limit) params.set("limit", String(filters.limit));
+  const qs = params.toString();
+  return fetchJson<PublicProfile[]>(`/public/influencers${qs ? `?${qs}` : ""}`);
+}
+
+export function getPublicInfluencer(id: number): Promise<PublicProfile> {
+  return fetchJson<PublicProfile>(`/public/influencers/${id}`);
+}
+
+export function getInfluencerPosts(id: number, limit = 12): Promise<InstagramPostRead[]> {
+  return fetchJson<InstagramPostRead[]>(`/public/influencers/${id}/posts?limit=${limit}`);
+}
+
+export function getTaxonomy(): Promise<TaxonomyResponse> {
+  return fetchJson<TaxonomyResponse>("/public/taxonomy");
+}
+
+export function getDiscoveryFeed(limit = 20): Promise<DiscoveryFeed> {
+  return fetchJson<DiscoveryFeed>(`/discovery/feed?limit=${limit}`);
+}
+
+export function getMyStats(): Promise<UserStats> {
+  return fetchJson<UserStats>("/users/me/stats");
+}
+
+export function getMyAnalytics(): Promise<AnalyticsResponse> {
+  return fetchJson<AnalyticsResponse>("/analytics/me");
+}
+
+export function getMatchDetails(): Promise<MatchDetail[]> {
+  return fetchJson<MatchDetail[]>("/matches/details");
+}
+
+export function getMyListings(): Promise<ListingPublic[]> {
+  return fetchJson<ListingPublic[]>("/listings/mine");
+}
+
+export function postSwipeV2(payload: {
+  listing_id: number;
+  candidate_id?: number;
+  direction: "accept" | "reject";
+}): Promise<SwipeResultV2> {
+  return fetchJson<SwipeResultV2>("/matches/swipe", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export function getConversations(): Promise<ConversationItem[]> {
+  return fetchJson<ConversationItem[]>("/messages/conversations");
+}
+
+export function getMessages(matchId: number): Promise<MessageRead[]> {
+  return fetchJson<MessageRead[]>(`/messages/${matchId}`);
+}
+
+export function postMessage(matchId: number, content: string): Promise<MessageRead> {
+  return fetchJson<MessageRead>("/messages", {
+    method: "POST",
+    body: JSON.stringify({ match_id: matchId, content }),
   });
 }

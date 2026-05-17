@@ -1,5 +1,3 @@
-# syntax=docker/dockerfile:1.6
-
 # ---------- deps ----------
 FROM node:20-alpine AS deps
 WORKDIR /app
@@ -10,8 +8,7 @@ RUN npm config set fetch-timeout 600000 \
  && npm config set fetch-retry-maxtimeout 120000
 
 COPY package*.json ./
-RUN --mount=type=cache,target=/root/.npm \
-    npm ci --prefer-offline --no-audit --progress=false
+RUN npm ci --no-audit --progress=false
 
 # ---------- builder ----------
 FROM node:20-alpine AS builder

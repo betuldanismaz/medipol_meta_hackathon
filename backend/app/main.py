@@ -17,6 +17,7 @@ from app.routers import (
     listings,
     matches,
     messages,
+    ml,
     negotiations,
     public,
     stats,
@@ -112,6 +113,7 @@ app.include_router(public.router)
 app.include_router(discovery.router)
 app.include_router(stats.router)
 app.include_router(messages.router)
+app.include_router(ml.router)
 
 
 @app.get("/")
