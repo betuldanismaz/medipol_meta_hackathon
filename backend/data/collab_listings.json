@@ -1,0 +1,142 @@
+[
+  {
+    "listing_id": "col_001",
+    "business_id": "biz_009",
+    "title": "İşletme 9 İşbirliği",
+    "budget_min": 3436,
+    "budget_max": 10780
+  },
+  {
+    "listing_id": "col_002",
+    "business_id": "biz_009",
+    "title": "İşletme 9 İşbirliği",
+    "budget_min": 2874,
+    "budget_max": 11979
+  },
+  {
+    "listing_id": "col_003",
+    "business_id": "biz_003",
+    "title": "İşletme 3 İşbirliği",
+    "budget_min": 4760,
+    "budget_max": 5924
+  },
+  {
+    "listing_id": "col_004",
+    "business_id": "biz_001",
+    "title": "İşletme 1 İşbirliği",
+    "budget_min": 3135,
+    "budget_max": 7244
+  },
+  {
+    "listing_id": "col_005",
+    "business_id": "biz_008",
+    "title": "İşletme 8 İşbirliği",
+    "budget_min": 2252,
+    "budget_max": 7127
+  },
+  {
+    "listing_id": "col_006",
+    "business_id": "biz_006",
+    "title": "İşletme 6 İşbirliği",
+    "budget_min": 3423,
+    "budget_max": 14105
+  },
+  {
+    "listing_id": "col_007",
+    "business_id": "biz_002",
+    "title": "İşletme 2 İşbirliği",
+    "budget_min": 3006,
+    "budget_max": 6085
+  },
+  {
+    "listing_id": "col_008",
+    "business_id": "biz_001",
+    "title": "İşletme 1 İşbirliği",
+    "budget_min": 4366,
+    "budget_max": 7984
+  },
+  {
+    "listing_id": "col_009",
+    "business_id": "biz_005",
+    "title": "İşletme 5 İşbirliği",
+    "budget_min": 3090,
+    "budget_max": 7350
+  },
+  {
+    "listing_id": "col_010",
+    "business_id": "biz_004",
+    "title": "İşletme 4 İşbirliği",
+    "budget_min": 4743,
+    "budget_max": 6415
+  },
+  {
+    "listing_id": "col_011",
+    "business_id": "biz_001",
+    "title": "İşletme 1 İşbirliği",
+    "budget_min": 3212,
+    "budget_max": 5293
+  },
+  {
+    "listing_id": "col_012",
+    "business_id": "biz_007",
+    "title": "İşletme 7 İşbirliği",
+    "budget_min": 3416,
+    "budget_max": 17897
+  },
+  {
+    "listing_id": "col_013",
+    "business_id": "biz_004",
+    "title": "İşletme 4 İşbirliği",
+    "budget_min": 2448,
+    "budget_max": 13742
+  },
+  {
+    "listing_id": "col_014",
+    "business_id": "biz_003",
+    "title": "İşletme 3 İşbirliği",
+    "budget_min": 1507,
+    "budget_max": 12234
+  },
+  {
+    "listing_id": "col_015",
+    "business_id": "biz_007",
+    "title": "İşletme 7 İşbirliği",
+    "budget_min": 1529,
+    "budget_max": 12698
+  },
+  {
+    "listing_id": "col_016",
+    "business_id": "biz_004",
+    "title": "İşletme 4 İşbirliği",
+    "budget_min": 2251,
+    "budget_max": 13904
+  },
+  {
+    "listing_id": "col_017",
+    "business_id": "biz_010",
+    "title": "İşletme 10 İşbirliği",
+    "budget_min": 4501,
+    "budget_max": 9017
+  },
+  {
+    "listing_id": "col_018",
+    "business_id": "biz_007",
+    "title": "İşletme 7 İşbirliği",
+    "budget_min": 4666,
+    "budget_max": 5287
+  },
+  {
+    "listing_id": "col_019",
+    "business_id": "biz_007",
+    "title": "İşletme 7 İşbirliği",
+    "budget_min": 4851,
+    "budget_max": 7756
+  },
+  {
+    "listing_id": "col_020",
+    "business_id": "biz_002",
+    "title": "İşletme 2 İşbirliği",
+    "budget_min": 2020,
+    "budget_max": 5683
+  }
+]

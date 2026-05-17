@@ -1,0 +1,242 @@
+[
+  {
+    "id": "inf_001",
+    "name": "Influencer 1",
+    "tier": "micro",
+    "followers": 198291,
+    "engagement_rate": 0.05845005086796574,
+    "content_categories": [
+      "cat_001"
+    ],
+    "city": "İzmir",
+    "niche": "moda"
+  },
+  {
+    "id": "inf_002",
+    "name": "Influencer 2",
+    "tier": "micro",
+    "followers": 838241,
+    "engagement_rate": 0.07693930334441053,
+    "content_categories": [
+      "cat_004"
+    ],
+    "city": "Ankara",
+    "niche": "güzellik"
+  },
+  {
+    "id": "inf_003",
+    "name": "Influencer 3",
+    "tier": "macro",
+    "followers": 285561,
+    "engagement_rate": 0.045894776204293164,
+    "content_categories": [
+      "cat_001"
+    ],
+    "city": "İstanbul",
+    "niche": "moda"
+  },
+  {
+    "id": "inf_004",
+    "name": "Influencer 4",
+    "tier": "nano",
+    "followers": 299453,
+    "engagement_rate": 0.046121771917644404,
+    "content_categories": [
+      "cat_002"
+    ],
+    "city": "İzmir",
+    "niche": "moda"
+  },
+  {
+    "id": "inf_005",
+    "name": "Influencer 5",
+    "tier": "mid",
+    "followers": 144469,
+    "engagement_rate": 0.029581872196748578,
+    "content_categories": [
+      "cat_003"
+    ],
+    "city": "İzmir",
+    "niche": "güzellik"
+  },
+  {
+    "id": "inf_006",
+    "name": "Influencer 6",
+    "tier": "micro",
+    "followers": 68898,
+    "engagement_rate": 0.0939312259994105,
+    "content_categories": [
+      "cat_003"
+    ],
+    "city": "İzmir",
+    "niche": "yemek"
+  },
+  {
+    "id": "inf_007",
+    "name": "Influencer 7",
+    "tier": "mid",
+    "followers": 189259,
+    "engagement_rate": 0.014883514972507273,
+    "content_categories": [
+      "cat_004"
+    ],
+    "city": "İzmir",
+    "niche": "moda"
+  },
+  {
+    "id": "inf_008",
+    "name": "Influencer 8",
+    "tier": "macro",
+    "followers": 1303458,
+    "engagement_rate": 0.04536125821117347,
+    "content_categories": [
+      "cat_004"
+    ],
+    "city": "Ankara",
+    "niche": "güzellik"
+  },
+  {
+    "id": "inf_009",
+    "name": "Influencer 9",
+    "tier": "nano",
+    "followers": 705721,
+    "engagement_rate": 0.06846414919767657,
+    "content_categories": [
+      "cat_002"
+    ],
+    "city": "İzmir",
+    "niche": "güzellik"
+  },
+  {
+    "id": "inf_010",
+    "name": "Influencer 10",
+    "tier": "macro",
+    "followers": 682991,
+    "engagement_rate": 0.015086581416526641,
+    "content_categories": [
+      "cat_004"
+    ],
+    "city": "İstanbul",
+    "niche": "moda"
+  },
+  {
+    "id": "inf_011",
+    "name": "Influencer 11",
+    "tier": "mid",
+    "followers": 397252,
+    "engagement_rate": 0.08853513580413565,
+    "content_categories": [
+      "cat_002"
+    ],
+    "city": "İstanbul",
+    "niche": "güzellik"
+  },
+  {
+    "id": "inf_012",
+    "name": "Influencer 12",
+    "tier": "micro",
+    "followers": 571053,
+    "engagement_rate": 0.02749518202889696,
+    "content_categories": [
+      "cat_004"
+    ],
+    "city": "Ankara",
+    "niche": "güzellik"
+  },
+  {
+    "id": "inf_013",
+    "name": "Influencer 13",
+    "tier": "macro",
+    "followers": 47636,
+    "engagement_rate": 0.04172914653102483,
+    "content_categories": [
+      "cat_002"
+    ],
+    "city": "İzmir",
+    "niche": "güzellik"
+  },
+  {
+    "id": "inf_014",
+    "name": "Influencer 14",
+    "tier": "macro",
+    "followers": 317044,
+    "engagement_rate": 0.08911600054664688,
+    "content_categories": [
+      "cat_001"
+    ],
+    "city": "İstanbul",
+    "niche": "yaşam"
+  },
+  {
+    "id": "inf_015",
+    "name": "Influencer 15",
+    "tier": "macro",
+    "followers": 467526,
+    "engagement_rate": 0.045079472122123994,
+    "content_categories": [
+      "cat_004"
+    ],
+    "city": "Ankara",
+    "niche": "yemek"
+  },
+  {
+    "id": "inf_016",
+    "name": "Influencer 16",
+    "tier": "mid",
+    "followers": 41346,
+    "engagement_rate": 0.023061617314736254,
+    "content_categories": [
+      "cat_001"
+    ],
+    "city": "Ankara",
+    "niche": "yaşam"
+  },
+  {
+    "id": "inf_017",
+    "name": "Influencer 17",
+    "tier": "nano",
+    "followers": 1189315,
+    "engagement_rate": 0.016699619682875696,
+    "content_categories": [
+      "cat_004"
+    ],
+    "city": "İstanbul",
+    "niche": "moda"
+  },
+  {
+    "id": "inf_018",
+    "name": "Influencer 18",
+    "tier": "mega",
+    "followers": 659246,
+    "engagement_rate": 0.024055390704685858,
+    "content_categories": [
+      "cat_004"
+    ],
+    "city": "İzmir",
+    "niche": "yaşam"
+  },
+  {
+    "id": "inf_019",
+    "name": "Influencer 19",
+    "tier": "mega",
+    "followers": 295530,
+    "engagement_rate": 0.0323781983024737,
+    "content_categories": [
+      "cat_002"
+    ],
+    "city": "İstanbul",
+    "niche": "yaşam"
+  },
+  {
+    "id": "inf_020",
+    "name": "Influencer 20",
+    "tier": "micro",
+    "followers": 228886,
+    "engagement_rate": 0.03997586382659204,
+    "content_categories": [
+      "cat_004"
+    ],
+    "city": "İzmir",
+    "niche": "yaşam"
+  }
+]
