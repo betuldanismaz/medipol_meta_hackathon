@@ -7,7 +7,10 @@ from app.matching import (
     location_score,
     tier_score,
     engagement_score,
-    activity_score
+    activity_score,
+    worker_position_score,
+    worker_experience_score,
+    worker_wage_score
 )
 
 class TestMatchingV1Final(unittest.TestCase):
@@ -132,6 +135,57 @@ class TestMatchingV1Final(unittest.TestCase):
         types = [p["type"] for p in filtered]
         self.assertIn("collab_listing", types)
         self.assertIn("business", types)
+
+    def test_worker_position_score(self):
+        worker = {"type": "worker", "preferred_positions": ["pos_001", "pos_002"]}
+        job = {"position_id": "pos_002"}
+        self.assertEqual(worker_position_score(worker, job), 35)
+        job2 = {"position_id": "pos_009"}
+        self.assertEqual(worker_position_score(worker, job2), 10)
+
+    def test_worker_experience_score(self):
+        worker = {"type": "worker", "experience_years": 2}
+        job = {"required_experience_years": 1}
+        self.assertEqual(worker_experience_score(worker, job), 20)
+        
+        job2 = {"required_experience_years": 4}
+        # 2/4 = 0.5 -> 0.5 * 20 = 10
+        self.assertEqual(worker_experience_score(worker, job2), 10)
+
+    def test_worker_wage_score(self):
+        worker = {"type": "worker", "rate_range": {"min": 100}}
+        job = {"wage": {"amount": 120}}
+        self.assertEqual(worker_wage_score(worker, job), 15)
+        
+        job2 = {"wage": {"amount": 90}}
+        self.assertEqual(worker_wage_score(worker, job2), 7)
+        
+        job3 = {"wage": {"amount": 50}}
+        self.assertEqual(worker_wage_score(worker, job3), 0)
+
+    def test_worker_calculate_score_integration(self):
+        worker = {
+            "type": "worker",
+            "preferred_positions": ["pos_001"],  # 35
+            "distance_km": 0.0,                  # 20
+            "experience_years": 3,               # 20
+            "rate_range": {"min": 150},          # 15
+            "last_active_days": 2                # 10
+        }
+        job = {
+            "position_id": "pos_001",
+            "required_experience_years": 2,
+            "wage": {"amount": 160}
+        }
+        # Total = 35 + 20 + 20 + 15 + 10 = 100
+        # Clamped to 92
+        result = calculate_score(worker, job)
+        self.assertEqual(result["score"], 92)
+        self.assertEqual(result["breakdown"]["position"], 35)
+        self.assertEqual(result["breakdown"]["location_match"], 20)
+        self.assertEqual(result["breakdown"]["experience"], 20)
+        self.assertEqual(result["breakdown"]["wage"], 15)
+        self.assertEqual(result["breakdown"]["activity"], 10)
 
 if __name__ == '__main__':
     unittest.main()
