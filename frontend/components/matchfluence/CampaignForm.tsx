@@ -48,76 +48,84 @@ export default function CampaignForm({
   };
 
   return (
-    <section className="mx-auto flex min-h-screen w-full max-w-5xl items-center px-4 py-8 sm:px-6 lg:px-8">
+    <section className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-5xl items-center px-4 py-8 sm:px-6 lg:px-8">
       <div className="w-full">
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <DemoDataBadge isMock={isMock} />
-            <h1 className="mt-4 text-3xl font-black text-white sm:text-5xl">Kampanya olustur</h1>
-            <p className="mt-3 max-w-2xl text-slate-300">
-              Demo icin hazir kampanya bilgileri dolu geliyor. Dilersen guncelleyip skorlari tekrar hesaplayabilirsin.
+            <h1 className="mt-4 text-3xl font-black text-slate-950 sm:text-5xl">
+              Kampanya olustur
+            </h1>
+            <p className="mt-3 max-w-2xl text-slate-600">
+              Bilgileri doldur, AI en uygun influencer adaylarini siralasin.
             </p>
           </div>
           <button
             type="button"
             onClick={() => setCampaign(sampleCampaign)}
-            className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10"
+            className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
           >
             Ornek kampanyayi yukle
           </button>
         </div>
 
-        <div className="card-gradient rounded-[2rem] p-4 sm:p-6">
-          <div className="grid gap-4 md:grid-cols-2">
-            <Field label="Isletme adi">
-              <input
-                value={campaign.businessName}
-                onChange={(event) => updateField("businessName", event.target.value)}
-                className="matchfluence-input"
-              />
-            </Field>
-            <Field label="Sektor">
-              <input
-                value={campaign.sector}
-                onChange={(event) => updateField("sector", event.target.value)}
-                className="matchfluence-input"
-              />
-            </Field>
-            <Field label="Lokasyon">
-              <input
-                value={campaign.location}
-                onChange={(event) => updateField("location", event.target.value)}
-                className="matchfluence-input"
-              />
-            </Field>
-            <Field label="Butce / TL">
-              <input
-                type="number"
-                min="0"
-                value={campaign.budget}
-                onChange={(event) => updateField("budget", Number(event.target.value) || 0)}
-                className="matchfluence-input"
-              />
-            </Field>
-            <Field label="Hedef kitle" wide>
-              <textarea
-                value={campaign.targetAudience}
-                onChange={(event) => updateField("targetAudience", event.target.value)}
-                className="matchfluence-input min-h-24 resize-none"
-              />
-            </Field>
-            <Field label="Kampanya hedefi" wide>
-              <textarea
-                value={campaign.campaignGoal}
-                onChange={(event) => updateField("campaignGoal", event.target.value)}
-                className="matchfluence-input min-h-24 resize-none"
-              />
-            </Field>
-          </div>
+        <div className="matchfluence-panel rounded-3xl p-4 sm:p-6">
+          <FormSection title="Isletme bilgisi">
+            <div className="grid gap-4 md:grid-cols-2">
+              <Field label="Isletme adi">
+                <input
+                  value={campaign.businessName}
+                  onChange={(event) => updateField("businessName", event.target.value)}
+                  className="matchfluence-input"
+                />
+              </Field>
+              <Field label="Sektor">
+                <input
+                  value={campaign.sector}
+                  onChange={(event) => updateField("sector", event.target.value)}
+                  className="matchfluence-input"
+                />
+              </Field>
+              <Field label="Lokasyon">
+                <input
+                  value={campaign.location}
+                  onChange={(event) => updateField("location", event.target.value)}
+                  className="matchfluence-input"
+                />
+              </Field>
+              <Field label="Butce / TL">
+                <input
+                  type="number"
+                  min="0"
+                  value={campaign.budget}
+                  onChange={(event) => updateField("budget", Number(event.target.value) || 0)}
+                  className="matchfluence-input"
+                />
+              </Field>
+            </div>
+          </FormSection>
 
-          <div className="mt-5">
-            <label className="text-sm font-semibold text-slate-200">Tercih edilen niche'ler</label>
-            <div className="mt-3 flex flex-wrap gap-2">
+          <FormSection title="Hedef">
+            <div className="grid gap-4 md:grid-cols-2">
+              <Field label="Hedef kitle">
+                <textarea
+                  value={campaign.targetAudience}
+                  onChange={(event) => updateField("targetAudience", event.target.value)}
+                  className="matchfluence-input min-h-28 resize-none"
+                />
+              </Field>
+              <Field label="Kampanya hedefi">
+                <textarea
+                  value={campaign.campaignGoal}
+                  onChange={(event) => updateField("campaignGoal", event.target.value)}
+                  className="matchfluence-input min-h-28 resize-none"
+                />
+              </Field>
+            </div>
+          </FormSection>
+
+          <FormSection title="Niche tercihleri">
+            <div className="flex flex-wrap gap-2">
               {nicheOptions.map((niche) => {
                 const active = campaign.preferredNiches.includes(niche);
 
@@ -128,8 +136,8 @@ export default function CampaignForm({
                     onClick={() => toggleNiche(niche)}
                     className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                       active
-                        ? "bg-white text-slate-950"
-                        : "border border-white/15 bg-white/5 text-slate-200 hover:bg-white/10"
+                        ? "bg-slate-950 text-white"
+                        : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
                     }`}
                   >
                     {niche}
@@ -137,12 +145,12 @@ export default function CampaignForm({
                 );
               })}
             </div>
-          </div>
+          </FormSection>
 
           <button
             type="button"
             onClick={onAnalyze}
-            className="mt-7 w-full rounded-2xl bg-gradient-to-r from-indigo-300 via-fuchsia-300 to-cyan-200 px-6 py-4 text-base font-black text-slate-950 shadow-glow transition hover:-translate-y-0.5"
+            className="mt-6 w-full rounded-2xl bg-slate-950 px-6 py-4 text-base font-black text-white shadow-xl shadow-slate-950/15 transition hover:-translate-y-0.5 hover:bg-slate-800"
           >
             Influencer'lari analiz et
           </button>
@@ -155,14 +163,22 @@ export default function CampaignForm({
 type FieldProps = {
   label: string;
   children: ReactNode;
-  wide?: boolean;
 };
 
-function Field({ label, children, wide = false }: FieldProps) {
+function Field({ label, children }: FieldProps) {
   return (
-    <label className={`block ${wide ? "md:col-span-2" : ""}`}>
-      <span className="mb-2 block text-sm font-semibold text-slate-200">{label}</span>
+    <label className="block">
+      <span className="mb-2 block text-sm font-semibold text-slate-700">{label}</span>
       {children}
     </label>
+  );
+}
+
+function FormSection({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <section className="border-b border-slate-100 py-5 first:pt-0 last:border-b-0 last:pb-0">
+      <h2 className="mb-4 text-sm font-black uppercase tracking-wide text-slate-500">{title}</h2>
+      {children}
+    </section>
   );
 }
