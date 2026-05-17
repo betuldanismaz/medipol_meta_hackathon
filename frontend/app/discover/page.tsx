@@ -135,11 +135,11 @@ export default function DiscoverPage() {
 
         <div className="relative h-[600px]">
           {loading ? (
-            <div className="absolute inset-0 grid place-items-center rounded-3xl border border-border bg-card text-muted-foreground">
+            <div className="absolute inset-0 grid place-items-center rounded-2xl border border-border bg-card text-muted-foreground">
               Yükleniyor...
             </div>
           ) : !current ? (
-            <div className="absolute inset-0 grid place-items-center rounded-3xl border border-border bg-card text-center p-8">
+            <div className="absolute inset-0 grid place-items-center rounded-2xl border border-border bg-card text-center p-8">
               <div>
                 <Sparkles className="w-10 h-10 text-[var(--brand)] mx-auto mb-3" />
                 <h3 className="text-xl font-semibold">Hepsi bu kadar!</h3>
@@ -192,7 +192,7 @@ export default function DiscoverPage() {
             </button>
             <button
               onClick={() => void swipe(1)}
-              className="w-14 h-14 grid place-items-center rounded-full bg-gradient-brand text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition"
+              className="w-14 h-14 grid place-items-center rounded-full bg-gradient-brand text-primary-foreground shadow-sm hover:scale-105 transition"
             >
               <Heart className="w-6 h-6 fill-current" />
             </button>
@@ -234,7 +234,7 @@ function ListingCardView({
 }) {
   return (
     <div
-      className="absolute inset-0 rounded-3xl overflow-hidden bg-card border border-border shadow-[var(--shadow-glow)]"
+      className="absolute inset-0 rounded-2xl overflow-hidden bg-card border border-border shadow-sm"
       style={stacked ? { transform: "scale(0.95) translateY(20px)", opacity: 0.6 } : undefined}
     >
       <div className="relative h-3/5">
@@ -289,7 +289,7 @@ function ProfileCardView({
   const data = (user.profile ?? {}) as { tier?: string; follower_count?: number; engagement_rate?: number };
   return (
     <div
-      className="absolute inset-0 rounded-3xl overflow-hidden bg-card border border-border shadow-[var(--shadow-glow)]"
+      className="absolute inset-0 rounded-2xl overflow-hidden bg-card border border-border shadow-sm"
       style={stacked ? { transform: "scale(0.95) translateY(20px)", opacity: 0.6 } : undefined}
     >
       <div className="relative h-3/5">

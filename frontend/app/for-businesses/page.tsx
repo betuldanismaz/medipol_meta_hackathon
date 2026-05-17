@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "İşletmeler İçin — InfluMatch",
+  title: "İşletmeler İçin",
   description: "Kafe, butik veya yerel dükkan; doğru influencer'ı saniyeler içinde bul.",
 };
 
@@ -14,8 +14,8 @@ export default function ForBusinessesPage() {
   return (
     <SiteShell>
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="order-2 lg:order-1 aspect-square rounded-3xl bg-gradient-brand p-1 shadow-[var(--shadow-glow)]">
-          <div className="w-full h-full rounded-[calc(1.5rem-4px)] bg-card overflow-hidden">
+        <div className="order-2 lg:order-1 aspect-square rounded-2xl overflow-hidden border border-border shadow-sm">
+          <div className="w-full h-full bg-card overflow-hidden">
             <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900" alt="Kafe" className="w-full h-full object-cover" />
           </div>
         </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SiteShell } from "@/components/site/SiteShell";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda — InfluMatch",
+  title: "Hakkımızda",
   description: "InfluMatch'in misyonu ve kurucu ekibi.",
 };
 

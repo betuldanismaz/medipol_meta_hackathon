@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Fiyatlar — InfluMatch",
+  title: "Fiyatlar",
   description:
     "Free, Pro (Influencer/Çalışan) ve Business planları. Agent müzakere yalnızca Premium üyelerde aktiftir.",
 };
@@ -91,9 +91,9 @@ export default function PricingPage() {
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`rounded-3xl border p-8 bg-card relative flex flex-col ${
+              className={`rounded-2xl border p-7 bg-card relative flex flex-col ${
                 p.highlight
-                  ? "border-[var(--brand)] shadow-[var(--shadow-glow)]"
+                  ? "border-[var(--brand)] shadow-sm ring-1 ring-[var(--brand)]/20"
                   : "border-border"
               }`}
             >

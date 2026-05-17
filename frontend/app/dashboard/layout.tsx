@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Sparkles,
   LayoutDashboard,
   Heart,
   MessageSquare,
@@ -57,16 +57,19 @@ export default function DashboardLayout({
               href="/"
               className="flex items-center gap-3 px-5 pt-6 pb-5 group"
             >
-              <span className="relative grid place-items-center w-10 h-10 rounded-2xl bg-gradient-brand text-primary-foreground shadow-[var(--shadow-glow)]">
-                <Sparkles className="w-4 h-4" strokeWidth={2.2} />
-                <span className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/20" />
-              </span>
+              <Image
+                src="/logo.svg"
+                alt="InfluMatch"
+                width={36}
+                height={36}
+                className="rounded-xl shadow-sm"
+              />
               <div className="flex flex-col leading-tight">
                 <span className="font-display text-xl tracking-tight">
                   Influ<span className="italic">Match</span>
                 </span>
                 <span className="text-eyebrow !text-[0.625rem]">
-                  Editorial · Beta
+                  Beta
                 </span>
               </div>
             </Link>

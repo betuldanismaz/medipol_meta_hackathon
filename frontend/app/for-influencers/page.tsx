@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Influencer'lar İçin — InfluMatch",
+  title: "Influencer'lar İçin",
   description: "Geliriniz için doğru markalarla eşleşin. AI seviyelendirme ile uygun fırsatlar.",
 };
 
@@ -35,8 +35,8 @@ export default function ForInfluencersPage() {
             <Button asChild size="lg" variant="outline"><Link href="/listings">İlanları Gör</Link></Button>
           </div>
         </div>
-        <div className="aspect-square rounded-3xl bg-gradient-brand p-1 shadow-[var(--shadow-glow)]">
-          <div className="w-full h-full rounded-[calc(1.5rem-4px)] bg-card overflow-hidden">
+        <div className="aspect-square rounded-2xl overflow-hidden border border-border shadow-sm">
+          <div className="w-full h-full bg-card overflow-hidden">
             <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900" alt="Influencer" className="w-full h-full object-cover" />
           </div>
         </div>

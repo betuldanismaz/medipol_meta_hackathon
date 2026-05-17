@@ -116,7 +116,7 @@ export default function ListingsPage() {
             <Link
               key={l.id}
               href={`/listings/${l.id}`}
-              className="group rounded-2xl border border-border overflow-hidden bg-card hover:shadow-[var(--shadow-glow)] transition"
+              className="group rounded-2xl border border-border overflow-hidden bg-card hover:shadow-sm transition"
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
