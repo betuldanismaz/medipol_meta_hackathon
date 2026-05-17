@@ -20,6 +20,13 @@ const STEPS = {
 
 type Step = (typeof STEPS)[keyof typeof STEPS];
 
+const stepLabels: Record<Step, string> = {
+  landing: "Tanitim",
+  form: "Kampanya",
+  swipe: "Swipe",
+  result: "Sonuc",
+};
+
 const isMockEnabled = process.env.NEXT_PUBLIC_USE_MOCK !== "false";
 
 export default function MatchfluenceApp() {
@@ -31,7 +38,10 @@ export default function MatchfluenceApp() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const selectedIds = useMemo(() => new Set(selectedInfluencers.map((item) => item.id)), [selectedInfluencers]);
+  const selectedIds = useMemo(
+    () => new Set(selectedInfluencers.map((item) => item.id)),
+    [selectedInfluencers],
+  );
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -55,10 +65,10 @@ export default function MatchfluenceApp() {
       if (isMockEnabled) {
         setRankedInfluencers(await getProfilesMock(campaign));
       } else {
-        const profiles = await getProfiles();
+        const profiles = await getProfiles(campaign);
         const enriched = await Promise.all(
           profiles.map(async (profile) => {
-            const matchScore = await getMatchScore(profile.id, campaign.businessId);
+            const matchScore = await getMatchScore(profile.id, campaign);
             return { ...profile, matchScore };
           }),
         );
@@ -103,7 +113,10 @@ export default function MatchfluenceApp() {
           campaign,
         );
       } else {
-        await postSwipe({ inf_id: influencer.id, biz_id: campaign.businessId, direction: "accept" });
+        await postSwipe(
+          { inf_id: influencer.id, biz_id: campaign.businessId, direction: "accept" },
+          campaign,
+        );
       }
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Swipe kaydi gonderilemedi.");
@@ -122,7 +135,10 @@ export default function MatchfluenceApp() {
           campaign,
         );
       } else {
-        await postSwipe({ inf_id: influencer.id, biz_id: campaign.businessId, direction: "reject" });
+        await postSwipe(
+          { inf_id: influencer.id, biz_id: campaign.businessId, direction: "reject" },
+          campaign,
+        );
       }
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Swipe kaydi gonderilemedi.");
@@ -130,32 +146,34 @@ export default function MatchfluenceApp() {
   };
 
   return (
-    <main className="min-h-screen bg-mesh text-white">
-      <div className="fixed inset-0 -z-10 bg-[#070a13]" />
+    <main className="matchfluence-shell min-h-screen overflow-hidden bg-[#f8fafc] text-slate-950">
+      <NetworkBackground />
       <Header currentStep={step} onRestart={restart} />
 
       {error ? (
-        <div className="mx-auto mt-4 w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-100">
+        <div className="relative z-10 mx-auto mt-4 w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700 shadow-sm">
             {error}
           </div>
         </div>
       ) : null}
 
-      {step === STEPS.landing ? <LandingPage isMock={isMockEnabled} onStart={() => setStep(STEPS.form)} /> : null}
+      <div className="relative z-10">
+        {step === STEPS.landing ? (
+          <LandingPage isMock={isMockEnabled} onStart={() => setStep(STEPS.form)} />
+        ) : null}
 
-      {step === STEPS.form ? (
-        <CampaignForm
-          campaign={campaign}
-          isMock={isMockEnabled}
-          setCampaign={setCampaign}
-          onAnalyze={loadProfiles}
-        />
-      ) : null}
+        {step === STEPS.form ? (
+          <CampaignForm
+            campaign={campaign}
+            isMock={isMockEnabled}
+            setCampaign={setCampaign}
+            onAnalyze={loadProfiles}
+          />
+        ) : null}
 
-      {step === STEPS.swipe ? (
-        <div>
-          {loading ? (
+        {step === STEPS.swipe ? (
+          loading ? (
             <LoadingState />
           ) : (
             <InfluencerSwipeCards
@@ -166,51 +184,43 @@ export default function MatchfluenceApp() {
               onReject={(influencer) => void rejectInfluencer(influencer)}
               onRestart={restart}
             />
-          )}
-        </div>
-      ) : null}
+          )
+        ) : null}
 
-      {step === STEPS.result ? (
-        <MatchResult
-          selectedInfluencers={selectedInfluencers}
-          rejectedInfluencers={rejectedInfluencers}
-          rankedInfluencers={rankedInfluencers}
-          campaign={campaign}
-          isMock={isMockEnabled}
-          onRestart={restart}
-          onBackToCards={() => setStep(STEPS.swipe)}
-        />
-      ) : null}
+        {step === STEPS.result ? (
+          <MatchResult
+            selectedInfluencers={selectedInfluencers}
+            rejectedInfluencers={rejectedInfluencers}
+            rankedInfluencers={rankedInfluencers}
+            campaign={campaign}
+            isMock={isMockEnabled}
+            onRestart={restart}
+            onBackToCards={() => setStep(STEPS.swipe)}
+          />
+        ) : null}
+      </div>
 
       {step === STEPS.swipe && selectedIds.size > 0 && !loading ? (
         <button
           onClick={() => setStep(STEPS.result)}
-          className="fixed bottom-4 left-1/2 z-40 -translate-x-1/2 rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 shadow-glow"
+          className="fixed bottom-4 left-1/2 z-40 -translate-x-1/2 rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5"
         >
           {selectedIds.size} secimi goruntule
         </button>
       ) : null}
 
       <style jsx global>{`
-        .bg-mesh {
-          background:
-            radial-gradient(circle at top left, rgba(99, 102, 241, 0.2), transparent 30%),
-            radial-gradient(circle at top right, rgba(34, 211, 238, 0.14), transparent 32%),
-            radial-gradient(circle at bottom left, rgba(217, 70, 239, 0.16), transparent 32%),
-            #070a13;
-        }
-
-        .card-gradient {
-          background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+        .matchfluence-panel {
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          background: rgba(255, 255, 255, 0.86);
+          box-shadow: 0 22px 70px rgba(15, 23, 42, 0.08);
           backdrop-filter: blur(18px);
         }
 
-        .shadow-glow {
-          box-shadow:
-            0 10px 30px rgba(255, 255, 255, 0.18),
-            0 20px 60px rgba(99, 102, 241, 0.25);
+        .matchfluence-soft-panel {
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          background: rgba(255, 255, 255, 0.66);
+          backdrop-filter: blur(14px);
         }
 
         .safe-area {
@@ -220,16 +230,60 @@ export default function MatchfluenceApp() {
         .matchfluence-input {
           width: 100%;
           border-radius: 1rem;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          background: rgba(15, 23, 42, 0.75);
-          color: white;
+          border: 1px solid rgba(15, 23, 42, 0.12);
+          background: rgba(255, 255, 255, 0.88);
+          color: rgb(15, 23, 42);
           padding: 0.9rem 1rem;
           outline: none;
+          transition:
+            border-color 160ms ease,
+            box-shadow 160ms ease,
+            background 160ms ease;
         }
 
         .matchfluence-input:focus {
-          border-color: rgba(165, 180, 252, 0.75);
-          box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+          border-color: rgba(99, 102, 241, 0.6);
+          background: white;
+          box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+        }
+
+        .network-lines line {
+          animation: network-line-pulse 7s ease-in-out infinite;
+        }
+
+        .network-node {
+          animation: network-node-pulse 4.8s ease-in-out infinite;
+        }
+
+        @keyframes network-line-pulse {
+          0%,
+          100% {
+            opacity: 0.16;
+          }
+
+          50% {
+            opacity: 0.36;
+          }
+        }
+
+        @keyframes network-node-pulse {
+          0%,
+          100% {
+            opacity: 0.52;
+            transform: scale(1);
+          }
+
+          50% {
+            opacity: 0.95;
+            transform: scale(1.35);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .network-lines line,
+          .network-node {
+            animation: none;
+          }
         }
       `}</style>
     </main>
@@ -237,28 +291,20 @@ export default function MatchfluenceApp() {
 }
 
 function Header({ currentStep, onRestart }: { currentStep: Step; onRestart: () => void }) {
-  const stepLabel =
-    {
-      landing: "Tanitim",
-      form: "Kampanya",
-      swipe: "Swipe",
-      result: "Sonuc",
-    }[currentStep] ?? "Demo";
-
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <button onClick={onRestart} className="flex items-center gap-2 text-left">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-300 to-cyan-200 text-lg font-black text-slate-950">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-950 text-sm font-black text-white">
             M
           </span>
           <span>
-            <span className="block text-sm font-black text-white">Matchfluence AI</span>
-            <span className="block text-xs text-slate-400">Hackathon MVP</span>
+            <span className="block text-sm font-black text-slate-950">Matchfluence AI</span>
+            <span className="block text-xs text-slate-500">Influencer eslestirme</span>
           </span>
         </button>
-        <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-300">
-          {stepLabel}
+        <div className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600">
+          {stepLabels[currentStep]}
         </div>
       </div>
     </header>
@@ -267,13 +313,79 @@ function Header({ currentStep, onRestart }: { currentStep: Step; onRestart: () =
 
 function LoadingState() {
   return (
-    <section className="mx-auto flex min-h-[50vh] w-full max-w-3xl items-center px-4 py-8">
-      <div className="card-gradient w-full rounded-[2rem] p-6 text-center">
-        <p className="text-lg font-bold text-white">Influencer havuzu analiz ediliyor...</p>
-        <p className="mt-2 text-sm text-slate-300">
-          Niche, lokasyon, engagement, butce ve gecmis deneyim sinyalleri hesaplanıyor.
+    <section className="mx-auto flex min-h-[55vh] w-full max-w-3xl items-center px-4 py-8">
+      <div className="matchfluence-panel w-full rounded-3xl p-6 text-center">
+        <p className="text-lg font-bold text-slate-950">Influencer havuzu analiz ediliyor...</p>
+        <p className="mt-2 text-sm text-slate-500">
+          Niche, lokasyon, etkileşim ve butce sinyalleri hesaplanıyor.
         </p>
       </div>
     </section>
+  );
+}
+
+function NetworkBackground() {
+  const nodes = [
+    [10, 22],
+    [24, 48],
+    [38, 24],
+    [56, 40],
+    [74, 20],
+    [88, 48],
+    [18, 78],
+    [46, 72],
+    [70, 82],
+    [92, 72],
+  ];
+  const links = [
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 5],
+    [1, 6],
+    [6, 7],
+    [7, 8],
+    [8, 9],
+    [3, 7],
+    [5, 9],
+  ];
+
+  return (
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(99,102,241,0.12),transparent_26%),radial-gradient(circle_at_82%_16%,rgba(14,165,233,0.10),transparent_24%),radial-gradient(circle_at_52%_84%,rgba(244,114,182,0.10),transparent_28%)]" />
+      <svg className="absolute inset-0 h-full w-full opacity-70" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <g className="network-lines">
+          {links.map(([from, to]) => (
+            <line
+              key={`${from}-${to}`}
+              x1={nodes[from][0]}
+              y1={nodes[from][1]}
+              x2={nodes[to][0]}
+              y2={nodes[to][1]}
+              stroke="rgba(99,102,241,0.45)"
+              strokeWidth="0.18"
+              vectorEffect="non-scaling-stroke"
+            />
+          ))}
+        </g>
+        <g>
+          {nodes.map(([cx, cy], index) => (
+            <circle
+              key={`${cx}-${cy}`}
+              className="network-node"
+              cx={cx}
+              cy={cy}
+              r="1.8"
+              fill="white"
+              stroke="rgba(99,102,241,0.55)"
+              strokeWidth="0.24"
+              vectorEffect="non-scaling-stroke"
+              style={{ animationDelay: `${index * 180}ms` }}
+            />
+          ))}
+        </g>
+      </svg>
+    </div>
   );
 }

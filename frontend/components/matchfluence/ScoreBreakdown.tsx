@@ -11,14 +11,14 @@ export default function ScoreBreakdown({ breakdown }: ScoreBreakdownProps) {
       {Object.entries(breakdown).map(([key, value]) => (
         <div key={key}>
           <div className="mb-1 flex items-center justify-between gap-3 text-xs">
-            <span className="font-semibold text-slate-200">
+            <span className="font-semibold text-slate-700">
               {scoreLabels[key as keyof MatchBreakdown] ?? key}
             </span>
-            <span className="text-slate-400">{value}/100</span>
+            <span className="text-slate-500">{value}/100</span>
           </div>
-          <div className="h-2 overflow-hidden rounded-full bg-white/10">
+          <div className="h-2 overflow-hidden rounded-full bg-slate-200">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-indigo-300 to-cyan-200"
+              className="h-full rounded-full bg-gradient-to-r from-indigo-400 to-cyan-400"
               style={{ width: `${value}%` }}
             />
           </div>
