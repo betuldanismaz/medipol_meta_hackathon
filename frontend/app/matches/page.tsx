@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { getMatches } from "@/lib/api";
+import { getLegacyMatches } from "@/lib/api";
 import ScoreBadge from "@/components/ScoreBadge";
 
 export default async function MatchesPage() {
   let matches;
   try {
-    matches = await getMatches();
+    matches = await getLegacyMatches();
   } catch {
     return (
       <main className="min-h-screen flex items-center justify-center">

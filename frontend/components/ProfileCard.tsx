@@ -1,7 +1,7 @@
-import type { Profile } from "@/types";
+import type { LegacyProfile } from "@/types";
 
 type Props = {
-  profile: Profile;
+  profile: LegacyProfile;
 };
 
 export default function ProfileCard({ profile }: Props) {

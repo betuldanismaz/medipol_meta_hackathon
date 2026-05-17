@@ -13,6 +13,11 @@ export type MatchScore = {
   breakdown: MatchBreakdown;
 };
 
+export type LegacyMatchScore = {
+  score: number;
+  reasons: string[];
+};
+
 export type InfluencerProfile = {
   id: string;
   name: string;
@@ -61,4 +66,34 @@ export type MatchRecord = {
   influencerId: string;
   businessId: string;
   matchScore: MatchScore;
+};
+
+export type LegacyProfile = {
+  id: string;
+  name: string;
+  type: "influencer" | "business";
+  niche: string;
+  followers: number;
+  city: string;
+  bio: string;
+  avatar_url: string | null;
+};
+
+export type LegacySwipePayload = {
+  user_id: string;
+  target_id: string;
+  direction: "left" | "right";
+};
+
+export type LegacySwipeResult = {
+  match: boolean;
+  match_id: string | null;
+};
+
+export type LegacyMatch = {
+  match_id: string;
+  influencer: LegacyProfile;
+  business: LegacyProfile;
+  score: number;
+  reasons: string[];
 };
