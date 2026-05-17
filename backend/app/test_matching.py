@@ -133,5 +133,35 @@ class TestMatchingV1Final(unittest.TestCase):
         self.assertIn("collab_listing", types)
         self.assertIn("business", types)
 
+    def test_calculate_worker_score_integration(self):
+        worker = {
+            "type": "worker",
+            "skills": ["latte art", "müşteri ilişkileri"],
+            "distance_km": 0.0,
+            "experience_years": 2,
+            "rate_range": {"min": 150},
+            "preferred_employment_types": ["part-time"]
+        }
+        job = {
+            "type": "job_listing",
+            "required_skills": ["latte art", "kasa"],
+            "wage": {"amount": 160},
+            "required_experience_years": 1,
+            "employment_type_id": "part-time"
+        }
+        # s = (1/2)*35 = 17
+        # l = 20
+        # e = 20 (2 >= 1)
+        # w = 15 (150 <= 160)
+        # sc = 10
+        # total = 17+20+20+15+10 = 82
+        result = calculate_score(worker, job)
+        self.assertEqual(result["score"], 82)
+        self.assertEqual(result["breakdown"]["semantic_score"], 17)
+        self.assertEqual(result["breakdown"]["location_match"], 20)
+        self.assertEqual(result["breakdown"]["experience_fit"], 20)
+        self.assertEqual(result["breakdown"]["wage_fit"], 15)
+        self.assertEqual(result["breakdown"]["schedule_fit"], 10)
+
 if __name__ == '__main__':
     unittest.main()

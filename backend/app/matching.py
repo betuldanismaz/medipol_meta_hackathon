@@ -233,9 +233,9 @@ def enrich_reasons_with_llm(influencer: dict, business: dict, score: int, reason
             
     return None
 
-def calculate_score(influencer: dict, business: dict) -> dict:
+def calculate_influencer_score(influencer: dict, business: dict) -> dict:
     """
-    V1 Final Uyum skoru hesaplayıcı. 5 Faktör: Semantic(35) + Location(20) + Tier(20) + Engagement(15) + Activity(10)
+    V1 Final Uyum skoru hesaplayıcı (Influencer için). 5 Faktör: Semantic(35) + Location(20) + Tier(20) + Engagement(15) + Activity(10)
     """
     try:
         inf_name = str(influencer.get("name", "İsimsiz")).strip()
@@ -302,6 +302,138 @@ def calculate_score(influencer: dict, business: dict) -> dict:
                 "activity": 5
             }
         }
+
+def worker_semantic_score(worker: dict, job: dict) -> int:
+    """Çalışan becerileri ile iş ilanı gereksinimleri arasındaki uyumu hesaplar (max 35)."""
+    try:
+        sim = worker.get("semantic_similarity") or job.get("semantic_similarity")
+        if sim is not None:
+            val = max(0.0, min(1.0, float(sim)))
+            return int(val * 35)
+    except (ValueError, TypeError):
+        pass
+
+    worker_skills = [s.strip().lower() for s in worker.get("skills", [])]
+    job_skills = [s.strip().lower() for s in job.get("required_skills", [])]
+    
+    if not job_skills:
+        return 35  # Eğer ilan özel bir skill istemiyorsa tam puan
+        
+    if not worker_skills:
+        return 0
+        
+    matches = sum(1 for req in job_skills if any(req in w or w in req for w in worker_skills))
+    ratio = matches / len(job_skills)
+    return int(ratio * 35)
+
+def worker_experience_score(worker: dict, job: dict) -> int:
+    """Çalışanın deneyimi ile iş ilanının beklentisini karşılaştırır (max 20)."""
+    try:
+        w_exp = float(worker.get("experience_years", 0))
+    except (ValueError, TypeError):
+        w_exp = 0.0
+        
+    try:
+        j_exp = float(job.get("required_experience_years", 0))
+    except (ValueError, TypeError):
+        j_exp = 0.0
+        
+    if w_exp >= j_exp:
+        return 20
+    elif w_exp >= j_exp * 0.5:
+        return 10
+    return 0
+
+def worker_wage_score(worker: dict, job: dict) -> int:
+    """Maaş / Saatlik ücret uyumunu hesaplar (max 15)."""
+    try:
+        w_min = float(worker.get("rate_range", {}).get("min", 0))
+    except (ValueError, TypeError, AttributeError):
+        w_min = 0.0
+        
+    try:
+        j_wage = float(job.get("wage", {}).get("amount", 0))
+    except (ValueError, TypeError, AttributeError):
+        j_wage = 0.0
+        
+    if w_min == 0.0 or j_wage == 0.0:
+        return 15  # Belirtilmemişse esnek kabul edilir, tam puan
+        
+    if w_min <= j_wage:
+        return 15
+    elif w_min <= j_wage * 1.2:
+        return 8  # %20'ye kadar sapma varsa kısmi uyum
+    return 0
+
+def worker_schedule_score(worker: dict, job: dict) -> int:
+    """İstihdam türü uyumunu hesaplar (max 10)."""
+    job_type = str(job.get("employment_type_id", "")).strip().lower()
+    worker_types = [str(t).strip().lower() for t in worker.get("preferred_employment_types", [])]
+    
+    if not job_type or not worker_types:
+        return 5  # Belirtilmemişse ortalama puan
+        
+    if job_type in worker_types:
+        return 10
+    return 0
+
+def calculate_worker_score(worker: dict, job: dict) -> dict:
+    """V1 Final Çalışan ve İş İlanı uyum skorunu hesaplar."""
+    try:
+        s = worker_semantic_score(worker, job)
+        l = location_score(worker, job)
+        e = worker_experience_score(worker, job)
+        w = worker_wage_score(worker, job)
+        sc = worker_schedule_score(worker, job)
+        
+        total = s + l + e + w + sc
+        final_score = max(10, min(92, total))
+        
+        reasons = []
+        if s >= 30: reasons.append("Yeteneklerin ilanın aradığı profille tam olarak örtüşüyor.")
+        elif s >= 15: reasons.append("İstenen yeteneklerin bir kısmını karşılıyorsun.")
+        
+        if l >= 15: reasons.append("İş yeri lokasyonu sana çok yakın.")
+        elif l >= 5: reasons.append("Lokasyon mesafesi günlük ulaşım için değerlendirilmeli.")
+        
+        if e == 20: reasons.append("Tecrüben bu pozisyon için fazlasıyla yeterli.")
+        elif e == 10: reasons.append("Tecrüben kabul edilebilir seviyede.")
+        
+        if w == 15: reasons.append("Maaş beklentin işverenin bütçesiyle tam uyumlu.")
+        elif w == 8: reasons.append("Maaş beklentin bütçeyi biraz aşıyor, müzakere edilebilir.")
+        
+        if sc == 10: reasons.append("Çalışma türü tercihleriniz (tam/yarı zamanlı vb.) eşleşiyor.")
+        
+        result = {
+            "score": final_score,
+            "reasons": reasons,
+            "breakdown": {
+                "semantic_score": s,
+                "location_match": l,
+                "experience_fit": e,
+                "wage_fit": w,
+                "schedule_fit": sc
+            }
+        }
+        return result
+        
+    except Exception as err:
+        logger.error(f"Çalışan skoru hesaplanırken hata: {err}", exc_info=True)
+        return {
+            "score": 50,
+            "reasons": ["Eşleştirme analizi yapılamadı."],
+            "breakdown": {"semantic_score": 10, "location_match": 10, "experience_fit": 10, "wage_fit": 10, "schedule_fit": 10}
+        }
+
+def calculate_score(user_profile: dict, target_profile: dict) -> dict:
+    """
+    Ana yönlendirici skorlama fonksiyonu.
+    Kullanıcının türüne göre doğru algoritmayı çağırır.
+    """
+    user_type = str(user_profile.get("type", "")).strip().lower()
+    if user_type in ["worker", "employee", "çalışan"] or "experience_years" in user_profile:
+        return calculate_worker_score(user_profile, target_profile)
+    return calculate_influencer_score(user_profile, target_profile)
 
 def get_allowed_discover_types(user_type: str) -> list[str]:
     """
