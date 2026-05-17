@@ -2,60 +2,45 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { getProfiles, postSwipe, getMatchScore } from "@/lib/api";
-import type { Profile, MatchScore } from "@/types";
+import { getProfiles, postSwipe } from "@/lib/api";
+import { sampleCampaign } from "@/data/matchfluenceInfluencers";
+import type { RankedInfluencer } from "@/types";
 import ProfileCard from "@/components/ProfileCard";
 import SwipeButtons from "@/components/SwipeButtons";
 import MatchBanner from "@/components/MatchBanner";
 import ScoreBadge from "@/components/ScoreBadge";
 
-// Demo: sabit bir işletme olarak hareket ediyoruz
-const CURRENT_USER_ID = "biz_1";
-
 export default function SwipePage() {
-  const [profiles, setProfiles] = useState<Profile[]>([]);
+  const [profiles, setProfiles] = useState<RankedInfluencer[]>([]);
   const [index, setIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [swiping, setSwiping] = useState(false);
-  const [matchId, setMatchId] = useState<string | null>(null);
-  const [score, setScore] = useState<MatchScore | null>(null);
+  const [matchShown, setMatchShown] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    getProfiles()
-      .then((data) => {
-        // Kendi profilimizi listeden çıkar
-        setProfiles(data.filter((p) => p.id !== CURRENT_USER_ID));
-      })
-      .catch((e) => setError(e.message))
+    getProfiles(sampleCampaign)
+      .then(setProfiles)
+      .catch((e: Error) => setError(e.message))
       .finally(() => setLoading(false));
   }, []);
 
   const current = profiles[index] ?? null;
 
-  async function handleSwipe(direction: "left" | "right") {
+  async function handleSwipe(direction: "accept" | "reject") {
     if (!current || swiping) return;
     setSwiping(true);
-    setScore(null);
 
     try {
-      const result = await postSwipe({
-        user_id: CURRENT_USER_ID,
-        target_id: current.id,
-        direction,
-      });
-
-      if (direction === "right") {
-        // Skoru al
-        const scoreData = await getMatchScore(current.id, CURRENT_USER_ID).catch(() => null);
-        setScore(scoreData);
-
-        if (result.match && result.match_id) {
-          setMatchId(result.match_id);
-        }
+      const result = await postSwipe(
+        { inf_id: current.id, biz_id: sampleCampaign.businessId, direction },
+        sampleCampaign,
+      );
+      if (direction === "accept" && result.ok) {
+        setMatchShown(true);
       }
     } catch (e) {
-      console.error("Swipe hatası:", e);
+      console.error("Swipe hatasi:", e);
     } finally {
       setSwiping(false);
       setIndex((i) => i + 1);
@@ -80,7 +65,6 @@ export default function SwipePage() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center gap-6 p-8">
-      {/* Başlık */}
       <div className="flex items-center justify-between w-80">
         <h1 className="text-2xl font-bold">InfluMatch</h1>
         <Link
@@ -91,20 +75,15 @@ export default function SwipePage() {
         </Link>
       </div>
 
-      {/* Kart veya bitiş ekranı */}
       {current ? (
         <>
           <ProfileCard profile={current} />
-
-          {/* Skor (sadece sağa swipe sonrası) */}
-          {score && <ScoreBadge score={score.score} reasons={score.reasons} />}
-
+          <ScoreBadge score={current.matchScore.score} reasons={current.matchScore.reasons} />
           <SwipeButtons
-            onLeft={() => handleSwipe("left")}
-            onRight={() => handleSwipe("right")}
+            onLeft={() => handleSwipe("reject")}
+            onRight={() => handleSwipe("accept")}
             disabled={swiping}
           />
-
           <p className="text-xs text-zinc-400">
             {index + 1} / {profiles.length}
           </p>
@@ -122,9 +101,8 @@ export default function SwipePage() {
         </div>
       )}
 
-      {/* Match popup */}
-      {matchId && (
-        <MatchBanner matchId={matchId} onClose={() => setMatchId(null)} />
+      {matchShown && (
+        <MatchBanner matchId={sampleCampaign.businessId} onClose={() => setMatchShown(false)} />
       )}
     </main>
   );
