@@ -1,207 +1,122 @@
 # InfluMatch
 
-InfluMatch is a Medipol Meta Hackathon MVP for matching local businesses with influencers. The product idea is a swipe-based discovery flow: businesses and influencers review profile cards, swipe right to apply, and receive an explainable match score for each potential collaboration.
+**AI-Powered Influencer-Business Collaboration Platform**
 
-## Project Status
+InfluMatch is an intelligent matching platform designed to connect local businesses and content creators through an intuitive, data-driven discovery experience. Leveraging machine learning and conversational AI, the platform automates influencer discovery, match scoring, and contract negotiation—solving a fundamental inefficiency in the creator economy.
 
-This repository currently contains the project scaffold and health-check integration:
+## The Innovation
 
-- Frontend: Next.js, React, TypeScript, Tailwind CSS
-- Backend: FastAPI, SQLAlchemy, Pydantic
-- Database: PostgreSQL through Docker Compose
-- Current backend endpoints: `/` and `/health`
-- Target MVP endpoints are documented below and in the team prompt files
+### 1. Intelligent Matching Engine
+
+- **XGBoost-based ranking system** with 35 engineered features capturing influencer engagement patterns, audience demographics, business characteristics, and niche alignment
+- **Bidirectional discovery** serving both businesses (finding ideal influencers for campaigns) and creators (discovering brand partnerships aligned with their profile)
+- **Explainable match scores** providing transparent reasoning for each recommendation (audience overlap, engagement quality, location relevance, budget tier compatibility)
+
+### 2. Swipe-Based Discovery Interface
+
+- Intuitive card-based UI inspired by modern consumer experiences
+- Async mutual-consent workflow: both parties must accept to create a match
+- Real-time match feedback enabling rapid exploration of partnership opportunities
+
+### 3. Autonomous AI Negotiation Agent
+
+- **Optional AI-assisted negotiation** for premium users utilizing OpenAI's language models
+- Structured agent-to-agent dialogue for contract terms discussion
+- Fallback deterministic negotiation engine for graceful degradation
+- WebSocket-enabled live negotiation UI for transparent AI-mediated collaboration discussions
+- Agreement proposal generation with human takeover capabilities at any stage
+
+## Technology Stack
+
+### Frontend
+
+- **Next.js** + **React** with **TypeScript** for type-safe, performant UI
+- **Tailwind CSS** for responsive, accessible design system
+- **Custom hooks** (`useNegotiationStream`) for real-time WebSocket integration
+- Mock API layer enabling offline development and rapid prototyping
+
+### Backend
+
+- **FastAPI** with async/await for high-concurrency API endpoints
+- **SQLAlchemy ORM** with automatic table generation for rapid MVP iteration
+- **Pydantic** for request/response validation and OpenAPI documentation
+- Modular router architecture (auth, users, listings, matches, negotiations, billing, discovery)
+
+### Machine Learning & Ranking
+
+- **XGBoost Regressor** (`objective='reg:squarederror'`) trained on synthetic-labeled collaboration pairs
+- 35 feature extraction pipeline including:
+  - Influencer metrics: follower count (log scale), engagement rate, post frequency, tier classification, verification status
+  - Creator content: reel ratio, hashtag overlap, past collaboration count, language compatibility
+  - Business data: company age, verified status, listing budget parameters, sector/niche alignment
+  - Contextual signals: location distance, audience demographic alignment, budget tier matching, natural affinity scoring
+- Feature-engineering pipeline in [backend/app/ml/](backend/app/ml/) with consistent training-to-inference semantics
+
+### Data & Persistence
+
+- **PostgreSQL** relational database with Docker Compose deployment
+- Normalized schema supporting:
+  - Multi-tier influencer profiles with engagement analytics
+  - Business listings with campaign parameters and budget tiers
+  - Swipe state and match history
+  - Negotiation message threading with structured turn-based dialogue
+  - Agreement records with signature/timestamp tracking
+
+### Infrastructure
+
+- **Docker & Docker Compose** for reproducible development and deployment environments
+- Service containerization: frontend (Node.js), backend (Python/FastAPI), database (PostgreSQL)
+- Railway deployment configuration for cloud scalability
 
 ## Repository Structure
 
 ```text
 .
-+-- backend/          FastAPI app, database setup, API routers
-+-- frontend/         Next.js app
-+-- agents_team/      Role-specific team instructions
-+-- prompts/          Implementation prompts and coordination notes
-+-- files/            Shared files/assets area
-+-- docker-compose.yml
-+-- .env.example
-+-- GIT_REHBERI.md
++-- backend/                 FastAPI application
+│   +-- app/
+│   │   +-- ml/             Feature extraction, ranking, model predictor
+│   │   +-- routers/        API endpoint handlers
+│   │   +-- services/       Business logic and domain operations
+│   │   +-- models.py       SQLAlchemy ORM schemas
+│   │   +-- schemas.py      Pydantic request/response models
+│   +-- ml_artifacts/v1/   Trained XGBoost model and metadata
++-- frontend/               Next.js application
+│   +-- app/               Pages and layouts
+│   +-- components/        Reusable React components
+│   +-- hooks/             Custom React hooks
+│   +-- lib/              API client, utilities, authentication
++-- agents_team/           Role-specific team coordination guides
++-- output/               Synthetic training data and annotations
++-- docker-compose.yml    Multi-container orchestration
 ```
 
-## Requirements
+## Core Features
 
-- Docker and Docker Compose
-- Node.js 20+ if running the frontend outside Docker
-- Python 3.12+ if running the backend outside Docker
+- **Discovery Flow:** Swipe-based card interface for browsing curated matches
+- **Match Scoring:** ML-powered compatibility assessment with interpretable factors
+- **Negotiation System:** AI-mediated or manual contract discussion workflow
+- **Business Profiles:** Customizable business representation with budget, deliverables, and niche targeting
+- **Creator Profiles:** Engagement analytics, audience demographics, past collaboration tracking
+- **Agreement Management:** Structured contract proposal and acceptance tracking
 
-## Quick Start
+## Problem Solved
 
-Run the full stack with Docker:
+The creator economy currently lacks systematic infrastructure for **small-to-medium businesses** seeking influencer partnerships. Existing solutions (Grin, Upfluence, AspireIQ) target only large-scale enterprises with significant budgets—creating a market gap for SMEs and local brands.
 
-```bash
-docker compose up --build
-```
+**InfluMatch** addresses this by:
 
-Then open:
+1. **Automated Discovery:** Eliminating hours of manual Instagram research through intelligent ranking
+2. **Transparent Matching:** Explainable scores build trust between both parties pre-negotiation
+3. **Negotiation Efficiency:** AI agents reduce friction in contract discussion, accelerating deal closure
+4. **Market Accessibility:** Democratizing influencer collaboration tools for businesses of all sizes
 
-- Frontend: `http://localhost:3000`
-- Backend root: `http://localhost:8000`
-- Backend health: `http://localhost:8000/health`
-- FastAPI docs: `http://localhost:8000/docs`
-- PostgreSQL: `localhost:5432`
+## Market Opportunity
 
-Stop the stack:
+The global influencer platform market is projected to grow from **$25.4B (2024)** to **$97.5B (2030)** at a **23.3% CAGR**. The emerging AI-powered negotiation segment is already a **$6.95B+ market** as of 2025. Turkey's influencer advertising market alone is expected to reach **$165M+ by 2030**, with significant capture opportunity in the underserved SME segment.
 
-```bash
-docker compose down
-```
+## Architecture Highlights
 
-To also remove the local database volume:
-
-```bash
-docker compose down -v
-```
-
-## Environment
-
-The Docker setup already provides default development environment values. To override them, copy `.env.example` to `.env` and add local values there.
-
-Default service configuration:
-
-```text
-DATABASE_URL=postgresql://app:app@db:5432/app
-CORS_ORIGINS=http://localhost:3000
-NEXT_PUBLIC_API_URL=http://localhost:8000
-API_URL_INTERNAL=http://backend:8000
-```
-
-## Local Development Without Docker
-
-Backend:
-
-```bash
-cd backend
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
-
-Frontend:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-If the backend is not running inside Docker, set a reachable `DATABASE_URL` before starting FastAPI.
-
-## Current API
-
-### `GET /`
-
-Returns the backend service identifier.
-
-```json
-{
-  "service": "medipol-meta-hackathon-api"
-}
-```
-
-### `GET /health`
-
-Checks API and database connectivity.
-
-```json
-{
-  "status": "ok",
-  "db": "ok"
-}
-```
-
-## Target MVP API Contract
-
-The hackathon MVP is expected to grow toward this contract:
-
-```text
-GET  /api/profiles
-POST /api/swipe
-GET  /api/match-score?inf_id=inf_1&biz_id=biz_1
-GET  /api/matches
-```
-
-Expected response shapes:
-
-```json
-[
-  {
-    "id": "inf_1",
-    "name": "Ayse Kaya",
-    "type": "influencer",
-    "niche": "moda",
-    "followers": 28000,
-    "city": "Istanbul",
-    "bio": "Sustainable fashion content",
-    "avatar_url": null
-  }
-]
-```
-
-```json
-{
-  "match": true,
-  "match_id": "match_abc123"
-}
-```
-
-```json
-{
-  "score": 78,
-  "reasons": [
-    "Niche overlap is strong",
-    "Follower tier is compatible",
-    "Same city"
-  ]
-}
-```
-
-## Team Areas
-
-- Backend lead: FastAPI routes, mock data service, swipe logic, match persistence
-- Frontend infrastructure: Next.js setup, shared API helpers, types, routing
-- Frontend UI: profile cards, swipe controls, match banner, matches page
-- Matching logic: 0-100 compatibility score and explainable reasons
-- Data and demo: mock profile data, pitch deck, demo scenario
-
-Role-specific notes are in `agents_team/`. Implementation prompts are in `prompts/`.
-
-## Useful Commands
-
-```bash
-# Check Git state
-git status --short
-
-# Start all services
-docker compose up --build
-
-# Rebuild only the frontend image
-docker compose build frontend
-
-# Rebuild only the backend image
-docker compose build backend
-
-# Follow backend logs
-docker compose logs -f backend
-
-# Follow frontend logs
-docker compose logs -f frontend
-```
-
-## Notes
-
-- The backend currently creates SQLAlchemy tables at startup for development convenience.
-- Replace startup table creation with Alembic migrations before production.
-- Keep secrets in `.env` or `.env.local`; do not commit API keys.
-
-## Matchfluence Demo Note
-
-`/api/matches` contract is reserved for the final persisted backend integration. In the current MVP demo, the primary flow is swipe plus explainable score.
+- **End-to-end ML pipeline:** Training infrastructure in Jupyter/Colab with model versioning and metadata tracking
+- **Dual-direction ranking:** Single XGBoost model serves both business→influencer and influencer→business discovery
+- **Real-time negotiation:** WebSocket-based agent dialogue with structured turn management
+- **Production-ready patterns:** Pydantic validation, SQLAlchemy relationships, async API handlers, Docker containerization
